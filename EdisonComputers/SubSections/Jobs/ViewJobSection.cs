@@ -105,8 +105,8 @@ namespace Presentation.SubSections.Jobs
                 lblDeviceName.Text = jobDetails.DeviceIdentifier;
                 lblCustomerName.Text = jobDetails.CustomerFullName;
                 lbljobSectionJobDescription.Text = jobDetails.JobDescription ?? "N/A";
-                lblCompleted.Text = jobDetails.CompletionDate?.ToString("g") ?? "Not Completed";
-                lblCheckeIn.Text = jobDetails.CheckedInDate.ToString("g");
+                lblCompleted.Text = jobDetails.CompletionDate?.ToString("yyyy-MM-dd h:mm tt", System.Globalization.CultureInfo.InvariantCulture) ?? "Not Completed";
+                lblCheckeIn.Text = jobDetails.CheckedInDate.ToString("yyyy-MM-dd h:mm tt", System.Globalization.CultureInfo.InvariantCulture);
                 lblJobDetails.Text = $"Job Details: #{jobDetails.JobId}";
 
                 // --- Populate Status ComboBox ---
@@ -295,10 +295,9 @@ namespace Presentation.SubSections.Jobs
             using (var scope = _serviceProvider.CreateScope())
             {
                 var jobService = scope.ServiceProvider.GetRequiredService<JobService>();
-                var job = await jobService.GetJobById(_jobId);
-                if (job?.UpgradeRecords != null && job.UpgradeRecords.Any())
+                if (await jobService.HasExistingUpgradeRecordsAsync(_jobId))
                 {
-                    MessageBox.Show("This job already has an upgrade task. You can edit the existing task instead.", "Error");
+                    MessageBox.Show("This job already has an active upgrade task. You can edit the existing task instead.", "Error");
                     return;
                 }
             }
@@ -322,6 +321,22 @@ namespace Presentation.SubSections.Jobs
 
         private void btnaddServiceTask_Click(object sender, EventArgs e)
         {
+            if (_jobId <= 0) // Ensure _jobId is valid
+            {
+                MessageBox.Show("Invalid Job ID.", "Error");
+                return;
+            }
+            if (cmbboxJobStatus.SelectedItem == null || (Core.Enums.JobStatus)cmbboxJobStatus.SelectedItem == Core.Enums.JobStatus.TasksCompleted ||
+                (Core.Enums.JobStatus)cmbboxJobStatus.SelectedItem == Core.Enums.JobStatus.Collected ||
+                (Core.Enums.JobStatus)cmbboxJobStatus.SelectedItem == Core.Enums.JobStatus.Cancelled ||
+                (Core.Enums.JobStatus)cmbboxJobStatus.SelectedItem == Core.Enums.JobStatus.ReadyForPickup ||
+                (Core.Enums.JobStatus)cmbboxJobStatus.SelectedItem == Core.Enums.JobStatus.ReadyForBilling)
+            {
+                MessageBox.Show("Cannot add service tasks when the job is Completed", "Error");
+                return;
+            }
+
+
             ShowAddServiceTaskView();
         }
 

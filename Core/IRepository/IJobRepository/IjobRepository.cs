@@ -80,6 +80,9 @@ namespace Core.IRepository.IJobRepository
         Task<List<Job>> GetAllJobsWithDeviceAndCustomerInfoAsync();
 
 
+        Task<bool> HasActiveUpgradeRecordsAsync(int jobId);
+
+
 
 
 

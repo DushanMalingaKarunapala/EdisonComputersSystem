@@ -13,7 +13,7 @@ namespace EdisonComputers
     public partial class Dashboard : Form
     {
         //store instances of user controls to reuse them
-       
+
         private readonly DashboardSection dashboardSection;
         private readonly UserSection userSection;
         private readonly CustomerSection customerSection;
@@ -24,13 +24,39 @@ namespace EdisonComputers
 
         private UserControl currentSection = null;
 
-        public Dashboard( IServiceProvider serviceProvider)
+        public Dashboard(IServiceProvider serviceProvider)
         {
             InitializeComponent();
 
+            // Set consistent scaling
+            this.AutoScaleMode = AutoScaleMode.Dpi;
+            this.AutoScaleDimensions = new SizeF(96F, 96F);
+            //set minumum size to prevent  ui breaking on smaller screens
+            this.MinimumSize = new Size(1200, 700);
+
+            //handle screen size differences
+            //AdjustLayoutForScreen();
+
+            //configure Guna controls for better responsiveness
+            //ConfigureGunaControls();
+            //make the dashboard draggable when the user clicks and drags panelDashboardContainer or dashbordsidePanel
+            guna2DragControl2.TargetControl = panelDashboardContainer;
+            guna2DragControl1.TargetControl = dashbordsidePanel;
+
+            // ADDITIONAL DRAG CONFIGURATION OPTIONS
+            //guna2DragControl1.UseTransparentDrag = true; // Smooth dragging
+            //guna2DragControl1.TransparentWhileDrag = true; // Form becomes transparent while dragging
+            //guna2DragControl1.DragStartTransparencyValue = 80; // Transparency level (0-100)
+
+
+
+
+
+
+
             _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
 
-          
+
 
             //initialize the dashboard section with the service provider
             dashboardSection = new DashboardSection(_serviceProvider, jobsSection);
@@ -151,11 +177,67 @@ namespace EdisonComputers
             if (result == DialogResult.Yes)
             {
                 //close the current dashboard and open the Login
-                this.Hide(); 
+                this.Hide();
                 var login = new Login(_serviceProvider);
                 login.Show();
 
             }
         }
+
+        private void dashbordsidePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        //private void AdjustLayoutForScreen()
+        //{
+        //    var screen = Screen.FromControl(this);
+        //    var workingArea = screen.WorkingArea;
+
+        //    // Adjust form size based on screen
+        //    if (workingArea.Width < 1280 || workingArea.Height < 800)
+        //    {
+        //        this.WindowState = FormWindowState.Maximized;
+        //    }
+        //    else
+        //    {
+        //        // Set to a reasonable size for larger screens
+        //        this.Size = new Size(Math.Min(1280, workingArea.Width - 100),
+        //                           Math.Min(800, workingArea.Height - 100));
+        //        this.CenterToScreen();
+        //    }
+
+
+
+        //}
+
+        //private void ConfigureGunaControls()
+        //{
+        //    // Apply scaling to all Guna controls
+        //    foreach (Control control in this.Controls)
+        //    {
+        //        ConfigureGunaControl(control);
+        //    }
+        //}
+
+        //private void ConfigureGunaControl(Control control)
+        //{
+        //    if (control is Guna.UI2.WinForms.Guna2DataGridView grid)
+        //    {
+        //        grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        //        grid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        //    }
+
+        //    if (control is Guna.UI2.WinForms.Guna2Panel panel)
+        //    {
+        //        panel.AutoScroll = true;
+        //    }
+
+        //    // Recursively apply to child controls
+        //    foreach (Control child in control.Controls)
+        //    {
+        //        ConfigureGunaControl(child);
+        //    }
+        //}
     }
 }

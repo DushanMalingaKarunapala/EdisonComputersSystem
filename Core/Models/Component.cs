@@ -23,6 +23,9 @@ namespace Core.Models
         //default warranty for the component
         public int? DefaultWarrantyInMonths { get; set; } // e.g., GPU = 24, RAM = 36, Used RAM = 0
 
+        //new property - to represent the component added date
+        public DateTime AddedDate { get; set; } = DateTime.UtcNow; // Date when the component was added to the inventory
+
         // Relationships
 
         // A component can be part of multiple repair records

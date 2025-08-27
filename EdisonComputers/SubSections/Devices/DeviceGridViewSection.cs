@@ -49,11 +49,12 @@ namespace Presentation.SubSections.Devices
             // Populate filter categories
             PopulateFilterCategories();
             // Load all devices initially
-            await LoadAllDevicesAsync();
+            //await LoadAllDevicesAsync();
             // Wire up the cell click event handler
             //gridviewDevice.CellClick += gridviewDevice_CellClick;
             //// Wire up the filter value change event handler
             //cmbboxdevicegridviewfilterValue.SelectedIndexChanged += cmbboxdevicegridviewfilterValue_SelectedIndexChanged;
+            await LoadRecentDevicesByDefaultAsync(); // Load recent devices by default
         }
 
 
@@ -61,6 +62,7 @@ namespace Presentation.SubSections.Devices
         {
             var categories = new List<FilterCategory>
         {
+            new FilterCategory { DisplayName = "Recent Devices (30 Days)", Value = "RecentDevices" }, // New default
             new FilterCategory { DisplayName = "Show All", Value = "All" },
             new FilterCategory { DisplayName = "By Record Status", Value = "RecordStatus" },
             new FilterCategory { DisplayName = "By Device Type", Value = "DeviceType" }
@@ -78,6 +80,31 @@ namespace Presentation.SubSections.Devices
 
 
 
+        // Load recent devices by default when the section is loaded
+
+        private async Task LoadRecentDevicesByDefaultAsync()
+        {
+            try
+            {
+                using (var scope = _serviceProvider.CreateScope())
+                {
+                    var deviceService = scope.ServiceProvider.GetRequiredService<DeviceService>();
+                    var recentDevices = await deviceService.GetRecentDevicesAsync(30); // Last 30 days
+                    BindDevicesToGrid(recentDevices.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading recent devices: {ex.Message}", "Error");
+            }
+        }
+
+
+
+
+
+
+
 
 
 
@@ -85,14 +112,37 @@ namespace Presentation.SubSections.Devices
         // A better refresh method that reloads based on current filter
         public async Task RefreshGridView()
         {
-            if (cmbboxdevicegridviewfilterCateogory.SelectedValue?.ToString() == "All" || cmbboxdevicegridviewfilterValue.SelectedItem == null)
+
+            if (cmbboxdevicegridviewfilterCateogory.SelectedValue != null)
             {
-                await LoadAllDevicesAsync();
+                string category = cmbboxdevicegridviewfilterCateogory.SelectedValue.ToString();
+
+                switch (category)
+                {
+                    case "RecentDevices":
+                        await LoadRecentDevicesByDefaultAsync();
+                        break;
+                    case "All":
+                        await LoadAllDevicesAsync();
+                        break;
+                    default:
+                        // For other filters with values
+                        if (cmbboxdevicegridviewfilterValue.SelectedValue != null)
+                        {
+                            cmbboxdevicegridviewfilterValue_SelectedIndexChanged(this, EventArgs.Empty);
+                        }
+                        else
+                        {
+                            // Fallback to default if no specific value is selected
+                            await LoadRecentDevicesByDefaultAsync();
+                        }
+                        break;
+                }
             }
             else
             {
-                // Re-apply the current filter
-                cmbboxdevicegridviewfilterValue_SelectedIndexChanged(this, EventArgs.Empty);
+                // Fallback if no category is selected
+                await LoadRecentDevicesByDefaultAsync();
             }
         }
 
@@ -113,7 +163,7 @@ namespace Presentation.SubSections.Devices
 
 
 
-                Image = Resource1.Eye2, // 👁️
+                Image = Resource1.Eye3, // 👁️
                 Width = 2,
                 ImageLayout = DataGridViewImageCellLayout.Zoom,
             };
@@ -122,7 +172,7 @@ namespace Presentation.SubSections.Devices
                 Name = "Edit",
                 HeaderText = "Edit",
 
-                Image = Resource1.Create, // ✏️
+                Image = Resource1.Create3, // ✏️
                 Width = 2,
                 ImageLayout = DataGridViewImageCellLayout.Zoom
 
@@ -131,7 +181,7 @@ namespace Presentation.SubSections.Devices
             {
                 Name = "Delete",
                 HeaderText = "Delete",
-                Image = Resource1.Waste, // 🗑️
+                Image = Resource1.Remove, // 🗑️
                 Width = 2,
                 ImageLayout = DataGridViewImageCellLayout.Zoom
 
@@ -203,7 +253,7 @@ namespace Presentation.SubSections.Devices
                 HeaderText = "Recieved Date",
                 DataPropertyName = "RecievedDate",
                 Width = 150,
-                DefaultCellStyle = new DataGridViewCellStyle { Format = "MM/dd/yyyy" } // Format date
+                DefaultCellStyle = new DataGridViewCellStyle { Format = "yyyy/MM/dd h:mm:tt", FormatProvider = System.Globalization.CultureInfo.InvariantCulture } // Format date
             });
 
             // NOW add  action columns
@@ -286,10 +336,20 @@ namespace Presentation.SubSections.Devices
                     break;
 
                 case "All":
-                default:
+
                     cmbboxdevicegridviewfilterValue.Enabled = false; // Nothing to select for "All"
                     await LoadAllDevicesAsync(); // Reload all customers
                     break;
+
+
+
+                case "RecentDevices":
+                default:
+                    cmbboxdevicegridviewfilterValue.Enabled = false; // No specific value needed for recent devices
+                    await LoadRecentDevicesByDefaultAsync(); // Load recent devices
+                    break;
+
+               
             }
         }
 

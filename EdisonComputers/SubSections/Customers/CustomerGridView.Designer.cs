@@ -68,12 +68,14 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             gridviewCustomer.DefaultCellStyle = dataGridViewCellStyle3;
             gridviewCustomer.GridColor = Color.LightGray;
-            gridviewCustomer.Location = new Point(35, 128);
+            gridviewCustomer.Location = new Point(30, 166);
+            gridviewCustomer.Margin = new Padding(3, 2, 3, 2);
             gridviewCustomer.Name = "gridviewCustomer";
             gridviewCustomer.ReadOnly = true;
             gridviewCustomer.RowHeadersVisible = false;
             gridviewCustomer.RowHeadersWidth = 100;
-            gridviewCustomer.Size = new Size(1442, 619);
+            gridviewCustomer.RowTemplate.Height = 29;
+            gridviewCustomer.Size = new Size(1229, 421);
             gridviewCustomer.TabIndex = 4;
             gridviewCustomer.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightGrid;
             gridviewCustomer.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
@@ -101,6 +103,7 @@
             // 
             // cmbboxcustomerFilterCategory
             // 
+            cmbboxcustomerFilterCategory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cmbboxcustomerFilterCategory.BackColor = Color.Transparent;
             cmbboxcustomerFilterCategory.CustomizableEdges = customizableEdges1;
             cmbboxcustomerFilterCategory.DrawMode = DrawMode.OwnerDrawFixed;
@@ -110,15 +113,17 @@
             cmbboxcustomerFilterCategory.Font = new Font("Segoe UI", 10F);
             cmbboxcustomerFilterCategory.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxcustomerFilterCategory.ItemHeight = 30;
-            cmbboxcustomerFilterCategory.Location = new Point(1030, 86);
+            cmbboxcustomerFilterCategory.Location = new Point(825, 126);
+            cmbboxcustomerFilterCategory.Margin = new Padding(3, 2, 3, 2);
             cmbboxcustomerFilterCategory.Name = "cmbboxcustomerFilterCategory";
             cmbboxcustomerFilterCategory.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            cmbboxcustomerFilterCategory.Size = new Size(196, 36);
+            cmbboxcustomerFilterCategory.Size = new Size(264, 36);
             cmbboxcustomerFilterCategory.TabIndex = 5;
             cmbboxcustomerFilterCategory.SelectedIndexChanged += cmbboxcustomerFilterCategory_SelectedIndexChanged;
             // 
             // cmbboxcustomerFilterValue
             // 
+            cmbboxcustomerFilterValue.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cmbboxcustomerFilterValue.BackColor = Color.Transparent;
             cmbboxcustomerFilterValue.CustomizableEdges = customizableEdges3;
             cmbboxcustomerFilterValue.DrawMode = DrawMode.OwnerDrawFixed;
@@ -128,10 +133,11 @@
             cmbboxcustomerFilterValue.Font = new Font("Segoe UI", 10F);
             cmbboxcustomerFilterValue.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxcustomerFilterValue.ItemHeight = 30;
-            cmbboxcustomerFilterValue.Location = new Point(1264, 86);
+            cmbboxcustomerFilterValue.Location = new Point(1105, 126);
+            cmbboxcustomerFilterValue.Margin = new Padding(3, 2, 3, 2);
             cmbboxcustomerFilterValue.Name = "cmbboxcustomerFilterValue";
             cmbboxcustomerFilterValue.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            cmbboxcustomerFilterValue.Size = new Size(175, 36);
+            cmbboxcustomerFilterValue.Size = new Size(154, 36);
             cmbboxcustomerFilterValue.TabIndex = 6;
             cmbboxcustomerFilterValue.SelectedIndexChanged += cmbboxcustomerFilterValue_SelectedIndexChanged;
             // 
@@ -146,26 +152,26 @@
             searchboxCustomerSection.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             searchboxCustomerSection.Font = new Font("Segoe UI", 9F);
             searchboxCustomerSection.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            searchboxCustomerSection.Location = new Point(35, 86);
-            searchboxCustomerSection.Margin = new Padding(3, 4, 3, 4);
+            searchboxCustomerSection.Location = new Point(30, 126);
             searchboxCustomerSection.Name = "searchboxCustomerSection";
             searchboxCustomerSection.PlaceholderText = "Search Customer";
             searchboxCustomerSection.SelectedText = "";
             searchboxCustomerSection.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            searchboxCustomerSection.Size = new Size(230, 36);
+            searchboxCustomerSection.Size = new Size(201, 27);
             searchboxCustomerSection.TabIndex = 7;
             searchboxCustomerSection.TextChanged += searchboxCustomerSection_TextChanged;
             // 
             // CustomerGridView
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(searchboxCustomerSection);
             Controls.Add(cmbboxcustomerFilterValue);
             Controls.Add(cmbboxcustomerFilterCategory);
             Controls.Add(gridviewCustomer);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "CustomerGridView";
-            Size = new Size(1538, 793);
+            Size = new Size(1346, 595);
             Load += CustomerGridView_Load;
             ((System.ComponentModel.ISupportInitialize)gridviewCustomer).EndInit();
             ResumeLayout(false);

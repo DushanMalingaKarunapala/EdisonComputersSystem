@@ -53,9 +53,10 @@
             labelUsername.BackColor = Color.Transparent;
             labelUsername.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelUsername.ForeColor = Color.FromArgb(176, 176, 176);
-            labelUsername.Location = new Point(75, 313);
+            labelUsername.Location = new Point(66, 235);
+            labelUsername.Margin = new Padding(3, 2, 3, 2);
             labelUsername.Name = "labelUsername";
-            labelUsername.Size = new Size(80, 25);
+            labelUsername.Size = new Size(65, 21);
             labelUsername.TabIndex = 9;
             labelUsername.Text = "Username";
             labelUsername.TextAlignment = ContentAlignment.MiddleLeft;
@@ -65,9 +66,10 @@
             lblPassword.BackColor = Color.Transparent;
             lblPassword.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPassword.ForeColor = Color.FromArgb(176, 176, 176);
-            lblPassword.Location = new Point(75, 409);
+            lblPassword.Location = new Point(66, 307);
+            lblPassword.Margin = new Padding(3, 2, 3, 2);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(74, 25);
+            lblPassword.Size = new Size(61, 21);
             lblPassword.TabIndex = 10;
             lblPassword.Text = "Password";
             lblPassword.TextAlignment = ContentAlignment.MiddleLeft;
@@ -76,12 +78,14 @@
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.ForeColor = Color.FromArgb(176, 176, 176);
-            guna2HtmlLabel1.Location = new Point(167, 639);
+            guna2HtmlLabel1.Location = new Point(146, 479);
+            guna2HtmlLabel1.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(159, 22);
+            guna2HtmlLabel1.Size = new Size(3, 2);
             guna2HtmlLabel1.TabIndex = 11;
-            guna2HtmlLabel1.Text = "2025 Edison Computers ";
+            guna2HtmlLabel1.Text = null;
             guna2HtmlLabel1.TextAlignment = ContentAlignment.MiddleCenter;
+            guna2HtmlLabel1.Visible = false;
             // 
             // txtboxUsername
             // 
@@ -95,13 +99,12 @@
             txtboxUsername.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxUsername.Font = new Font("Segoe UI", 9F);
             txtboxUsername.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxUsername.Location = new Point(75, 345);
-            txtboxUsername.Margin = new Padding(3, 4, 3, 4);
+            txtboxUsername.Location = new Point(66, 259);
             txtboxUsername.Name = "txtboxUsername";
             txtboxUsername.PlaceholderText = "Enter Your Username";
             txtboxUsername.SelectedText = "";
             txtboxUsername.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtboxUsername.Size = new Size(333, 42);
+            txtboxUsername.Size = new Size(291, 32);
             txtboxUsername.TabIndex = 12;
             // 
             // txtboxPassword
@@ -116,14 +119,13 @@
             txtboxPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxPassword.Font = new Font("Segoe UI", 9F);
             txtboxPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxPassword.Location = new Point(75, 450);
-            txtboxPassword.Margin = new Padding(3, 4, 3, 4);
+            txtboxPassword.Location = new Point(66, 338);
             txtboxPassword.Name = "txtboxPassword";
             txtboxPassword.PasswordChar = '*';
             txtboxPassword.PlaceholderText = "Enter Your Password";
             txtboxPassword.SelectedText = "";
             txtboxPassword.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtboxPassword.Size = new Size(333, 42);
+            txtboxPassword.Size = new Size(291, 32);
             txtboxPassword.TabIndex = 13;
             // 
             // btnLogin
@@ -137,10 +139,11 @@
             btnLogin.FillColor = Color.FromArgb(216, 30, 44);
             btnLogin.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(75, 549);
+            btnLogin.Location = new Point(66, 412);
+            btnLogin.Margin = new Padding(3, 2, 3, 2);
             btnLogin.Name = "btnLogin";
             btnLogin.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnLogin.Size = new Size(333, 51);
+            btnLogin.Size = new Size(291, 38);
             btnLogin.TabIndex = 14;
             btnLogin.Text = "LOGIN";
             btnLogin.Click += btnLogin_Click;
@@ -150,9 +153,10 @@
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Font = new Font("Segoe UI Light", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel3.ForeColor = Color.FromArgb(224, 224, 224);
-            guna2HtmlLabel3.Location = new Point(155, 179);
+            guna2HtmlLabel3.Location = new Point(136, 134);
+            guna2HtmlLabel3.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(171, 43);
+            guna2HtmlLabel3.Size = new Size(136, 34);
             guna2HtmlLabel3.TabIndex = 17;
             guna2HtmlLabel3.Text = "System Login";
             // 
@@ -161,9 +165,10 @@
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2HtmlLabel4.ForeColor = Color.FromArgb(176, 176, 176);
-            guna2HtmlLabel4.Location = new Point(94, 249);
+            guna2HtmlLabel4.Location = new Point(82, 187);
+            guna2HtmlLabel4.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(302, 25);
+            guna2HtmlLabel4.Size = new Size(243, 21);
             guna2HtmlLabel4.TabIndex = 18;
             guna2HtmlLabel4.Text = "Access the Repair Management System";
             // 
@@ -176,20 +181,21 @@
             guna2PictureBox1.Image = Properties.Resources.LOGO_FINAL2;
             guna2PictureBox1.ImageRotate = 0F;
             guna2PictureBox1.Location = new Point(0, 0);
+            guna2PictureBox1.Margin = new Padding(3, 2, 3, 2);
             guna2PictureBox1.Name = "guna2PictureBox1";
             guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2PictureBox1.Size = new Size(488, 231);
+            guna2PictureBox1.Size = new Size(426, 173);
             guna2PictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             guna2PictureBox1.TabIndex = 19;
             guna2PictureBox1.TabStop = false;
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(66, 66, 66);
             CausesValidation = false;
-            ClientSize = new Size(488, 673);
+            ClientSize = new Size(426, 557);
             Controls.Add(guna2HtmlLabel4);
             Controls.Add(guna2HtmlLabel3);
             Controls.Add(btnLogin);
@@ -200,6 +206,7 @@
             Controls.Add(labelUsername);
             Controls.Add(guna2PictureBox1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "LoginForm";

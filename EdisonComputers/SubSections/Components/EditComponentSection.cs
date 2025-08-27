@@ -82,46 +82,40 @@ namespace Presentation.SubSections.Components
                 SetUIEnabledState(false);
 
                 //validate inputs
-                // --- 1. Validate Inputs ---
+                var validationErrors = new List<string>();
+
                 if (string.IsNullOrWhiteSpace(editcomponentSectiontxtboxcomponentName.Text))
-                {
-                    MessageBox.Show("Component Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    
-                    editcomponentSectiontxtboxcomponentName.Focus();
-                    SetUIEnabledState(true); // Re-enable the UI
-                    return;
-                }
+                    validationErrors.Add("Component Name is required.");
+
                 if (editcomponentSectioncmbboxComponentType.SelectedItem == null)
-                {
-                    MessageBox.Show("Please select a component type.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    editcomponentSectioncmbboxComponentType.Focus();
-                    SetUIEnabledState(true); // Re-enable the UI
-                    return;
-                }
-                //convert the price to decimal
-                if (!decimal.TryParse(editcomponentSectiontxtboxcomponentWarranty.Text, out decimal price) || price < 0)
-                {
-                    MessageBox.Show("Please enter a valid price.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    editcomponentSectiontxtboxcomponentUnitPrice.Focus();
-                    SetUIEnabledState(true); // Re-enable the UI
-                    return;
-                }
+                    validationErrors.Add("Please select a component type.");
 
+                // Fix: Parse price from the correct textbox
+                if (!decimal.TryParse(editcomponentSectiontxtboxcomponentUnitPrice.Text, out decimal price) || price < 0)
+                    validationErrors.Add("Please enter a valid, non-negative price.");
 
-                int? defaultWarrantyInMonths = null; // Start with null for no warranty
-                if (!string.IsNullOrWhiteSpace(editcomponentSectiontxtboxcomponentWarranty.Text)) // Only parse if user entered something
+                if (!int.TryParse(editcomponentSectiontxtboxcomponentqty.Text, out int quantity) || quantity < 0)
+                    validationErrors.Add("Please enter a valid, non-negative quantity.");
+
+                // Validate warranty
+                int? warrantyPeriod = null;
+                if (!string.IsNullOrWhiteSpace(editcomponentSectiontxtboxcomponentWarranty.Text))
                 {
-                    if (int.TryParse(editcomponentSectiontxtboxcomponentWarranty.Text, out int warrantyPeriod) && warrantyPeriod >= 0)
+                    if (!int.TryParse(editcomponentSectiontxtboxcomponentWarranty.Text, out int period) || period < 0)
                     {
-                        defaultWarrantyInMonths = warrantyPeriod; // Assign the parsed value (can be 0 or more)
+                        validationErrors.Add("Please enter a valid, non-negative warranty period.");
                     }
                     else
                     {
-                        MessageBox.Show("Please enter a valid, non-negative number for warranty period in months.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        editcomponentSectiontxtboxcomponentWarranty.Focus();
-                        SetUIEnabledState(true); // Re-enable the UI
-                        return;
+                        warrantyPeriod = period > 0 ? period : null;
                     }
+                }
+
+                if (validationErrors.Any())
+                {
+                    MessageBox.Show(string.Join("\n", validationErrors), "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    SetUIEnabledState(true);
+                    return;
                 }
 
 
@@ -131,13 +125,15 @@ namespace Presentation.SubSections.Components
                     ComponentId = _componentId, // Use the component ID for updating
                     Name = editcomponentSectiontxtboxcomponentName.Text,
                     Type = (Core.Enums.ComponentType)editcomponentSectioncmbboxComponentType.SelectedItem, // Assuming Type is an enum
-                    Price = decimal.Parse(editcomponentSectiontxtboxcomponentUnitPrice.Text),
+                    Price = price,
                     Description = editcomponentSectiontxtboxcomponentDescription.Text,
                     SerialNumber = editcomponentSectiontxtboxcomponentSerialNo.Text,
-                    QuantityInStock = int.Parse(editcomponentSectiontxtboxcomponentqty.Text),
+                    QuantityInStock = quantity,
                     //newly added property - to represent the stock status and availability of the component
                     StockStatus = Core.Enums.ComponentStockStatus.StockStatus.InStock, // Default to InStock, can be changed later
-                    DefaultWarrantyInMonths = defaultWarrantyInMonths // Nullable type
+                    DefaultWarrantyInMonths = warrantyPeriod // Nullable type
+
+
                 };
 
                 try

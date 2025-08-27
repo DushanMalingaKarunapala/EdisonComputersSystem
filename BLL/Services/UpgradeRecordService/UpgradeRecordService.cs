@@ -1,4 +1,5 @@
-﻿using Core.Enums;
+﻿using Core.Common;
+using Core.Enums;
 using Core.IRepository.IComponentRepository;
 using Core.IRepository.IJobRepository;
 using Core.IRepository.IUpgradeRecordRepository;
@@ -27,17 +28,29 @@ namespace BLL.Services.UpgradeRecordService
 
         public async Task AddUpgradeRecordAsync(UpgradeRecord upgradeRecord)
         {
-            // Validate the job exists before adding the upgrade record
-            if (upgradeRecord.JobId <= 0)
+
+            try
             {
-                throw new ArgumentException("Invalid Job ID for the upgrade record.");
+                LoggingService.LogInformation($"Adding upgrade record for job {upgradeRecord.JobId}: {upgradeRecord.UpgradeDescription}");
+
+                // Validate the job exists before adding the upgrade record
+                if (upgradeRecord.JobId <= 0)
+                {
+                    throw new ArgumentException("Invalid Job ID for the upgrade record.");
+                }
+
+                await _upgradeRecordRepository.AddUpgradeRecordAsync(upgradeRecord);
+
+                LoggingService.LogInformation($"Successfully added upgrade record: {upgradeRecord.UpgradeRecordId} for job {upgradeRecord.JobId}");
+
+                //update the job status to 
+
             }
-            
-            await _upgradeRecordRepository.AddUpgradeRecordAsync(upgradeRecord);
-
-            //update the job status to 
-
-
+            catch (Exception ex)
+            {
+                LoggingService.LogError(ex, $"Failed to add upgrade record for job {upgradeRecord.JobId}");
+                throw;
+            }
         }
 
         public async Task<UpgradeRecord> GetUpgradeRecordbyIdwithComponents(int upgradeRecordId)
@@ -51,87 +64,101 @@ namespace BLL.Services.UpgradeRecordService
 
         public async Task UpdateUpgradeRecordWithComponentAsync(UpgradeRecord upgradeRecord, List<UpgradeRecordComponent> componentsToAdd, List<int> componentIdsToRemove)
         {
-            //validate the upgrade record exists
-            // 1. Get the current state of the UpgradeRecord WITH its components from the DB
-            //    This is crucial for knowing what was there before.
-            var existingRecord = await _upgradeRecordRepository.GetUpgradeRecordByIdWithComponentsAsync(upgradeRecord.UpgradeRecordId);
-            if (existingRecord == null)
+            try
             {
-                throw new KeyNotFoundException($"Upgrade record with ID {upgradeRecord.UpgradeRecordId} not found.");
-            }
-
-            // Any other business logic, stock adjustments etc. can go here
-            // For stock, you'd need to compare 'desiredFinalComponents' with 'existingRecord.upgradeRecordComponents' *before* calling the repo.
-
-            // 2. Calculate stock changes BEFORE applying updates to the database
-            //    This requires comparing existingupgradeRecord.upgradeRecordComponents with componentstoad.
-
-            var stockAdjustments = new Dictionary<int, int>(); // ComponentId -> QuantityChange (positive to add back, negative to decrease)
+                LoggingService.LogInformation($"Updating upgrade record {upgradeRecord.UpgradeRecordId} for job {upgradeRecord.JobId}");
 
 
-            // Components that were in the DB but are NOT in the desired list (they are being removed)
-            foreach (var dbUrc in existingRecord.UpgradeRecordComponents)
-            {
-                if (!componentsToAdd.Any(desired => desired.ComponentId == dbUrc.ComponentId))
+                //validate the upgrade record exists
+                // 1. Get the current state of the UpgradeRecord WITH its components from the DB
+                //    This is crucial for knowing what was there before.
+                var existingRecord = await _upgradeRecordRepository.GetUpgradeRecordByIdWithComponentsAsync(upgradeRecord.UpgradeRecordId);
+                if (existingRecord == null)
                 {
-                    // This component link is being removed entirely, add its quantity back to stock
-                    if (!stockAdjustments.ContainsKey(dbUrc.ComponentId)) stockAdjustments[dbUrc.ComponentId] = 0;
-                    stockAdjustments[dbUrc.ComponentId] += dbUrc.QuantityUsed; // Positive: add back
+                    throw new KeyNotFoundException($"Upgrade record with ID {upgradeRecord.UpgradeRecordId} not found.");
                 }
-            }
 
-            // Components that are in the desired list (either new or potentially updated quantity)
-            foreach (var desiredUrc in componentsToAdd)
-            {
-                var dbUrcEquivalent = existingRecord.UpgradeRecordComponents
-                    .FirstOrDefault(dbUrc => dbUrc.ComponentId == desiredUrc.ComponentId);
+                // Any other business logic, stock adjustments etc. can go here
+                // For stock, you'd need to compare 'desiredFinalComponents' with 'existingRecord.upgradeRecordComponents' *before* calling the repo.
 
-                if (dbUrcEquivalent == null) // This is a NEW component being added to the upgrade
+                // 2. Calculate stock changes BEFORE applying updates to the database
+                //    This requires comparing existingupgradeRecord.upgradeRecordComponents with componentstoad.
+
+                var stockAdjustments = new Dictionary<int, int>(); // ComponentId -> QuantityChange (positive to add back, negative to decrease)
+
+
+                // Components that were in the DB but are NOT in the desired list (they are being removed)
+                foreach (var dbUrc in existingRecord.UpgradeRecordComponents)
                 {
-                    if (!stockAdjustments.ContainsKey(desiredUrc.ComponentId)) stockAdjustments[desiredUrc.ComponentId] = 0;
-                    stockAdjustments[desiredUrc.ComponentId] -= desiredUrc.QuantityUsed; // Negative: decrease stock
+                    if (!componentsToAdd.Any(desired => desired.ComponentId == dbUrc.ComponentId))
+                    {
+                        // This component link is being removed entirely, add its quantity back to stock
+                        if (!stockAdjustments.ContainsKey(dbUrc.ComponentId)) stockAdjustments[dbUrc.ComponentId] = 0;
+                        stockAdjustments[dbUrc.ComponentId] += dbUrc.QuantityUsed; // Positive: add back
+                    }
                 }
-                else // This component link already existed; check for quantity change
+
+                // Components that are in the desired list (either new or potentially updated quantity)
+                foreach (var desiredUrc in componentsToAdd)
                 {
-                    int quantityDifference = desiredUrc.QuantityUsed - dbUrcEquivalent.QuantityUsed;
-                    if (quantityDifference != 0)
+                    var dbUrcEquivalent = existingRecord.UpgradeRecordComponents
+                        .FirstOrDefault(dbUrc => dbUrc.ComponentId == desiredUrc.ComponentId);
+
+                    if (dbUrcEquivalent == null) // This is a NEW component being added to the upgrade
                     {
                         if (!stockAdjustments.ContainsKey(desiredUrc.ComponentId)) stockAdjustments[desiredUrc.ComponentId] = 0;
-                        stockAdjustments[desiredUrc.ComponentId] -= quantityDifference; // Negative if new qty > old qty (decrease stock)
-                                                                                        // Positive if new qty < old qty (increase stock)
+                        stockAdjustments[desiredUrc.ComponentId] -= desiredUrc.QuantityUsed; // Negative: decrease stock
                     }
-                }
-            }
-
-            // 3. Apply stock adjustments (BEFORE saving upgradeRecord changes to ensure stock availability)
-            //    It's important to do this carefully, potentially within the same transaction.
-            //    The repository method for updating stock should handle concurrency.
-            using (var scope = _serviceProvider.CreateScope()) // Assuming _serviceProvider is available
-            {
-                var componentRepository = scope.ServiceProvider.GetRequiredService<IComponentRepository>();
-                foreach (var adjustment in stockAdjustments)
-                {
-                    int componentId = adjustment.Key;
-                    int quantityChange = adjustment.Value;
-
-                    if (quantityChange > 0) // Add back to stock
+                    else // This component link already existed; check for quantity change
                     {
-                        await componentRepository.IncreaseStockAsync(componentId, quantityChange);
-                    }
-                    else if (quantityChange < 0) // Decrease from stock
-                    {
-                        // Check for sufficient stock BEFORE decreasing
-                        var component = await componentRepository.GetById(componentId); // Fetch current component
-                        if (component == null || component.QuantityInStock < -quantityChange) // -quantityChange because it's negative
+                        int quantityDifference = desiredUrc.QuantityUsed - dbUrcEquivalent.QuantityUsed;
+                        if (quantityDifference != 0)
                         {
-                            throw new InvalidOperationException($"Insufficient stock for component ID {componentId}. Required: {-quantityChange}, Available: {component?.QuantityInStock ?? 0}.");
+                            if (!stockAdjustments.ContainsKey(desiredUrc.ComponentId)) stockAdjustments[desiredUrc.ComponentId] = 0;
+                            stockAdjustments[desiredUrc.ComponentId] -= quantityDifference; // Negative if new qty > old qty (decrease stock)
+                                                                                            // Positive if new qty < old qty (increase stock)
                         }
-                        await componentRepository.DecreseStockAsync(componentId, -quantityChange);
                     }
                 }
-            }
 
-            await _upgradeRecordRepository.UpdateUpgradeRecordWithComponentAsync(upgradeRecord, componentsToAdd, componentIdsToRemove);
+                // 3. Apply stock adjustments (BEFORE saving upgradeRecord changes to ensure stock availability)
+                //    It's important to do this carefully, potentially within the same transaction.
+                //    The repository method for updating stock should handle concurrency.
+                using (var scope = _serviceProvider.CreateScope()) // Assuming _serviceProvider is available
+                {
+                    var componentRepository = scope.ServiceProvider.GetRequiredService<IComponentRepository>();
+                    foreach (var adjustment in stockAdjustments)
+                    {
+                        int componentId = adjustment.Key;
+                        int quantityChange = adjustment.Value;
+
+                        if (quantityChange > 0) // Add back to stock
+                        {
+                            await componentRepository.IncreaseStockAsync(componentId, quantityChange);
+                        }
+                        else if (quantityChange < 0) // Decrease from stock
+                        {
+                            // Check for sufficient stock BEFORE decreasing
+                            var component = await componentRepository.GetById(componentId); // Fetch current component
+                            if (component == null || component.QuantityInStock < -quantityChange) // -quantityChange because it's negative
+                            {
+                                throw new InvalidOperationException($"Insufficient stock for component ID {componentId}. Required: {-quantityChange}, Available: {component?.QuantityInStock ?? 0}.");
+                            }
+                            await componentRepository.DecreseStockAsync(componentId, -quantityChange);
+                        }
+                    }
+                }
+
+                await _upgradeRecordRepository.UpdateUpgradeRecordWithComponentAsync(upgradeRecord, componentsToAdd, componentIdsToRemove);
+                LoggingService.LogInformation($"Successfully updated upgrade record: {upgradeRecord.UpgradeRecordId} for job {upgradeRecord.JobId}");
+
+
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError(ex, $"Failed to update upgrade record {upgradeRecord.UpgradeRecordId} for job {upgradeRecord.JobId}");
+                throw;
+            }
         }
 
         //get upgrade record by job id

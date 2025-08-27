@@ -47,17 +47,19 @@
             panelComponentSection.CustomizableEdges = customizableEdges3;
             panelComponentSection.Dock = DockStyle.Fill;
             panelComponentSection.Location = new Point(0, 0);
+            panelComponentSection.Margin = new Padding(3, 2, 3, 2);
             panelComponentSection.Name = "panelComponentSection";
             panelComponentSection.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            panelComponentSection.Size = new Size(1538, 793);
+            panelComponentSection.Size = new Size(1346, 595);
             panelComponentSection.TabIndex = 0;
             // 
             // guna2Separator1
             // 
             guna2Separator1.Anchor = AnchorStyles.Top;
-            guna2Separator1.Location = new Point(28, 190);
+            guna2Separator1.Location = new Point(24, 142);
+            guna2Separator1.Margin = new Padding(3, 2, 3, 2);
             guna2Separator1.Name = "guna2Separator1";
-            guna2Separator1.Size = new Size(1421, 12);
+            guna2Separator1.Size = new Size(1243, 9);
             guna2Separator1.TabIndex = 2;
             // 
             // btnaddComponents
@@ -71,33 +73,36 @@
             btnaddComponents.FillColor = Color.FromArgb(216, 30, 44);
             btnaddComponents.Font = new Font("Segoe UI", 9F);
             btnaddComponents.ForeColor = Color.White;
-            btnaddComponents.Location = new Point(1233, 138);
+            btnaddComponents.Location = new Point(1079, 104);
+            btnaddComponents.Margin = new Padding(3, 2, 3, 2);
             btnaddComponents.Name = "btnaddComponents";
             btnaddComponents.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnaddComponents.Size = new Size(225, 52);
+            btnaddComponents.Size = new Size(197, 39);
             btnaddComponents.TabIndex = 1;
             btnaddComponents.Text = "Add Component";
             btnaddComponents.Click += btnaddComponents_Click;
             // 
             // guna2HtmlLabel1
             // 
+            guna2HtmlLabel1.AutoSize = false;
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(28, 138);
+            guna2HtmlLabel1.Location = new Point(24, 104);
+            guna2HtmlLabel1.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(139, 33);
+            guna2HtmlLabel1.Size = new Size(110, 27);
             guna2HtmlLabel1.TabIndex = 0;
             guna2HtmlLabel1.Text = "Components";
             // 
             // ComponentSection
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelComponentSection);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ComponentSection";
-            Size = new Size(1538, 793);
+            Size = new Size(1346, 595);
             panelComponentSection.ResumeLayout(false);
-            panelComponentSection.PerformLayout();
             ResumeLayout(false);
         }
 

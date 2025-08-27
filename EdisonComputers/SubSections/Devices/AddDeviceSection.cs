@@ -66,11 +66,12 @@ namespace Presentation.SubSections.Devices
                 using (var scope = serviceProvider.CreateScope())
                 {
                     var customerService = scope.ServiceProvider.GetRequiredService<CustomerService>();
+                   
 
                     var customers = await customerService.GetAllCustomers();
                     string fullname = customers.FirstOrDefault()?.FirstName + " " + customers.FirstOrDefault()?.LastName;
                     cmbboxDevselectCustomer1.DataSource = customers;
-                    cmbboxDevselectCustomer1.DisplayMember = "FirstName";
+                    cmbboxDevselectCustomer1.DisplayMember = "FullName";
                     cmbboxDevselectCustomer1.ValueMember = "CustomerId";
                 }
             }
@@ -262,12 +263,41 @@ namespace Presentation.SubSections.Devices
                 //set the ui to disabled to prevent multiple clicks
                 SetUIEnabled(false);
 
-                // Validate input fields
-                if (string.IsNullOrWhiteSpace(txtboxdeviceModel.Text) || cmbboxDevselectCustomer1.SelectedItem == null || cmbboxDevselectType.SelectedItem == null)
-                {
-                    MessageBox.Show("Please fill in all required fields. Device Model, Device Type and Device Customer are Required Fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                    SetUIEnabled(true); // Re-enable the UI if validation fails
+                // Enhanced validation
+                var validationErrors = new List<string>();
+
+                if (string.IsNullOrWhiteSpace(txtboxdeviceModel.Text))
+                    validationErrors.Add("Device Model is required.");
+
+                if (cmbboxDevselectCustomer1.SelectedItem == null)
+                    validationErrors.Add("Please select a customer.");
+
+                if (cmbboxDevselectType.SelectedItem == null)
+                    validationErrors.Add("Please select a device type.");
+
+                // Validate Brand if not a new build
+                //if (!chkIsNewBuild.Checked && string.IsNullOrWhiteSpace(txtboxdeviceBrand.Text))
+                //    validationErrors.Add("Device Brand is required for existing devices.");
+
+                // Validate Serial Number uniqueness if provided
+                if (!string.IsNullOrWhiteSpace(txtboxdeviceSerialNum.Text))
+                {
+                    using (var scope = serviceProvider.CreateScope())
+                    {
+                        var deviceService = scope.ServiceProvider.GetRequiredService<DeviceService>();
+                        var allDevices = await deviceService.GetAllDevices();
+                        if (allDevices.Any(d => d.SerialNumber == txtboxdeviceSerialNum.Text.Trim()))
+                        {
+                            validationErrors.Add("A device with this serial number already exists.");
+                        }
+                    }
+                }
+
+                if (validationErrors.Any())
+                {
+                    MessageBox.Show(string.Join("\n", validationErrors), "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    SetUIEnabled(true);
                     return;
                 }
 
@@ -385,10 +415,10 @@ namespace Presentation.SubSections.Devices
 
             if (isNewBuild)
             {
-                // Pre-fill fields to create a "PC Build" dummy device automatically
-                txtboxdeviceBrand.Text = "Custom Build";
-                txtboxdeviceModel.Text = $"PC Build for {cmbboxDevselectCustomer1.Text}"; //use the selected customer's name
-                cmbboxDevselectType.SelectedItem = Core.Enums.DeviceType.Desktop; // Set a default device type for new builds
+                // Pre-fill fields to create a "PC Build/ or new component purchase" dummy device automatically
+                txtboxdeviceBrand.Text = "Custom Build/Purchase";
+                txtboxdeviceModel.Text = $"PC Build/Purchase for {cmbboxDevselectCustomer1.Text}"; //use the selected customer's name
+                cmbboxDevselectType.SelectedItem = Core.Enums.DeviceType.Other; // Set a default device type for new builds or purchases
 
                 //create a dummy serial number for new builds because serial number should be unique and this is a new build
                 //lets create build1 build2 etc. for new builds

@@ -63,13 +63,12 @@
             txtboxservicetaskaddsectionServiceDescription.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxservicetaskaddsectionServiceDescription.Font = new Font("Segoe UI", 9F);
             txtboxservicetaskaddsectionServiceDescription.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxservicetaskaddsectionServiceDescription.Location = new Point(64, 150);
-            txtboxservicetaskaddsectionServiceDescription.Margin = new Padding(3, 4, 3, 4);
+            txtboxservicetaskaddsectionServiceDescription.Location = new Point(56, 112);
             txtboxservicetaskaddsectionServiceDescription.Name = "txtboxservicetaskaddsectionServiceDescription";
             txtboxservicetaskaddsectionServiceDescription.PlaceholderText = "";
             txtboxservicetaskaddsectionServiceDescription.SelectedText = "";
             txtboxservicetaskaddsectionServiceDescription.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtboxservicetaskaddsectionServiceDescription.Size = new Size(752, 80);
+            txtboxservicetaskaddsectionServiceDescription.Size = new Size(658, 60);
             txtboxservicetaskaddsectionServiceDescription.TabIndex = 0;
             // 
             // txtboxservicetaskaddsectionServiceNotes
@@ -83,39 +82,44 @@
             txtboxservicetaskaddsectionServiceNotes.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxservicetaskaddsectionServiceNotes.Font = new Font("Segoe UI", 9F);
             txtboxservicetaskaddsectionServiceNotes.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxservicetaskaddsectionServiceNotes.Location = new Point(64, 289);
-            txtboxservicetaskaddsectionServiceNotes.Margin = new Padding(3, 4, 3, 4);
+            txtboxservicetaskaddsectionServiceNotes.Location = new Point(56, 217);
             txtboxservicetaskaddsectionServiceNotes.Name = "txtboxservicetaskaddsectionServiceNotes";
             txtboxservicetaskaddsectionServiceNotes.PlaceholderText = "";
             txtboxservicetaskaddsectionServiceNotes.SelectedText = "";
             txtboxservicetaskaddsectionServiceNotes.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtboxservicetaskaddsectionServiceNotes.Size = new Size(752, 88);
+            txtboxservicetaskaddsectionServiceNotes.Size = new Size(658, 66);
             txtboxservicetaskaddsectionServiceNotes.TabIndex = 1;
             // 
             // guna2HtmlLabel1
             // 
+            guna2HtmlLabel1.AutoSize = false;
             guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Location = new Point(41, 76);
+            guna2HtmlLabel1.Location = new Point(36, 57);
+            guna2HtmlLabel1.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(115, 22);
+            guna2HtmlLabel1.Size = new Size(91, 17);
             guna2HtmlLabel1.TabIndex = 2;
             guna2HtmlLabel1.Text = "Add Service Task";
             // 
             // guna2HtmlLabel2
             // 
+            guna2HtmlLabel2.AutoSize = false;
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Location = new Point(64, 121);
+            guna2HtmlLabel2.Location = new Point(56, 91);
+            guna2HtmlLabel2.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(130, 22);
+            guna2HtmlLabel2.Size = new Size(103, 17);
             guna2HtmlLabel2.TabIndex = 3;
             guna2HtmlLabel2.Text = "Service Description";
             // 
             // guna2HtmlLabel3
             // 
+            guna2HtmlLabel3.AutoSize = false;
             guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Location = new Point(64, 260);
+            guna2HtmlLabel3.Location = new Point(56, 195);
+            guna2HtmlLabel3.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(93, 22);
+            guna2HtmlLabel3.Size = new Size(74, 17);
             guna2HtmlLabel3.TabIndex = 4;
             guna2HtmlLabel3.Text = "Service Notes";
             // 
@@ -130,18 +134,21 @@
             cmbboxservicetaskaddsectionServiceType.Font = new Font("Segoe UI", 10F);
             cmbboxservicetaskaddsectionServiceType.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxservicetaskaddsectionServiceType.ItemHeight = 30;
-            cmbboxservicetaskaddsectionServiceType.Location = new Point(64, 429);
+            cmbboxservicetaskaddsectionServiceType.Location = new Point(56, 322);
+            cmbboxservicetaskaddsectionServiceType.Margin = new Padding(3, 2, 3, 2);
             cmbboxservicetaskaddsectionServiceType.Name = "cmbboxservicetaskaddsectionServiceType";
             cmbboxservicetaskaddsectionServiceType.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            cmbboxservicetaskaddsectionServiceType.Size = new Size(175, 36);
+            cmbboxservicetaskaddsectionServiceType.Size = new Size(154, 36);
             cmbboxservicetaskaddsectionServiceType.TabIndex = 5;
             // 
             // guna2HtmlLabel4
             // 
+            guna2HtmlLabel4.AutoSize = false;
             guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.Location = new Point(64, 401);
+            guna2HtmlLabel4.Location = new Point(56, 301);
+            guna2HtmlLabel4.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(86, 22);
+            guna2HtmlLabel4.Size = new Size(68, 17);
             guna2HtmlLabel4.TabIndex = 7;
             guna2HtmlLabel4.Text = "Service Type";
             // 
@@ -155,10 +162,11 @@
             btnservicetaskaddSectionBack.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnservicetaskaddSectionBack.Font = new Font("Segoe UI", 9F);
             btnservicetaskaddSectionBack.ForeColor = Color.White;
-            btnservicetaskaddSectionBack.Location = new Point(240, 592);
+            btnservicetaskaddSectionBack.Location = new Point(210, 444);
+            btnservicetaskaddSectionBack.Margin = new Padding(3, 2, 3, 2);
             btnservicetaskaddSectionBack.Name = "btnservicetaskaddSectionBack";
             btnservicetaskaddSectionBack.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnservicetaskaddSectionBack.Size = new Size(214, 45);
+            btnservicetaskaddSectionBack.Size = new Size(187, 34);
             btnservicetaskaddSectionBack.TabIndex = 8;
             btnservicetaskaddSectionBack.Text = "Back";
             btnservicetaskaddSectionBack.Click += btnservicetaskaddSectionBack_Click;
@@ -174,10 +182,11 @@
             btnservicetaskaddsectionCancel.FillColor = Color.FromArgb(224, 224, 224);
             btnservicetaskaddsectionCancel.Font = new Font("Segoe UI", 9F);
             btnservicetaskaddsectionCancel.ForeColor = Color.White;
-            btnservicetaskaddsectionCancel.Location = new Point(474, 592);
+            btnservicetaskaddsectionCancel.Location = new Point(415, 444);
+            btnservicetaskaddsectionCancel.Margin = new Padding(3, 2, 3, 2);
             btnservicetaskaddsectionCancel.Name = "btnservicetaskaddsectionCancel";
             btnservicetaskaddsectionCancel.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btnservicetaskaddsectionCancel.Size = new Size(214, 45);
+            btnservicetaskaddsectionCancel.Size = new Size(187, 34);
             btnservicetaskaddsectionCancel.TabIndex = 9;
             btnservicetaskaddsectionCancel.Text = "Cancel";
             // 
@@ -192,17 +201,18 @@
             btnaddservicetask.FillColor = Color.FromArgb(216, 30, 44);
             btnaddservicetask.Font = new Font("Segoe UI", 9F);
             btnaddservicetask.ForeColor = Color.White;
-            btnaddservicetask.Location = new Point(710, 592);
+            btnaddservicetask.Location = new Point(621, 444);
+            btnaddservicetask.Margin = new Padding(3, 2, 3, 2);
             btnaddservicetask.Name = "btnaddservicetask";
             btnaddservicetask.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            btnaddservicetask.Size = new Size(214, 45);
+            btnaddservicetask.Size = new Size(187, 34);
             btnaddservicetask.TabIndex = 10;
             btnaddservicetask.Text = "Add Service Task";
             btnaddservicetask.Click += btnaddservicetask_Click;
             // 
             // AddServiceTask
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btnaddservicetask);
             Controls.Add(btnservicetaskaddsectionCancel);
@@ -214,11 +224,11 @@
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(txtboxservicetaskaddsectionServiceNotes);
             Controls.Add(txtboxservicetaskaddsectionServiceDescription);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AddServiceTask";
-            Size = new Size(1218, 807);
+            Size = new Size(1066, 605);
             Load += AddServiceTask_Load;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

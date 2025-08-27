@@ -6,21 +6,47 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+
+	 <!--<AssemblyVersion>1.0.1.0</AssemblyVersion>
+	 <FileVersion>1.0.1.0</FileVersion>
+	 <ApplicationVersion>1.0.1.0</ApplicationVersion>-->
+
+	 <!-- Add application icon if you have one -->
+	 <ApplicationIcon>Resources\Background.ico</ApplicationIcon>
+	  <Product>Edison Computers Management System</Product>
+	  <Company>Edison Computers</Company>
+	  <Copyright>© 2024 Edison Computers. All rights reserved.</Copyright>
+	  <Description>Complete management system for computer repair business</Description>
+	  <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Background.ico" />
     <None Remove="Resources\Background.png" />
     <None Remove="Resources\CircledEnvelope.png" />
+    <None Remove="Resources\Create3.png" />
+    <None Remove="Resources\Eye3.png" />
     <None Remove="Resources\Facebook.png" />
     <None Remove="Resources\Location.png" />
+    <None Remove="Resources\Trash3.png" />
+    <!--<None Remove="Resources\logs\edison-computers-.txt" />-->
     <None Remove="Resources\WhatsApp.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Resources\Background.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\CircledEnvelope.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Create3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Eye3.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Facebook.png">
@@ -29,6 +55,12 @@
     <Content Include="Resources\Location.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\Trash3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <!--<Content Include="Resources\logs\edison-computers-.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>-->
     <Content Include="Resources\WhatsApp.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -44,6 +76,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.5" />
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3296.44" />
     <PackageReference Include="QuestPDF" Version="2025.5.1" />
+    <PackageReference Include="Serilog" Version="4.3.0" />
+	 
+	  
   </ItemGroup>
 
   <ItemGroup>

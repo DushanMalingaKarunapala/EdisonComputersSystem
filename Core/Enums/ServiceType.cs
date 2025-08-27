@@ -9,6 +9,7 @@ namespace Core.Enums
     public enum ServiceType
     {
         GenaralService,
+        FullService,
         DataRecovery,
         SoftwareInstallation,
         OSInstallation,

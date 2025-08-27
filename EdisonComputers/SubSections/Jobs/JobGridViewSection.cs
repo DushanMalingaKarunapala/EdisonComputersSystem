@@ -153,7 +153,7 @@ namespace Presentation.SubSections.Jobs
 
 
 
-                Image = Resource1.Eye2, // 👁️
+                Image = Resource1.Eye3, // 👁️
                 Width = 2,
                 ImageLayout = DataGridViewImageCellLayout.Zoom,
             };
@@ -171,7 +171,7 @@ namespace Presentation.SubSections.Jobs
             {
                 Name = "Delete",
                 HeaderText = "Delete",
-                Image = Resource1.Waste, // 🗑️
+                Image = Resource1.Remove, // 🗑️
                 Width = 2,
                 ImageLayout = DataGridViewImageCellLayout.Zoom
 
@@ -234,7 +234,9 @@ namespace Presentation.SubSections.Jobs
                 Name = "Created Date",
                 HeaderText = "Created Date",
                 DataPropertyName = "CreatedDate",
-                Width = 120
+                Width = 120,
+                DefaultCellStyle = new DataGridViewCellStyle { Format = "yyyy/MM/dd h:mm:tt", FormatProvider = System.Globalization.CultureInfo.InvariantCulture } // Format date
+
             });
 
             jobgridView.Columns.Add(new DataGridViewTextBoxColumn

@@ -68,11 +68,13 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             gridviewDevice.DefaultCellStyle = dataGridViewCellStyle3;
             gridviewDevice.GridColor = Color.FromArgb(239, 241, 243);
-            gridviewDevice.Location = new Point(32, 266);
+            gridviewDevice.Location = new Point(28, 200);
+            gridviewDevice.Margin = new Padding(3, 2, 3, 2);
             gridviewDevice.Name = "gridviewDevice";
             gridviewDevice.RowHeadersVisible = false;
             gridviewDevice.RowHeadersWidth = 51;
-            gridviewDevice.Size = new Size(1404, 571);
+            gridviewDevice.RowTemplate.Height = 29;
+            gridviewDevice.Size = new Size(1228, 428);
             gridviewDevice.TabIndex = 0;
             gridviewDevice.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WhiteGrid;
             gridviewDevice.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
@@ -101,6 +103,7 @@
             // 
             // cmbboxdevicegridviewfilterCateogory
             // 
+            cmbboxdevicegridviewfilterCateogory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cmbboxdevicegridviewfilterCateogory.BackColor = Color.Transparent;
             cmbboxdevicegridviewfilterCateogory.CustomizableEdges = customizableEdges1;
             cmbboxdevicegridviewfilterCateogory.DrawMode = DrawMode.OwnerDrawFixed;
@@ -110,15 +113,17 @@
             cmbboxdevicegridviewfilterCateogory.Font = new Font("Segoe UI", 10F);
             cmbboxdevicegridviewfilterCateogory.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxdevicegridviewfilterCateogory.ItemHeight = 30;
-            cmbboxdevicegridviewfilterCateogory.Location = new Point(1062, 224);
+            cmbboxdevicegridviewfilterCateogory.Location = new Point(867, 160);
+            cmbboxdevicegridviewfilterCateogory.Margin = new Padding(3, 2, 3, 2);
             cmbboxdevicegridviewfilterCateogory.Name = "cmbboxdevicegridviewfilterCateogory";
             cmbboxdevicegridviewfilterCateogory.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            cmbboxdevicegridviewfilterCateogory.Size = new Size(175, 36);
+            cmbboxdevicegridviewfilterCateogory.Size = new Size(217, 36);
             cmbboxdevicegridviewfilterCateogory.TabIndex = 1;
             cmbboxdevicegridviewfilterCateogory.SelectedIndexChanged += cmbboxdevicegridviewfilterCateogory_SelectedIndexChanged;
             // 
             // cmbboxdevicegridviewfilterValue
             // 
+            cmbboxdevicegridviewfilterValue.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cmbboxdevicegridviewfilterValue.BackColor = Color.Transparent;
             cmbboxdevicegridviewfilterValue.CustomizableEdges = customizableEdges3;
             cmbboxdevicegridviewfilterValue.DrawMode = DrawMode.OwnerDrawFixed;
@@ -128,10 +133,11 @@
             cmbboxdevicegridviewfilterValue.Font = new Font("Segoe UI", 10F);
             cmbboxdevicegridviewfilterValue.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxdevicegridviewfilterValue.ItemHeight = 30;
-            cmbboxdevicegridviewfilterValue.Location = new Point(1261, 224);
+            cmbboxdevicegridviewfilterValue.Location = new Point(1102, 160);
+            cmbboxdevicegridviewfilterValue.Margin = new Padding(3, 2, 3, 2);
             cmbboxdevicegridviewfilterValue.Name = "cmbboxdevicegridviewfilterValue";
             cmbboxdevicegridviewfilterValue.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            cmbboxdevicegridviewfilterValue.Size = new Size(175, 36);
+            cmbboxdevicegridviewfilterValue.Size = new Size(154, 36);
             cmbboxdevicegridviewfilterValue.TabIndex = 2;
             cmbboxdevicegridviewfilterValue.SelectedIndexChanged += cmbboxdevicegridviewfilterValue_SelectedIndexChanged;
             // 
@@ -146,26 +152,26 @@
             searchboxdeviceSection.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             searchboxdeviceSection.Font = new Font("Segoe UI", 9F);
             searchboxdeviceSection.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            searchboxdeviceSection.Location = new Point(32, 224);
-            searchboxdeviceSection.Margin = new Padding(3, 4, 3, 4);
+            searchboxdeviceSection.Location = new Point(28, 168);
             searchboxdeviceSection.Name = "searchboxdeviceSection";
             searchboxdeviceSection.PlaceholderText = "Search Device";
             searchboxdeviceSection.SelectedText = "";
             searchboxdeviceSection.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            searchboxdeviceSection.Size = new Size(220, 36);
+            searchboxdeviceSection.Size = new Size(192, 27);
             searchboxdeviceSection.TabIndex = 3;
             searchboxdeviceSection.TextChanged += searchboxdeviceSection_TextChanged;
             // 
             // DeviceGridViewSection
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(searchboxdeviceSection);
             Controls.Add(cmbboxdevicegridviewfilterValue);
             Controls.Add(cmbboxdevicegridviewfilterCateogory);
             Controls.Add(gridviewDevice);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "DeviceGridViewSection";
-            Size = new Size(1538, 881);
+            Size = new Size(1346, 661);
             Load += DeviceGridViewSection_Load;
             ((System.ComponentModel.ISupportInitialize)gridviewDevice).EndInit();
             ResumeLayout(false);

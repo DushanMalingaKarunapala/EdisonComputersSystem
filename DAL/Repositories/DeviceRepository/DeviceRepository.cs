@@ -171,5 +171,16 @@ namespace DAL.Repositories.DeviceRepository
 
 
         }
+
+        public async Task<List<Device>> GetRecentDevicesAsync(int days)
+        {
+
+            var cutoffDate = DateTime.Now.AddDays(-days);
+            return await _dbContext.Devices
+                .Include(d => d.Customer)
+                .Where(d => d.RecordStatus == RecordStatus.Active && d.ReceivedDate >= cutoffDate)//get the active devices that were received in the last specified number of days
+                .OrderByDescending(d => d.ReceivedDate)
+                .ToListAsync();
+        }
     }
 }

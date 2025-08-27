@@ -58,10 +58,12 @@
             // 
             // guna2HtmlLabel1
             // 
+            guna2HtmlLabel1.AutoSize = false;
             guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Location = new Point(26, 87);
+            guna2HtmlLabel1.Location = new Point(23, 65);
+            guna2HtmlLabel1.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(145, 22);
+            guna2HtmlLabel1.Size = new Size(114, 17);
             guna2HtmlLabel1.TabIndex = 0;
             guna2HtmlLabel1.Text = "Add New Repair Task";
             // 
@@ -76,13 +78,12 @@
             txtboxaddrepairsectionDescription.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxaddrepairsectionDescription.Font = new Font("Segoe UI", 9F);
             txtboxaddrepairsectionDescription.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxaddrepairsectionDescription.Location = new Point(26, 164);
-            txtboxaddrepairsectionDescription.Margin = new Padding(3, 4, 3, 4);
+            txtboxaddrepairsectionDescription.Location = new Point(23, 123);
             txtboxaddrepairsectionDescription.Name = "txtboxaddrepairsectionDescription";
             txtboxaddrepairsectionDescription.PlaceholderText = "";
             txtboxaddrepairsectionDescription.SelectedText = "";
             txtboxaddrepairsectionDescription.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtboxaddrepairsectionDescription.Size = new Size(1042, 77);
+            txtboxaddrepairsectionDescription.Size = new Size(912, 58);
             txtboxaddrepairsectionDescription.TabIndex = 1;
             // 
             // txtboxaddrepairsectionRepairNotes
@@ -96,13 +97,12 @@
             txtboxaddrepairsectionRepairNotes.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxaddrepairsectionRepairNotes.Font = new Font("Segoe UI", 9F);
             txtboxaddrepairsectionRepairNotes.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxaddrepairsectionRepairNotes.Location = new Point(26, 293);
-            txtboxaddrepairsectionRepairNotes.Margin = new Padding(3, 4, 3, 4);
+            txtboxaddrepairsectionRepairNotes.Location = new Point(23, 220);
             txtboxaddrepairsectionRepairNotes.Name = "txtboxaddrepairsectionRepairNotes";
             txtboxaddrepairsectionRepairNotes.PlaceholderText = "";
             txtboxaddrepairsectionRepairNotes.SelectedText = "";
             txtboxaddrepairsectionRepairNotes.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtboxaddrepairsectionRepairNotes.Size = new Size(1042, 87);
+            txtboxaddrepairsectionRepairNotes.Size = new Size(912, 65);
             txtboxaddrepairsectionRepairNotes.TabIndex = 2;
             // 
             // cmbboxaddRepairSectionRepairStatus
@@ -116,10 +116,11 @@
             cmbboxaddRepairSectionRepairStatus.Font = new Font("Segoe UI", 10F);
             cmbboxaddRepairSectionRepairStatus.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxaddRepairSectionRepairStatus.ItemHeight = 30;
-            cmbboxaddRepairSectionRepairStatus.Location = new Point(26, 447);
+            cmbboxaddRepairSectionRepairStatus.Location = new Point(23, 335);
+            cmbboxaddRepairSectionRepairStatus.Margin = new Padding(3, 2, 3, 2);
             cmbboxaddRepairSectionRepairStatus.Name = "cmbboxaddRepairSectionRepairStatus";
             cmbboxaddRepairSectionRepairStatus.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            cmbboxaddRepairSectionRepairStatus.Size = new Size(265, 36);
+            cmbboxaddRepairSectionRepairStatus.Size = new Size(232, 36);
             cmbboxaddRepairSectionRepairStatus.TabIndex = 3;
             // 
             // txtboxaddrepairSectionWarrantyPeriod
@@ -133,51 +134,59 @@
             txtboxaddrepairSectionWarrantyPeriod.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxaddrepairSectionWarrantyPeriod.Font = new Font("Segoe UI", 9F);
             txtboxaddrepairSectionWarrantyPeriod.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxaddrepairSectionWarrantyPeriod.Location = new Point(351, 447);
-            txtboxaddrepairSectionWarrantyPeriod.Margin = new Padding(3, 4, 3, 4);
+            txtboxaddrepairSectionWarrantyPeriod.Location = new Point(307, 335);
             txtboxaddrepairSectionWarrantyPeriod.Name = "txtboxaddrepairSectionWarrantyPeriod";
             txtboxaddrepairSectionWarrantyPeriod.PlaceholderText = "";
             txtboxaddrepairSectionWarrantyPeriod.SelectedText = "";
             txtboxaddrepairSectionWarrantyPeriod.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            txtboxaddrepairSectionWarrantyPeriod.Size = new Size(286, 36);
+            txtboxaddrepairSectionWarrantyPeriod.Size = new Size(250, 27);
             txtboxaddrepairSectionWarrantyPeriod.TabIndex = 4;
             txtboxaddrepairSectionWarrantyPeriod.Visible = false;
             // 
             // guna2HtmlLabel2
             // 
+            guna2HtmlLabel2.AutoSize = false;
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Location = new Point(26, 135);
+            guna2HtmlLabel2.Location = new Point(23, 101);
+            guna2HtmlLabel2.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(139, 22);
+            guna2HtmlLabel2.Size = new Size(111, 17);
             guna2HtmlLabel2.TabIndex = 5;
             guna2HtmlLabel2.Text = "Problem Description";
             // 
             // guna2HtmlLabel3
             // 
+            guna2HtmlLabel3.AutoSize = false;
             guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Location = new Point(26, 264);
+            guna2HtmlLabel3.Location = new Point(23, 198);
+            guna2HtmlLabel3.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(89, 22);
+            guna2HtmlLabel3.Size = new Size(70, 17);
             guna2HtmlLabel3.TabIndex = 6;
             guna2HtmlLabel3.Text = "Repair Notes";
             // 
             // guna2HtmlLabel4
             // 
+            guna2HtmlLabel4.AutoSize = false;
             guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.Location = new Point(26, 419);
+            guna2HtmlLabel4.Location = new Point(23, 314);
+            guna2HtmlLabel4.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(90, 22);
+            guna2HtmlLabel4.Size = new Size(71, 17);
             guna2HtmlLabel4.TabIndex = 7;
             guna2HtmlLabel4.Text = "Repair Status";
             // 
             // guna2HtmlLabel5
             // 
+            guna2HtmlLabel5.AutoSize = false;
             guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Location = new Point(351, 419);
+            guna2HtmlLabel5.Location = new Point(307, 314);
+            guna2HtmlLabel5.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(169, 22);
+            guna2HtmlLabel5.Size = new Size(137, 17);
             guna2HtmlLabel5.TabIndex = 8;
             guna2HtmlLabel5.Text = "Warranty Period(months)";
+            guna2HtmlLabel5.Visible = false;
             // 
             // btnaddrepairSectionSave
             // 
@@ -190,10 +199,11 @@
             btnaddrepairSectionSave.FillColor = Color.FromArgb(216, 30, 44);
             btnaddrepairSectionSave.Font = new Font("Segoe UI", 9F);
             btnaddrepairSectionSave.ForeColor = Color.White;
-            btnaddrepairSectionSave.Location = new Point(714, 561);
+            btnaddrepairSectionSave.Location = new Point(625, 421);
+            btnaddrepairSectionSave.Margin = new Padding(3, 2, 3, 2);
             btnaddrepairSectionSave.Name = "btnaddrepairSectionSave";
             btnaddrepairSectionSave.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btnaddrepairSectionSave.Size = new Size(214, 45);
+            btnaddrepairSectionSave.Size = new Size(187, 34);
             btnaddrepairSectionSave.TabIndex = 12;
             btnaddrepairSectionSave.Text = "Save Repair Task";
             btnaddrepairSectionSave.Click += btnaddrepairSectionSave_Click;
@@ -209,10 +219,11 @@
             btnaddRepairSectionCancel.FillColor = Color.FromArgb(224, 224, 224);
             btnaddRepairSectionCancel.Font = new Font("Segoe UI", 9F);
             btnaddRepairSectionCancel.ForeColor = Color.White;
-            btnaddRepairSectionCancel.Location = new Point(478, 561);
+            btnaddRepairSectionCancel.Location = new Point(418, 421);
+            btnaddRepairSectionCancel.Margin = new Padding(3, 2, 3, 2);
             btnaddRepairSectionCancel.Name = "btnaddRepairSectionCancel";
             btnaddRepairSectionCancel.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            btnaddRepairSectionCancel.Size = new Size(214, 45);
+            btnaddRepairSectionCancel.Size = new Size(187, 34);
             btnaddRepairSectionCancel.TabIndex = 13;
             btnaddRepairSectionCancel.Text = "Cancel";
             btnaddRepairSectionCancel.Click += btnaddRepairSectionCancel_Click;
@@ -227,17 +238,18 @@
             btnaddRepairSectionBack.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnaddRepairSectionBack.Font = new Font("Segoe UI", 9F);
             btnaddRepairSectionBack.ForeColor = Color.White;
-            btnaddRepairSectionBack.Location = new Point(245, 561);
+            btnaddRepairSectionBack.Location = new Point(214, 421);
+            btnaddRepairSectionBack.Margin = new Padding(3, 2, 3, 2);
             btnaddRepairSectionBack.Name = "btnaddRepairSectionBack";
             btnaddRepairSectionBack.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            btnaddRepairSectionBack.Size = new Size(214, 45);
+            btnaddRepairSectionBack.Size = new Size(187, 34);
             btnaddRepairSectionBack.TabIndex = 14;
             btnaddRepairSectionBack.Text = "Back";
             btnaddRepairSectionBack.Click += btnaddRepairSectionBack_Click;
             // 
             // AddRepairTask
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             Controls.Add(btnaddRepairSectionBack);
@@ -252,11 +264,11 @@
             Controls.Add(txtboxaddrepairsectionRepairNotes);
             Controls.Add(txtboxaddrepairsectionDescription);
             Controls.Add(guna2HtmlLabel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AddRepairTask";
-            Size = new Size(1188, 659);
+            Size = new Size(1040, 494);
             Load += AddRepairTask_Load;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

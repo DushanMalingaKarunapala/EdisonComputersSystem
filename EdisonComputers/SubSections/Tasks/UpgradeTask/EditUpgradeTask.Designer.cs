@@ -71,7 +71,8 @@
             // lbleditrepairrecordSectionID
             // 
             lbleditrepairrecordSectionID.BackColor = Color.Transparent;
-            lbleditrepairrecordSectionID.Location = new Point(144, 139);
+            lbleditrepairrecordSectionID.Location = new Point(126, 104);
+            lbleditrepairrecordSectionID.Margin = new Padding(3, 2, 3, 2);
             lbleditrepairrecordSectionID.Name = "lbleditrepairrecordSectionID";
             lbleditrepairrecordSectionID.Size = new Size(3, 2);
             lbleditrepairrecordSectionID.TabIndex = 44;
@@ -79,10 +80,12 @@
             // 
             // guna2HtmlLabel7
             // 
+            guna2HtmlLabel7.AutoSize = false;
             guna2HtmlLabel7.BackColor = Color.Transparent;
-            guna2HtmlLabel7.Location = new Point(30, 139);
+            guna2HtmlLabel7.Location = new Point(26, 104);
+            guna2HtmlLabel7.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            guna2HtmlLabel7.Size = new Size(130, 22);
+            guna2HtmlLabel7.Size = new Size(102, 17);
             guna2HtmlLabel7.TabIndex = 43;
             guna2HtmlLabel7.Text = "Upgrade Rcord ID : ";
             // 
@@ -96,10 +99,11 @@
             btneditUpgradeSectionBack.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btneditUpgradeSectionBack.Font = new Font("Segoe UI", 9F);
             btneditUpgradeSectionBack.ForeColor = Color.White;
-            btneditUpgradeSectionBack.Location = new Point(215, 698);
+            btneditUpgradeSectionBack.Location = new Point(188, 524);
+            btneditUpgradeSectionBack.Margin = new Padding(3, 2, 3, 2);
             btneditUpgradeSectionBack.Name = "btneditUpgradeSectionBack";
             btneditUpgradeSectionBack.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btneditUpgradeSectionBack.Size = new Size(214, 45);
+            btneditUpgradeSectionBack.Size = new Size(187, 34);
             btneditUpgradeSectionBack.TabIndex = 42;
             btneditUpgradeSectionBack.Text = "Back";
             btneditUpgradeSectionBack.Click += btneditUpgradeSectionBack_Click;
@@ -115,10 +119,11 @@
             btneditUpgradeSectionCancel.FillColor = Color.FromArgb(224, 224, 224);
             btneditUpgradeSectionCancel.Font = new Font("Segoe UI", 9F);
             btneditUpgradeSectionCancel.ForeColor = Color.White;
-            btneditUpgradeSectionCancel.Location = new Point(455, 698);
+            btneditUpgradeSectionCancel.Location = new Point(398, 524);
+            btneditUpgradeSectionCancel.Margin = new Padding(3, 2, 3, 2);
             btneditUpgradeSectionCancel.Name = "btneditUpgradeSectionCancel";
             btneditUpgradeSectionCancel.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btneditUpgradeSectionCancel.Size = new Size(214, 45);
+            btneditUpgradeSectionCancel.Size = new Size(187, 34);
             btneditUpgradeSectionCancel.TabIndex = 41;
             btneditUpgradeSectionCancel.Text = "Cancel";
             btneditUpgradeSectionCancel.Click += btneditUpgradeSectionCancel_Click;
@@ -134,10 +139,11 @@
             btnupgradeSectionUpdate.FillColor = Color.FromArgb(216, 30, 44);
             btnupgradeSectionUpdate.Font = new Font("Segoe UI", 9F);
             btnupgradeSectionUpdate.ForeColor = Color.White;
-            btnupgradeSectionUpdate.Location = new Point(691, 698);
+            btnupgradeSectionUpdate.Location = new Point(605, 524);
+            btnupgradeSectionUpdate.Margin = new Padding(3, 2, 3, 2);
             btnupgradeSectionUpdate.Name = "btnupgradeSectionUpdate";
             btnupgradeSectionUpdate.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnupgradeSectionUpdate.Size = new Size(214, 45);
+            btnupgradeSectionUpdate.Size = new Size(187, 34);
             btnupgradeSectionUpdate.TabIndex = 40;
             btnupgradeSectionUpdate.Text = "Update Upgrade Task";
             btnupgradeSectionUpdate.Click += btnupgradeSectionUpdate_Click;
@@ -151,20 +157,23 @@
             btneditUpgradeTaskSectionaddComponents.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btneditUpgradeTaskSectionaddComponents.Font = new Font("Segoe UI", 9F);
             btneditUpgradeTaskSectionaddComponents.ForeColor = Color.White;
-            btneditUpgradeTaskSectionaddComponents.Location = new Point(455, 590);
+            btneditUpgradeTaskSectionaddComponents.Location = new Point(398, 442);
+            btneditUpgradeTaskSectionaddComponents.Margin = new Padding(3, 2, 3, 2);
             btneditUpgradeTaskSectionaddComponents.Name = "btneditUpgradeTaskSectionaddComponents";
             btneditUpgradeTaskSectionaddComponents.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btneditUpgradeTaskSectionaddComponents.Size = new Size(204, 36);
+            btneditUpgradeTaskSectionaddComponents.Size = new Size(178, 27);
             btneditUpgradeTaskSectionaddComponents.TabIndex = 39;
             btneditUpgradeTaskSectionaddComponents.Text = "Select Components";
             btneditUpgradeTaskSectionaddComponents.Click += btneditUpgradeTaskSectionaddComponents_Click;
             // 
             // guna2HtmlLabel6
             // 
+            guna2HtmlLabel6.AutoSize = false;
             guna2HtmlLabel6.BackColor = Color.Transparent;
-            guna2HtmlLabel6.Location = new Point(32, 413);
+            guna2HtmlLabel6.Location = new Point(28, 310);
+            guna2HtmlLabel6.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            guna2HtmlLabel6.Size = new Size(124, 22);
+            guna2HtmlLabel6.Size = new Size(101, 17);
             guna2HtmlLabel6.TabIndex = 38;
             guna2HtmlLabel6.Text = "Components Used";
             // 
@@ -191,11 +200,13 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             gridvieweditUpgradeSectionaddedComponents.DefaultCellStyle = dataGridViewCellStyle3;
             gridvieweditUpgradeSectionaddedComponents.GridColor = Color.FromArgb(239, 241, 243);
-            gridvieweditUpgradeSectionaddedComponents.Location = new Point(32, 441);
+            gridvieweditUpgradeSectionaddedComponents.Location = new Point(28, 331);
+            gridvieweditUpgradeSectionaddedComponents.Margin = new Padding(3, 2, 3, 2);
             gridvieweditUpgradeSectionaddedComponents.Name = "gridvieweditUpgradeSectionaddedComponents";
             gridvieweditUpgradeSectionaddedComponents.RowHeadersVisible = false;
             gridvieweditUpgradeSectionaddedComponents.RowHeadersWidth = 51;
-            gridvieweditUpgradeSectionaddedComponents.Size = new Size(1042, 113);
+            gridvieweditUpgradeSectionaddedComponents.RowTemplate.Height = 29;
+            gridvieweditUpgradeSectionaddedComponents.Size = new Size(912, 85);
             gridvieweditUpgradeSectionaddedComponents.TabIndex = 37;
             gridvieweditUpgradeSectionaddedComponents.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WhiteGrid;
             gridvieweditUpgradeSectionaddedComponents.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
@@ -223,29 +234,35 @@
             // 
             // guna2HtmlLabel5
             // 
+            guna2HtmlLabel5.AutoSize = false;
             guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Location = new Point(712, 330);
+            guna2HtmlLabel5.Location = new Point(623, 248);
+            guna2HtmlLabel5.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(169, 22);
+            guna2HtmlLabel5.Size = new Size(137, 17);
             guna2HtmlLabel5.TabIndex = 36;
             guna2HtmlLabel5.Text = "Warranty Period(months)";
             guna2HtmlLabel5.Visible = false;
             // 
             // guna2HtmlLabel4
             // 
+            guna2HtmlLabel4.AutoSize = false;
             guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.Location = new Point(32, 330);
+            guna2HtmlLabel4.Location = new Point(28, 248);
+            guna2HtmlLabel4.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(105, 22);
+            guna2HtmlLabel4.Size = new Size(83, 17);
             guna2HtmlLabel4.TabIndex = 35;
             guna2HtmlLabel4.Text = "Upgrade Status";
             // 
             // guna2HtmlLabel2
             // 
+            guna2HtmlLabel2.AutoSize = false;
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Location = new Point(30, 185);
+            guna2HtmlLabel2.Location = new Point(26, 139);
+            guna2HtmlLabel2.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(141, 22);
+            guna2HtmlLabel2.Size = new Size(111, 17);
             guna2HtmlLabel2.TabIndex = 33;
             guna2HtmlLabel2.Text = "Upgrade Description";
             // 
@@ -260,13 +277,12 @@
             txtboxeditUpgradeSectionWarrantyPeriod.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxeditUpgradeSectionWarrantyPeriod.Font = new Font("Segoe UI", 9F);
             txtboxeditUpgradeSectionWarrantyPeriod.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxeditUpgradeSectionWarrantyPeriod.Location = new Point(712, 358);
-            txtboxeditUpgradeSectionWarrantyPeriod.Margin = new Padding(3, 4, 3, 4);
+            txtboxeditUpgradeSectionWarrantyPeriod.Location = new Point(623, 268);
             txtboxeditUpgradeSectionWarrantyPeriod.Name = "txtboxeditUpgradeSectionWarrantyPeriod";
             txtboxeditUpgradeSectionWarrantyPeriod.PlaceholderText = "";
             txtboxeditUpgradeSectionWarrantyPeriod.SelectedText = "";
             txtboxeditUpgradeSectionWarrantyPeriod.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            txtboxeditUpgradeSectionWarrantyPeriod.Size = new Size(286, 36);
+            txtboxeditUpgradeSectionWarrantyPeriod.Size = new Size(250, 27);
             txtboxeditUpgradeSectionWarrantyPeriod.TabIndex = 32;
             txtboxeditUpgradeSectionWarrantyPeriod.Visible = false;
             // 
@@ -281,10 +297,11 @@
             cmbboxeditUpgradeSectionUpgradeStatus.Font = new Font("Segoe UI", 10F);
             cmbboxeditUpgradeSectionUpgradeStatus.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxeditUpgradeSectionUpgradeStatus.ItemHeight = 30;
-            cmbboxeditUpgradeSectionUpgradeStatus.Location = new Point(32, 358);
+            cmbboxeditUpgradeSectionUpgradeStatus.Location = new Point(28, 268);
+            cmbboxeditUpgradeSectionUpgradeStatus.Margin = new Padding(3, 2, 3, 2);
             cmbboxeditUpgradeSectionUpgradeStatus.Name = "cmbboxeditUpgradeSectionUpgradeStatus";
             cmbboxeditUpgradeSectionUpgradeStatus.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            cmbboxeditUpgradeSectionUpgradeStatus.Size = new Size(265, 36);
+            cmbboxeditUpgradeSectionUpgradeStatus.Size = new Size(232, 36);
             cmbboxeditUpgradeSectionUpgradeStatus.TabIndex = 31;
             // 
             // txtboxeditupgradesectionDescription
@@ -298,39 +315,43 @@
             txtboxeditupgradesectionDescription.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxeditupgradesectionDescription.Font = new Font("Segoe UI", 9F);
             txtboxeditupgradesectionDescription.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxeditupgradesectionDescription.Location = new Point(30, 214);
-            txtboxeditupgradesectionDescription.Margin = new Padding(3, 4, 3, 4);
+            txtboxeditupgradesectionDescription.Location = new Point(26, 160);
             txtboxeditupgradesectionDescription.Name = "txtboxeditupgradesectionDescription";
             txtboxeditupgradesectionDescription.PlaceholderText = "";
             txtboxeditupgradesectionDescription.SelectedText = "";
             txtboxeditupgradesectionDescription.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            txtboxeditupgradesectionDescription.Size = new Size(1042, 77);
+            txtboxeditupgradesectionDescription.Size = new Size(912, 58);
             txtboxeditupgradesectionDescription.TabIndex = 29;
             // 
             // guna2HtmlLabel1
             // 
+            guna2HtmlLabel1.AutoSize = false;
             guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Location = new Point(30, 92);
+            guna2HtmlLabel1.Location = new Point(26, 69);
+            guna2HtmlLabel1.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(147, 22);
+            guna2HtmlLabel1.Size = new Size(115, 17);
             guna2HtmlLabel1.TabIndex = 28;
             guna2HtmlLabel1.Text = "Update Upgrade Task";
             // 
             // lbleditupgradeSectionUpradeRecordID
             // 
             lbleditupgradeSectionUpradeRecordID.BackColor = Color.Transparent;
-            lbleditupgradeSectionUpradeRecordID.Location = new Point(166, 139);
+            lbleditupgradeSectionUpradeRecordID.Location = new Point(145, 104);
+            lbleditupgradeSectionUpradeRecordID.Margin = new Padding(3, 2, 3, 2);
             lbleditupgradeSectionUpradeRecordID.Name = "lbleditupgradeSectionUpradeRecordID";
-            lbleditupgradeSectionUpradeRecordID.Size = new Size(130, 22);
+            lbleditupgradeSectionUpradeRecordID.Size = new Size(102, 17);
             lbleditupgradeSectionUpradeRecordID.TabIndex = 45;
             lbleditupgradeSectionUpradeRecordID.Text = "Upgrade Rcord ID : ";
             // 
             // guna2HtmlLabel8
             // 
+            guna2HtmlLabel8.AutoSize = false;
             guna2HtmlLabel8.BackColor = Color.Transparent;
-            guna2HtmlLabel8.Location = new Point(369, 330);
+            guna2HtmlLabel8.Location = new Point(323, 248);
+            guna2HtmlLabel8.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            guna2HtmlLabel8.Size = new Size(97, 22);
+            guna2HtmlLabel8.Size = new Size(76, 17);
             guna2HtmlLabel8.TabIndex = 47;
             guna2HtmlLabel8.Text = "Upgrade Type";
             // 
@@ -345,15 +366,16 @@
             cmbboxeditsectionUpradeType.Font = new Font("Segoe UI", 10F);
             cmbboxeditsectionUpradeType.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxeditsectionUpradeType.ItemHeight = 30;
-            cmbboxeditsectionUpradeType.Location = new Point(369, 358);
+            cmbboxeditsectionUpradeType.Location = new Point(323, 268);
+            cmbboxeditsectionUpradeType.Margin = new Padding(3, 2, 3, 2);
             cmbboxeditsectionUpradeType.Name = "cmbboxeditsectionUpradeType";
             cmbboxeditsectionUpradeType.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            cmbboxeditsectionUpradeType.Size = new Size(265, 36);
+            cmbboxeditsectionUpradeType.Size = new Size(232, 36);
             cmbboxeditsectionUpradeType.TabIndex = 46;
             // 
             // EditUpgradeTask
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             Controls.Add(guna2HtmlLabel8);
@@ -374,8 +396,9 @@
             Controls.Add(cmbboxeditUpgradeSectionUpgradeStatus);
             Controls.Add(txtboxeditupgradesectionDescription);
             Controls.Add(guna2HtmlLabel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "EditUpgradeTask";
-            Size = new Size(1229, 806);
+            Size = new Size(1075, 604);
             Load += EditUpgradeTask_Load;
             ((System.ComponentModel.ISupportInitialize)gridvieweditUpgradeSectionaddedComponents).EndInit();
             ResumeLayout(false);

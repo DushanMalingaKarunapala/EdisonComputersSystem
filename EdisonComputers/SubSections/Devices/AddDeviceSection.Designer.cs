@@ -77,9 +77,10 @@
             // 
             // flppreviewAddingDeviceImages
             // 
-            flppreviewAddingDeviceImages.Location = new Point(19, 226);
+            flppreviewAddingDeviceImages.Location = new Point(17, 170);
+            flppreviewAddingDeviceImages.Margin = new Padding(3, 2, 3, 2);
             flppreviewAddingDeviceImages.Name = "flppreviewAddingDeviceImages";
-            flppreviewAddingDeviceImages.Size = new Size(1126, 99);
+            flppreviewAddingDeviceImages.Size = new Size(985, 74);
             flppreviewAddingDeviceImages.TabIndex = 39;
             // 
             // cmbboxDevselectCustomer1
@@ -87,9 +88,10 @@
             cmbboxDevselectCustomer1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbboxDevselectCustomer1.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbboxDevselectCustomer1.FormattingEnabled = true;
-            cmbboxDevselectCustomer1.Location = new Point(16, 77);
+            cmbboxDevselectCustomer1.Location = new Point(14, 58);
+            cmbboxDevselectCustomer1.Margin = new Padding(3, 2, 3, 2);
             cmbboxDevselectCustomer1.Name = "cmbboxDevselectCustomer1";
-            cmbboxDevselectCustomer1.Size = new Size(251, 28);
+            cmbboxDevselectCustomer1.Size = new Size(220, 23);
             cmbboxDevselectCustomer1.TabIndex = 31;
             // 
             // btndeviceuploadImages
@@ -105,10 +107,11 @@
             btndeviceuploadImages.ForeColor = Color.White;
             btndeviceuploadImages.Image = Resource1.Add_Image;
             btndeviceuploadImages.ImageAlign = HorizontalAlignment.Left;
-            btndeviceuploadImages.Location = new Point(595, 157);
+            btndeviceuploadImages.Location = new Point(521, 118);
+            btndeviceuploadImages.Margin = new Padding(3, 2, 3, 2);
             btndeviceuploadImages.Name = "btndeviceuploadImages";
             btndeviceuploadImages.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btndeviceuploadImages.Size = new Size(251, 36);
+            btndeviceuploadImages.Size = new Size(220, 27);
             btndeviceuploadImages.TabIndex = 38;
             btndeviceuploadImages.Text = "Upload Images";
             btndeviceuploadImages.Click += btndeviceuploadImages_Click;
@@ -124,21 +127,21 @@
             txtboxdeviceDescription.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxdeviceDescription.Font = new Font("Segoe UI", 9F);
             txtboxdeviceDescription.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxdeviceDescription.Location = new Point(19, 371);
-            txtboxdeviceDescription.Margin = new Padding(3, 4, 3, 4);
+            txtboxdeviceDescription.Location = new Point(17, 278);
             txtboxdeviceDescription.Name = "txtboxdeviceDescription";
             txtboxdeviceDescription.PlaceholderText = "";
             txtboxdeviceDescription.SelectedText = "";
             txtboxdeviceDescription.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtboxdeviceDescription.Size = new Size(1126, 128);
+            txtboxdeviceDescription.Size = new Size(985, 96);
             txtboxdeviceDescription.TabIndex = 40;
             // 
             // guna2HtmlLabel8
             // 
             guna2HtmlLabel8.BackColor = Color.Transparent;
-            guna2HtmlLabel8.Location = new Point(19, 342);
+            guna2HtmlLabel8.Location = new Point(17, 256);
+            guna2HtmlLabel8.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            guna2HtmlLabel8.Size = new Size(79, 22);
+            guna2HtmlLabel8.Size = new Size(63, 17);
             guna2HtmlLabel8.TabIndex = 28;
             guna2HtmlLabel8.Text = "Description";
             // 
@@ -148,12 +151,13 @@
             datetimepickerdeviceRecievedDate.CustomizableEdges = customizableEdges5;
             datetimepickerdeviceRecievedDate.Font = new Font("Segoe UI", 9F);
             datetimepickerdeviceRecievedDate.Format = DateTimePickerFormat.Long;
-            datetimepickerdeviceRecievedDate.Location = new Point(906, 177);
+            datetimepickerdeviceRecievedDate.Location = new Point(793, 133);
+            datetimepickerdeviceRecievedDate.Margin = new Padding(3, 2, 3, 2);
             datetimepickerdeviceRecievedDate.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             datetimepickerdeviceRecievedDate.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             datetimepickerdeviceRecievedDate.Name = "datetimepickerdeviceRecievedDate";
             datetimepickerdeviceRecievedDate.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            datetimepickerdeviceRecievedDate.Size = new Size(41, 16);
+            datetimepickerdeviceRecievedDate.Size = new Size(36, 12);
             datetimepickerdeviceRecievedDate.TabIndex = 26;
             datetimepickerdeviceRecievedDate.Value = new DateTime(2025, 5, 24, 19, 6, 11, 499);
             datetimepickerdeviceRecievedDate.Visible = false;
@@ -161,18 +165,20 @@
             // guna2HtmlLabel7
             // 
             guna2HtmlLabel7.BackColor = Color.Transparent;
-            guna2HtmlLabel7.Location = new Point(595, 41);
+            guna2HtmlLabel7.Location = new Point(521, 31);
+            guna2HtmlLabel7.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            guna2HtmlLabel7.Size = new Size(84, 22);
+            guna2HtmlLabel7.Size = new Size(66, 17);
             guna2HtmlLabel7.TabIndex = 25;
             guna2HtmlLabel7.Text = "Device Type";
             // 
             // guna2HtmlLabel6
             // 
             guna2HtmlLabel6.BackColor = Color.Transparent;
-            guna2HtmlLabel6.Location = new Point(16, 40);
+            guna2HtmlLabel6.Location = new Point(14, 30);
+            guna2HtmlLabel6.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            guna2HtmlLabel6.Size = new Size(110, 22);
+            guna2HtmlLabel6.Size = new Size(89, 17);
             guna2HtmlLabel6.TabIndex = 24;
             guna2HtmlLabel6.Text = "Select Customer";
             // 
@@ -187,10 +193,11 @@
             cmbboxDevselectType.Font = new Font("Segoe UI", 10F);
             cmbboxDevselectType.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxDevselectType.ItemHeight = 30;
-            cmbboxDevselectType.Location = new Point(595, 69);
+            cmbboxDevselectType.Location = new Point(521, 52);
+            cmbboxDevselectType.Margin = new Padding(3, 2, 3, 2);
             cmbboxDevselectType.Name = "cmbboxDevselectType";
             cmbboxDevselectType.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            cmbboxDevselectType.Size = new Size(251, 36);
+            cmbboxDevselectType.Size = new Size(220, 36);
             cmbboxDevselectType.TabIndex = 34;
             // 
             // btndeviceBack
@@ -203,10 +210,11 @@
             btndeviceBack.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btndeviceBack.Font = new Font("Segoe UI", 9F);
             btndeviceBack.ForeColor = Color.White;
-            btndeviceBack.Location = new Point(227, 535);
+            btndeviceBack.Location = new Point(197, 393);
+            btndeviceBack.Margin = new Padding(3, 2, 3, 2);
             btndeviceBack.Name = "btndeviceBack";
             btndeviceBack.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btndeviceBack.Size = new Size(214, 45);
+            btndeviceBack.Size = new Size(187, 34);
             btndeviceBack.TabIndex = 43;
             btndeviceBack.Text = "Back";
             btndeviceBack.Click += btndeviceBack_Click;
@@ -222,10 +230,11 @@
             btndeviceSave.FillColor = Color.FromArgb(216, 30, 44);
             btndeviceSave.Font = new Font("Segoe UI", 9F);
             btndeviceSave.ForeColor = Color.White;
-            btndeviceSave.Location = new Point(767, 535);
+            btndeviceSave.Location = new Point(669, 393);
+            btndeviceSave.Margin = new Padding(3, 2, 3, 2);
             btndeviceSave.Name = "btndeviceSave";
             btndeviceSave.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            btndeviceSave.Size = new Size(214, 45);
+            btndeviceSave.Size = new Size(187, 34);
             btndeviceSave.TabIndex = 41;
             btndeviceSave.Text = "Save Device";
             btndeviceSave.Click += btndeviceSave_Click;
@@ -241,45 +250,50 @@
             btndeviceCancel.FillColor = Color.FromArgb(224, 224, 224);
             btndeviceCancel.Font = new Font("Segoe UI", 9F);
             btndeviceCancel.ForeColor = Color.White;
-            btndeviceCancel.Location = new Point(498, 535);
+            btndeviceCancel.Location = new Point(434, 393);
+            btndeviceCancel.Margin = new Padding(3, 2, 3, 2);
             btndeviceCancel.Name = "btndeviceCancel";
             btndeviceCancel.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            btndeviceCancel.Size = new Size(214, 45);
+            btndeviceCancel.Size = new Size(187, 34);
             btndeviceCancel.TabIndex = 42;
             btndeviceCancel.Text = "Cancel";
             btndeviceCancel.Click += btndeviceCancel_Click;
             // 
             // guna2Separator1
             // 
-            guna2Separator1.Location = new Point(19, 506);
+            guna2Separator1.Location = new Point(17, 380);
+            guna2Separator1.Margin = new Padding(3, 2, 3, 2);
             guna2Separator1.Name = "guna2Separator1";
-            guna2Separator1.Size = new Size(1211, 12);
+            guna2Separator1.Size = new Size(1060, 9);
             guna2Separator1.TabIndex = 18;
             // 
             // guna2HtmlLabel5
             // 
             guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Location = new Point(312, 128);
+            guna2HtmlLabel5.Location = new Point(273, 96);
+            guna2HtmlLabel5.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(98, 22);
+            guna2HtmlLabel5.Size = new Size(78, 17);
             guna2HtmlLabel5.TabIndex = 17;
             guna2HtmlLabel5.Text = "Serial Number";
             // 
             // guna2HtmlLabel3
             // 
             guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Location = new Point(16, 128);
+            guna2HtmlLabel3.Location = new Point(14, 96);
+            guna2HtmlLabel3.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(46, 22);
+            guna2HtmlLabel3.Size = new Size(37, 17);
             guna2HtmlLabel3.TabIndex = 15;
             guna2HtmlLabel3.Text = "Model";
             // 
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Location = new Point(894, 29);
+            guna2HtmlLabel2.Location = new Point(782, 22);
+            guna2HtmlLabel2.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(42, 22);
+            guna2HtmlLabel2.Size = new Size(34, 17);
             guna2HtmlLabel2.TabIndex = 14;
             guna2HtmlLabel2.Text = "Brand";
             // 
@@ -295,13 +309,12 @@
             txtboxdeviceSerialNum.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxdeviceSerialNum.Font = new Font("Segoe UI", 9F);
             txtboxdeviceSerialNum.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxdeviceSerialNum.Location = new Point(312, 157);
-            txtboxdeviceSerialNum.Margin = new Padding(3, 4, 3, 4);
+            txtboxdeviceSerialNum.Location = new Point(273, 118);
             txtboxdeviceSerialNum.Name = "txtboxdeviceSerialNum";
             txtboxdeviceSerialNum.PlaceholderText = "";
             txtboxdeviceSerialNum.SelectedText = "";
             txtboxdeviceSerialNum.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            txtboxdeviceSerialNum.Size = new Size(251, 36);
+            txtboxdeviceSerialNum.Size = new Size(220, 27);
             txtboxdeviceSerialNum.TabIndex = 37;
             // 
             // txtboxdeviceModel
@@ -316,13 +329,12 @@
             txtboxdeviceModel.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxdeviceModel.Font = new Font("Segoe UI", 9F);
             txtboxdeviceModel.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxdeviceModel.Location = new Point(16, 157);
-            txtboxdeviceModel.Margin = new Padding(3, 4, 3, 4);
+            txtboxdeviceModel.Location = new Point(14, 118);
             txtboxdeviceModel.Name = "txtboxdeviceModel";
             txtboxdeviceModel.PlaceholderText = "";
             txtboxdeviceModel.SelectedText = "";
             txtboxdeviceModel.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            txtboxdeviceModel.Size = new Size(251, 36);
+            txtboxdeviceModel.Size = new Size(220, 27);
             txtboxdeviceModel.TabIndex = 36;
             // 
             // txtboxdeviceBrand
@@ -337,28 +349,29 @@
             txtboxdeviceBrand.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxdeviceBrand.Font = new Font("Segoe UI", 9F);
             txtboxdeviceBrand.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxdeviceBrand.Location = new Point(894, 69);
-            txtboxdeviceBrand.Margin = new Padding(3, 4, 3, 4);
+            txtboxdeviceBrand.Location = new Point(782, 52);
             txtboxdeviceBrand.Name = "txtboxdeviceBrand";
             txtboxdeviceBrand.PlaceholderText = "";
             txtboxdeviceBrand.SelectedText = "";
             txtboxdeviceBrand.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            txtboxdeviceBrand.Size = new Size(251, 36);
+            txtboxdeviceBrand.Size = new Size(220, 27);
             txtboxdeviceBrand.TabIndex = 35;
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(21, 226);
+            guna2HtmlLabel1.Location = new Point(18, 183);
+            guna2HtmlLabel1.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(260, 30);
+            guna2HtmlLabel1.Size = new Size(208, 23);
             guna2HtmlLabel1.TabIndex = 11;
             guna2HtmlLabel1.Text = "Add New Device / PC Build";
             guna2HtmlLabel1.Click += guna2HtmlLabel1_Click;
             // 
             // paneladdDevicenewSection
             // 
+            paneladdDevicenewSection.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             paneladdDevicenewSection.BackColor = SystemColors.InactiveBorder;
             paneladdDevicenewSection.Controls.Add(chkIsNewBuild);
             paneladdDevicenewSection.Controls.Add(flppreviewAddingDeviceImages);
@@ -381,10 +394,11 @@
             paneladdDevicenewSection.Controls.Add(guna2HtmlLabel2);
             paneladdDevicenewSection.Controls.Add(guna2HtmlLabel3);
             paneladdDevicenewSection.CustomizableEdges = customizableEdges21;
-            paneladdDevicenewSection.Location = new Point(21, 262);
+            paneladdDevicenewSection.Location = new Point(18, 210);
+            paneladdDevicenewSection.Margin = new Padding(3, 2, 3, 2);
             paneladdDevicenewSection.Name = "paneladdDevicenewSection";
             paneladdDevicenewSection.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            paneladdDevicenewSection.Size = new Size(1259, 596);
+            paneladdDevicenewSection.Size = new Size(1102, 433);
             paneladdDevicenewSection.TabIndex = 33;
             paneladdDevicenewSection.Paint += paneladdDevicenewSection_Paint;
             // 
@@ -395,11 +409,13 @@
             chkIsNewBuild.CheckedState.BorderRadius = 0;
             chkIsNewBuild.CheckedState.BorderThickness = 0;
             chkIsNewBuild.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            chkIsNewBuild.Location = new Point(312, 81);
+            chkIsNewBuild.ForeColor = Color.Black;
+            chkIsNewBuild.Location = new Point(273, 61);
+            chkIsNewBuild.Margin = new Padding(3, 2, 3, 2);
             chkIsNewBuild.Name = "chkIsNewBuild";
-            chkIsNewBuild.Size = new Size(120, 24);
+            chkIsNewBuild.Size = new Size(151, 19);
             chkIsNewBuild.TabIndex = 33;
-            chkIsNewBuild.Text = "New PC Build";
+            chkIsNewBuild.Text = "PC Build/New Purchase";
             chkIsNewBuild.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
             chkIsNewBuild.UncheckedState.BorderRadius = 0;
             chkIsNewBuild.UncheckedState.BorderThickness = 0;
@@ -408,12 +424,13 @@
             // 
             // AddDeviceSection
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(paneladdDevicenewSection);
             Controls.Add(guna2HtmlLabel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AddDeviceSection";
-            Size = new Size(1409, 879);
+            Size = new Size(1233, 659);
             paneladdDevicenewSection.ResumeLayout(false);
             paneladdDevicenewSection.PerformLayout();
             ResumeLayout(false);

@@ -25,7 +25,7 @@ namespace Presentation.Sections.User
         private async void UserSection_Load(object sender, EventArgs e)
         {
             // Load user data when the UserSection is loaded
-           await LoadUser();
+            await LoadUser();
 
         }
 
@@ -46,7 +46,7 @@ namespace Presentation.Sections.User
                         txtboxusersectionUsername.Text = _currUser.Username;
                         txtboxusersectionEmail.Text = _currUser.Email;
                         //hide the password fields for security reasons
-                       
+
                     }
                     else
                     {
@@ -78,8 +78,8 @@ namespace Presentation.Sections.User
             }
 
 
-            if(!newEmail.Contains("@"))
-{
+            if (!newEmail.Contains("@"))
+            {
                 MessageBox.Show("Please enter a valid email address.", "Validation Error");
                 return false;
             }
@@ -108,7 +108,7 @@ namespace Presentation.Sections.User
 
             try
             {
-                
+
 
                 // 1. Get the current user ID. For a single-user app, we can assume it's 1.
                 int currentUserId = 1;
@@ -176,6 +176,29 @@ namespace Presentation.Sections.User
             }
 
         }
-         
+
+        private void btnusersecitonCancel_Click(object sender, EventArgs e)
+        {
+            // Clear the textboxes when the cancel button is clicked
+            //txtboxusersectionUsername.Clear();
+            txtboxusersectionEmail.Clear();
+            txtboxusersectioncurrentPassword.Clear();
+            txtboxusersectionNewPassword.Clear();
+            MessageBox.Show("Changes have been canceled.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Optionally, you can reload the user data to reset the UI to the original state
+            LoadUser().ContinueWith(t =>
+            {
+                if (t.IsFaulted)
+                {
+                    MessageBox.Show($"An error occurred while reloading user data: {t.Exception?.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            });
+        }
+
+        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

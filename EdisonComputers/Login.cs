@@ -25,6 +25,10 @@ namespace Presentation
 
 
             //this.IsMdiContainer = true;
+            //get the property copyright from the presentation.csproj property group and set it to the label lblCopyright
+            companycopyrightinfo.Text = $"© {DateTime.Now.Year} Edison Computers. All rights reserved.";
+
+
         }
 
         private void guna2CircleButton1_Click(object sender, EventArgs e)

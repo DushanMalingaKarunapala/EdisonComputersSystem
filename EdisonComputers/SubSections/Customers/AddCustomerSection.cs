@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -108,18 +109,72 @@ namespace Presentation.SubSections.Customers
         //method to validate the customer data before saving
         private bool ValidateCustomerData()
         {
-            if (string.IsNullOrWhiteSpace(txtboxCusFirstname.Text) || string.IsNullOrWhiteSpace(txtboxCusPhone.Text))
+            var errors = new List<string>();
+
+            // First name validation
+            if (string.IsNullOrWhiteSpace(txtboxCusFirstname.Text))
+                errors.Add("First name is required.");
+            else if (txtboxCusFirstname.Text.Length > 200)
+                errors.Add("First name cannot exceed 200 characters.");
+
+            // Last name validation
+            if (!string.IsNullOrEmpty(txtboxCusLastName.Text) && txtboxCusLastName.Text.Length > 200)
+                errors.Add("Last name cannot exceed 200 characters.");
+
+            // Phone validation
+            if (string.IsNullOrWhiteSpace(txtboxCusPhone.Text))
+                errors.Add("Phone number is required.");
+            else if (!IsValidPhoneNumber(txtboxCusPhone.Text))
+                errors.Add("Phone number must be at least 10 digits.");
+
+            // Email validation
+            if (!string.IsNullOrWhiteSpace(txtboxCusEmail.Text))
             {
-                MessageBox.Show("First Name and Phone are required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (txtboxCusEmail.Text.Length > 255)
+                    errors.Add("Email cannot exceed 255 characters.");
+                else if (!IsValidEmail(txtboxCusEmail.Text))
+                    errors.Add("Please enter a valid email address.");
+            }
+
+            // Address validation
+            if (!string.IsNullOrEmpty(txtboxCusAddress.Text) && txtboxCusAddress.Text.Length > 500)
+                errors.Add("Address cannot exceed 500 characters.");
+
+            if (errors.Any())
+            {
+                MessageBox.Show(string.Join("\n", errors), "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (!string.IsNullOrWhiteSpace(txtboxCusEmail.Text) && !txtboxCusEmail.Text.Contains("@"))
-            {
-                MessageBox.Show("Please enter a valid email address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+
             return true;
         }
+
+
+        // Method to validate phone number and email format
+        private static bool IsValidPhoneNumber(string phone)
+        {
+            if (string.IsNullOrWhiteSpace(phone))
+                return false;
+
+            var cleanPhone = Regex.Replace(phone, @"[\s\-\(\)\+]", "");
+            return cleanPhone.Length >= 10 && Regex.IsMatch(cleanPhone, @"^\d+$");
+        }
+
+        private static bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            var emailRegex = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+            return emailRegex.IsMatch(email);
+        }
+
+
+
+
+
+
+
 
         //method to set ui enabled or disabled based on the validation result
 

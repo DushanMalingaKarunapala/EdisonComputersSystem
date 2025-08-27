@@ -40,6 +40,7 @@
             btnLoginSectionMinimize = new Guna.UI2.WinForms.Guna2TileButton();
             btnLoginSectionMaximize = new Guna.UI2.WinForms.Guna2TileButton();
             btnLoginSectionClose = new Guna.UI2.WinForms.Guna2TileButton();
+            companycopyrightinfo = new Guna.UI2.WinForms.Guna2HtmlLabel();
             SuspendLayout();
             // 
             // guna2CircleButton1
@@ -131,6 +132,19 @@
             btnLoginSectionClose.TabIndex = 3;
             btnLoginSectionClose.Click += btnLoginSectionClose_Click;
             // 
+            // companycopyrightinfo
+            // 
+            companycopyrightinfo.Anchor = AnchorStyles.Bottom;
+            companycopyrightinfo.BackColor = Color.Transparent;
+            companycopyrightinfo.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            companycopyrightinfo.ForeColor = Color.Black;
+            companycopyrightinfo.Location = new Point(458, 669);
+            companycopyrightinfo.Name = "companycopyrightinfo";
+            companycopyrightinfo.Size = new Size(137, 25);
+            companycopyrightinfo.TabIndex = 4;
+            companycopyrightinfo.Text = "guna2HtmlLabel1";
+            companycopyrightinfo.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -138,6 +152,7 @@
             BackgroundImage = Properties.Resources.LOGO_FINAL1;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1273, 756);
+            Controls.Add(companycopyrightinfo);
             Controls.Add(btnLoginSectionClose);
             Controls.Add(btnLoginSectionMaximize);
             Controls.Add(btnLoginSectionMinimize);
@@ -148,6 +163,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -156,5 +172,6 @@
         private Guna.UI2.WinForms.Guna2TileButton btnLoginSectionMinimize;
         private Guna.UI2.WinForms.Guna2TileButton btnLoginSectionMaximize;
         private Guna.UI2.WinForms.Guna2TileButton btnLoginSectionClose;
+        private Guna.UI2.WinForms.Guna2HtmlLabel companycopyrightinfo;
     }
 }

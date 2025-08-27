@@ -19,6 +19,31 @@ namespace DAL.Repositories.CustomerRepository
             _dbContext = dbContext;
         }
 
+        public Task<bool> ExistsAsync(string phone, string? email = null, int? excludeCustomerId = null)
+        {
+            // Check if a customer exists with the given phone and optionally email, excluding a specific customer by ID
+            var query = _dbContext.Customers.AsQueryable();
+
+            // Exclude the current customer if updating
+            if (excludeCustomerId.HasValue)
+            {
+                query = query.Where(c => c.CustomerId != excludeCustomerId.Value);
+            }
+
+            // Check if phone exists OR email exists (if email is provided)
+            if (!string.IsNullOrWhiteSpace(email))
+            {
+                // Check for duplicate phone OR duplicate email
+                return query.Where(c => c.Phone == phone || c.Email == email).AnyAsync();
+            }
+            else
+            {
+                // Only check for duplicate phone
+                return query.Where(c => c.Phone == phone).AnyAsync();
+            }
+
+        }
+
         public async Task<List<Customer>> GetCustomersByDeviceType(DeviceType deviceType)
         {
             return await _dbContext.Customers
@@ -47,6 +72,8 @@ namespace DAL.Repositories.CustomerRepository
                 .CountAsync();
 
         }
+
+        
 
         //a method to search customers by name, phone, or email and return a list of customers
         public async Task<List<Customer>> SearchCustomersAsync(string searchTerm)
@@ -81,6 +108,23 @@ namespace DAL.Repositories.CustomerRepository
         //                           .Where(predicate)
         //                           .ToListAsync();
         //}
+
+
+
+        public async Task<List<Customer>> GetRecentlyAddedCustomersAsync(int months)
+        {
+            var cutoffDate = DateTime.UtcNow.AddMonths(-months);// Use UtcNow for consistency
+            return await _dbContext.Customers
+                .Where(c => c.RecordStatus == RecordStatus.Active &&
+                           (c.Created >= cutoffDate ||
+                            c.Devices.Any(d => d.Jobs.Any(j => j.CheckedInDate >= cutoffDate))))
+                .Include(c => c.Devices)
+                .OrderByDescending(c => c.Created)
+                .Take(30)
+                .ToListAsync();
+        }
+
+
 
 
     }

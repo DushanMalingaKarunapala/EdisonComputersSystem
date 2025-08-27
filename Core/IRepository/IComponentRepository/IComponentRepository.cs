@@ -39,5 +39,9 @@ namespace Core.IRepository.IComponentRepository
         Task<List<Component>> SearchComponentsAsync(string searchTerm);
 
 
+        //a method to fetch only the priority components
+        //
+        Task<List<Component>> GetPriorityComponentsAsync();
+
     }
 }

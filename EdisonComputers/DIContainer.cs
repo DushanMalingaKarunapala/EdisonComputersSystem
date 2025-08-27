@@ -44,7 +44,7 @@ namespace Presentation
 
             services.AddDbContext<ApplicationDbContext>(options =>
             
-            options.UseSqlServer("Server=BELUGA;Database=ComputerRepairDB;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True;"),
+            options.UseSqlServer("Server=BELUGA;Database=ComputerRepairDB;Trusted_Connection=True;MultipleActiveResultSets=True;"),
                 ServiceLifetime.Scoped
 
             //Server=BELUGA;Database=ComputerRepairDB;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True;"
@@ -60,6 +60,7 @@ namespace Presentation
             services.AddScoped<DashboardService>();
             services.AddScoped<UserService>();
             services.AddScoped<BLL.Services.InvoiceService.InvoiceService>();
+         
 
 
             services.AddScoped<ICustomerRepository, CustomerRepository>();

@@ -45,7 +45,8 @@ namespace Presentation.SubSections.Components
             PopulateFilterCategories();
 
             // Load the components when the user control is loaded
-            await LoadAllComponentsAsync();
+            //await LoadAllComponentsAsync();
+            await LoadPriorityComponentsByDefaultAsync(); // Load priority components by default
 
         }
 
@@ -53,6 +54,7 @@ namespace Presentation.SubSections.Components
         {
             var categories = new List<FilterCategory>
         {
+             new FilterCategory { DisplayName = "Priority Components", Value = "Priority" }, // New default
             new FilterCategory { DisplayName = "Show All", Value = "All" },
             //new FilterCategory { DisplayName = "By Record Status", Value = "RecordStatus" },
             new FilterCategory { DisplayName = "By Component Type", Value = "ComponentType" }
@@ -68,17 +70,65 @@ namespace Presentation.SubSections.Components
 
 
 
+
+        private async Task LoadPriorityComponentsByDefaultAsync()
+        {
+            try
+            {
+                using (var scope = _serviceProvider.CreateScope())
+                {
+                    var componentService = scope.ServiceProvider.GetRequiredService<ComponentService>();
+                    // Get low stock components + recently added components
+                    var priorityComponents = await componentService.GetPriorityComponentsAsync();
+                    BindComponentsToGrid(priorityComponents.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading priority components: {ex.Message}", "Error");
+            }
+        }
+
+
+
+
+
+
+
+
         // A better refresh method that reloads based on current filter
         public async Task RefreshGridView()
         {
-            if (cmbboxcomponentsectionfilterCategory.SelectedValue?.ToString() == "All" || cmbboxcomponentsectionfilterValue.SelectedItem == null)
+            if (cmbboxcomponentsectionfilterCategory.SelectedValue != null)
             {
-                await LoadAllComponentsAsync();
+                string category = cmbboxcomponentsectionfilterCategory.SelectedValue.ToString();
+
+                switch (category)
+                {
+                    case "RecentActive":
+                        await LoadPriorityComponentsByDefaultAsync();
+                        break;
+                    case "All":
+                        await LoadAllComponentsAsync();
+                        break;
+                    default:
+                        // For other filters with values
+                        if (cmbboxcomponentsectionfilterValue.SelectedValue != null)
+                        {
+                            cmbboxcomponentsectionfilterValue_SelectedIndexChanged(this, EventArgs.Empty);
+                        }
+                        else
+                        {
+                            // Fallback to default if no specific value is selected
+                            await LoadPriorityComponentsByDefaultAsync();
+                        }
+                        break;
+                }
             }
             else
             {
-                // Re-apply the current filter
-                cmbboxcomponentsectionfilterValue_SelectedIndexChanged(this, EventArgs.Empty);
+                // Fallback if no category is selected
+                await LoadPriorityComponentsByDefaultAsync();
             }
         }
 
@@ -121,25 +171,25 @@ namespace Presentation.SubSections.Components
         {
             if (gridviewComponents.Columns.Contains("View")) return; // prevent duplication
 
-            DataGridViewImageColumn viewColumn = new DataGridViewImageColumn
-            {
-                Name = "View",
-                HeaderText = "   View",
+            //DataGridViewImageColumn viewColumn = new DataGridViewImageColumn
+            //{
+            //    Name = "View",
+            //    HeaderText = "   View",
 
-                Image = Resource1.Eye2, // 👁️
-                Width = 2,
-                ImageLayout = DataGridViewImageCellLayout.Zoom,
-
-
+            //    Image = Resource1.Eye2, // 👁️
+            //    Width = 2,
+            //    ImageLayout = DataGridViewImageCellLayout.Zoom,
 
 
-            };
+
+
+            //};
 
             DataGridViewImageColumn editColumn = new DataGridViewImageColumn
             {
                 Name = "Edit",
                 HeaderText = "Edit",
-                Image = Resource1.Create, // ✏️
+                Image = Resource1.Create3, // ✏️
                 Width = 2,
                 ImageLayout = DataGridViewImageCellLayout.Zoom
             };
@@ -148,12 +198,12 @@ namespace Presentation.SubSections.Components
             {
                 Name = "Delete",
                 HeaderText = "Delete",
-                Image = Resource1.Waste, // 🗑️
+                Image = Resource1.Remove, // 🗑️
                 Width = 2,
                 ImageLayout = DataGridViewImageCellLayout.Zoom
             };
 
-            gridviewComponents.Columns.Add(viewColumn);
+            //gridviewComponents.Columns.Add(viewColumn);
             gridviewComponents.Columns.Add(editColumn);
             gridviewComponents.Columns.Add(deleteColumn);
         }
@@ -319,10 +369,19 @@ namespace Presentation.SubSections.Components
                     break;
 
                 case "All":
-                default:
+
                     cmbboxcomponentsectionfilterValue.Enabled = false; // Nothing to select for "All"
                     await LoadAllComponentsAsync(); // Reload all customers
                     break;
+
+                case "Priority":
+                default:
+                    cmbboxcomponentsectionfilterValue.Enabled = false; // No selection needed for Priority
+                    await LoadPriorityComponentsByDefaultAsync(); // Load priority components
+                    break;
+
+
+                
             }
 
         }

@@ -143,32 +143,38 @@
             panelviewjobSection.Dock = DockStyle.Fill;
             panelviewjobSection.FillColor = Color.White;
             panelviewjobSection.Location = new Point(0, 0);
+            panelviewjobSection.Margin = new Padding(3, 2, 3, 2);
             panelviewjobSection.Name = "panelviewjobSection";
             panelviewjobSection.ShadowColor = Color.Black;
-            panelviewjobSection.Size = new Size(1270, 1813);
+            panelviewjobSection.Size = new Size(1111, 1360);
             panelviewjobSection.TabIndex = 0;
             // 
             // lblJobDetails
             // 
+            lblJobDetails.AutoSize = false;
             lblJobDetails.BackColor = Color.Transparent;
             lblJobDetails.ForeColor = Color.Black;
-            lblJobDetails.Location = new Point(162, 319);
+            lblJobDetails.Location = new Point(142, 239);
+            lblJobDetails.Margin = new Padding(3, 2, 3, 2);
             lblJobDetails.Name = "lblJobDetails";
-            lblJobDetails.Size = new Size(121, 22);
+            lblJobDetails.Size = new Size(97, 17);
             lblJobDetails.TabIndex = 1;
             lblJobDetails.Text = "guna2HtmlLabel2";
             // 
             // guna2HtmlLabel1
             // 
+            guna2HtmlLabel1.AutoSize = false;
             guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Location = new Point(48, 319);
+            guna2HtmlLabel1.Location = new Point(42, 239);
+            guna2HtmlLabel1.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(83, 22);
+            guna2HtmlLabel1.Size = new Size(65, 17);
             guna2HtmlLabel1.TabIndex = 0;
             guna2HtmlLabel1.Text = "Job Details :";
             // 
             // guna2Panel1
             // 
+            guna2Panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             guna2Panel1.BackColor = Color.WhiteSmoke;
             guna2Panel1.Controls.Add(guna2HtmlLabel2);
             guna2Panel1.Controls.Add(guna2HtmlLabel3);
@@ -186,45 +192,54 @@
             guna2Panel1.Controls.Add(lblCheckeIn);
             guna2Panel1.Controls.Add(lblCompleted);
             guna2Panel1.CustomizableEdges = customizableEdges5;
-            guna2Panel1.Location = new Point(48, 347);
+            guna2Panel1.Location = new Point(42, 260);
+            guna2Panel1.Margin = new Padding(3, 2, 3, 2);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2Panel1.Size = new Size(1162, 328);
+            guna2Panel1.Size = new Size(1017, 246);
             guna2Panel1.TabIndex = 34;
             // 
             // guna2HtmlLabel2
             // 
+            guna2HtmlLabel2.AutoSize = false;
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Location = new Point(15, 28);
+            guna2HtmlLabel2.Location = new Point(13, 21);
+            guna2HtmlLabel2.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(45, 22);
+            guna2HtmlLabel2.Size = new Size(35, 17);
             guna2HtmlLabel2.TabIndex = 2;
             guna2HtmlLabel2.Text = "Job ID";
             // 
             // guna2HtmlLabel3
             // 
+            guna2HtmlLabel3.AutoSize = false;
             guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Location = new Point(443, 28);
+            guna2HtmlLabel3.Location = new Point(388, 21);
+            guna2HtmlLabel3.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(48, 22);
+            guna2HtmlLabel3.Size = new Size(38, 17);
             guna2HtmlLabel3.TabIndex = 3;
             guna2HtmlLabel3.Text = "Device";
             // 
             // guna2HtmlLabel4
             // 
+            guna2HtmlLabel4.AutoSize = false;
             guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.Location = new Point(15, 142);
+            guna2HtmlLabel4.Location = new Point(13, 106);
+            guna2HtmlLabel4.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(77, 22);
+            guna2HtmlLabel4.Size = new Size(62, 17);
             guna2HtmlLabel4.TabIndex = 4;
             guna2HtmlLabel4.Text = "Completed";
             // 
             // guna2HtmlLabel5
             // 
+            guna2HtmlLabel5.AutoSize = false;
             guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Location = new Point(203, 28);
+            guna2HtmlLabel5.Location = new Point(178, 21);
+            guna2HtmlLabel5.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(66, 22);
+            guna2HtmlLabel5.Size = new Size(55, 17);
             guna2HtmlLabel5.TabIndex = 5;
             guna2HtmlLabel5.Text = "Customer";
             // 
@@ -238,10 +253,11 @@
             btnjobsectionUpdateStatus.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnjobsectionUpdateStatus.Font = new Font("Segoe UI", 9F);
             btnjobsectionUpdateStatus.ForeColor = Color.White;
-            btnjobsectionUpdateStatus.Location = new Point(906, 212);
+            btnjobsectionUpdateStatus.Location = new Point(793, 168);
+            btnjobsectionUpdateStatus.Margin = new Padding(3, 2, 3, 2);
             btnjobsectionUpdateStatus.Name = "btnjobsectionUpdateStatus";
             btnjobsectionUpdateStatus.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnjobsectionUpdateStatus.Size = new Size(225, 31);
+            btnjobsectionUpdateStatus.Size = new Size(197, 23);
             btnjobsectionUpdateStatus.TabIndex = 14;
             btnjobsectionUpdateStatus.Text = "Update Job Status";
             btnjobsectionUpdateStatus.Click += btnjobsectionUpdateStatus_Click;
@@ -250,9 +266,10 @@
             // 
             lbljobSectionJobDescription.BackColor = Color.Transparent;
             lbljobSectionJobDescription.ForeColor = Color.Black;
-            lbljobSectionJobDescription.Location = new Point(203, 184);
+            lbljobSectionJobDescription.Location = new Point(178, 138);
+            lbljobSectionJobDescription.Margin = new Padding(3, 2, 3, 2);
             lbljobSectionJobDescription.Name = "lbljobSectionJobDescription";
-            lbljobSectionJobDescription.Size = new Size(106, 22);
+            lbljobSectionJobDescription.Size = new Size(84, 17);
             lbljobSectionJobDescription.TabIndex = 16;
             lbljobSectionJobDescription.Text = "Job Description";
             // 
@@ -267,36 +284,43 @@
             cmbboxJobStatus.Font = new Font("Segoe UI", 10F);
             cmbboxJobStatus.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxJobStatus.ItemHeight = 30;
-            cmbboxJobStatus.Location = new Point(881, 170);
+            cmbboxJobStatus.Location = new Point(771, 128);
+            cmbboxJobStatus.Margin = new Padding(3, 2, 3, 2);
             cmbboxJobStatus.Name = "cmbboxJobStatus";
             cmbboxJobStatus.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            cmbboxJobStatus.Size = new Size(271, 36);
+            cmbboxJobStatus.Size = new Size(238, 36);
             cmbboxJobStatus.TabIndex = 13;
             // 
             // guna2HtmlLabel7
             // 
+            guna2HtmlLabel7.AutoSize = false;
             guna2HtmlLabel7.BackColor = Color.Transparent;
-            guna2HtmlLabel7.Location = new Point(881, 142);
+            guna2HtmlLabel7.Location = new Point(771, 106);
+            guna2HtmlLabel7.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            guna2HtmlLabel7.Size = new Size(70, 22);
+            guna2HtmlLabel7.Size = new Size(56, 17);
             guna2HtmlLabel7.TabIndex = 12;
             guna2HtmlLabel7.Text = "Job Status";
             // 
             // guna2HtmlLabel6
             // 
+            guna2HtmlLabel6.AutoSize = false;
             guna2HtmlLabel6.BackColor = Color.Transparent;
-            guna2HtmlLabel6.Location = new Point(881, 28);
+            guna2HtmlLabel6.Location = new Point(771, 21);
+            guna2HtmlLabel6.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            guna2HtmlLabel6.Size = new Size(75, 22);
+            guna2HtmlLabel6.Size = new Size(62, 17);
             guna2HtmlLabel6.TabIndex = 6;
             guna2HtmlLabel6.Text = "Checked In";
             // 
             // guna2HtmlLabel8
             // 
+            guna2HtmlLabel8.AutoSize = false;
             guna2HtmlLabel8.BackColor = Color.Transparent;
-            guna2HtmlLabel8.Location = new Point(203, 142);
+            guna2HtmlLabel8.Location = new Point(178, 106);
+            guna2HtmlLabel8.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            guna2HtmlLabel8.Size = new Size(106, 22);
+            guna2HtmlLabel8.Size = new Size(84, 17);
             guna2HtmlLabel8.TabIndex = 15;
             guna2HtmlLabel8.Text = "Job Description";
             // 
@@ -304,9 +328,10 @@
             // 
             lbljobId.BackColor = Color.Transparent;
             lbljobId.ForeColor = Color.Black;
-            lbljobId.Location = new Point(15, 76);
+            lbljobId.Location = new Point(13, 57);
+            lbljobId.Margin = new Padding(3, 2, 3, 2);
             lbljobId.Name = "lbljobId";
-            lbljobId.Size = new Size(45, 22);
+            lbljobId.Size = new Size(35, 17);
             lbljobId.TabIndex = 7;
             lbljobId.Text = "Job ID";
             // 
@@ -314,9 +339,10 @@
             // 
             lblDeviceName.BackColor = Color.Transparent;
             lblDeviceName.ForeColor = Color.Black;
-            lblDeviceName.Location = new Point(443, 76);
+            lblDeviceName.Location = new Point(388, 57);
+            lblDeviceName.Margin = new Padding(3, 2, 3, 2);
             lblDeviceName.Name = "lblDeviceName";
-            lblDeviceName.Size = new Size(45, 22);
+            lblDeviceName.Size = new Size(35, 17);
             lblDeviceName.TabIndex = 8;
             lblDeviceName.Text = "Job ID";
             // 
@@ -324,9 +350,10 @@
             // 
             lblCustomerName.BackColor = Color.Transparent;
             lblCustomerName.ForeColor = Color.Black;
-            lblCustomerName.Location = new Point(203, 76);
+            lblCustomerName.Location = new Point(178, 57);
+            lblCustomerName.Margin = new Padding(3, 2, 3, 2);
             lblCustomerName.Name = "lblCustomerName";
-            lblCustomerName.Size = new Size(45, 22);
+            lblCustomerName.Size = new Size(35, 17);
             lblCustomerName.TabIndex = 9;
             lblCustomerName.Text = "Job ID";
             // 
@@ -334,9 +361,10 @@
             // 
             lblCheckeIn.BackColor = Color.Transparent;
             lblCheckeIn.ForeColor = Color.Black;
-            lblCheckeIn.Location = new Point(881, 76);
+            lblCheckeIn.Location = new Point(771, 57);
+            lblCheckeIn.Margin = new Padding(3, 2, 3, 2);
             lblCheckeIn.Name = "lblCheckeIn";
-            lblCheckeIn.Size = new Size(45, 22);
+            lblCheckeIn.Size = new Size(35, 17);
             lblCheckeIn.TabIndex = 10;
             lblCheckeIn.Text = "Job ID";
             // 
@@ -344,9 +372,10 @@
             // 
             lblCompleted.BackColor = Color.Transparent;
             lblCompleted.ForeColor = Color.Black;
-            lblCompleted.Location = new Point(15, 184);
+            lblCompleted.Location = new Point(13, 138);
+            lblCompleted.Margin = new Padding(3, 2, 3, 2);
             lblCompleted.Name = "lblCompleted";
-            lblCompleted.Size = new Size(45, 22);
+            lblCompleted.Size = new Size(35, 17);
             lblCompleted.TabIndex = 11;
             lblCompleted.Text = "Job ID";
             // 
@@ -360,22 +389,26 @@
             btnbacktoJobList.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnbacktoJobList.Font = new Font("Segoe UI", 9F);
             btnbacktoJobList.ForeColor = Color.White;
-            btnbacktoJobList.Location = new Point(48, 270);
+            btnbacktoJobList.Location = new Point(42, 202);
+            btnbacktoJobList.Margin = new Padding(3, 2, 3, 2);
             btnbacktoJobList.Name = "btnbacktoJobList";
             btnbacktoJobList.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnbacktoJobList.Size = new Size(225, 39);
+            btnbacktoJobList.Size = new Size(197, 29);
             btnbacktoJobList.TabIndex = 2;
             btnbacktoJobList.Text = "Back";
             btnbacktoJobList.Click += btnbacktoJobList_Click;
             // 
             // panelJobViewTasksSection
             // 
+            panelJobViewTasksSection.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panelJobViewTasksSection.BackColor = Color.WhiteSmoke;
             panelJobViewTasksSection.Controls.Add(viewjobsectionTabControl);
             panelJobViewTasksSection.CustomizableEdges = customizableEdges21;
-            panelJobViewTasksSection.Location = new Point(19, 1053);
+            panelJobViewTasksSection.Location = new Point(17, 790);
+            panelJobViewTasksSection.Margin = new Padding(3, 2, 3, 2);
             panelJobViewTasksSection.Name = "panelJobViewTasksSection";
             panelJobViewTasksSection.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            panelJobViewTasksSection.Size = new Size(1248, 743);
+            panelJobViewTasksSection.Size = new Size(1092, 557);
             panelJobViewTasksSection.TabIndex = 33;
             // 
             // viewjobsectionTabControl
@@ -384,11 +417,12 @@
             viewjobsectionTabControl.Controls.Add(tabPage2);
             viewjobsectionTabControl.Controls.Add(tabPage3);
             viewjobsectionTabControl.ItemSize = new Size(180, 40);
-            viewjobsectionTabControl.Location = new Point(29, 24);
+            viewjobsectionTabControl.Location = new Point(25, 18);
+            viewjobsectionTabControl.Margin = new Padding(3, 2, 3, 2);
             viewjobsectionTabControl.Name = "viewjobsectionTabControl";
             viewjobsectionTabControl.RightToLeft = RightToLeft.No;
             viewjobsectionTabControl.SelectedIndex = 0;
-            viewjobsectionTabControl.Size = new Size(1146, 704);
+            viewjobsectionTabControl.Size = new Size(1003, 528);
             viewjobsectionTabControl.TabButtonHoverState.BorderColor = Color.Empty;
             viewjobsectionTabControl.TabButtonHoverState.FillColor = Color.FromArgb(40, 52, 70);
             viewjobsectionTabControl.TabButtonHoverState.Font = new Font("Segoe UI Semibold", 10F);
@@ -413,9 +447,10 @@
             // 
             tabPage1.Controls.Add(panelrepairsectionTab);
             tabPage1.Location = new Point(4, 44);
+            tabPage1.Margin = new Padding(3, 2, 3, 2);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1138, 656);
+            tabPage1.Padding = new Padding(3, 2, 3, 2);
+            tabPage1.Size = new Size(995, 480);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Repairs";
             tabPage1.UseVisualStyleBackColor = true;
@@ -425,18 +460,20 @@
             panelrepairsectionTab.Controls.Add(guna2HtmlLabel14);
             panelrepairsectionTab.Controls.Add(btnaddRepairTask);
             panelrepairsectionTab.CustomizableEdges = customizableEdges11;
-            panelrepairsectionTab.Location = new Point(11, 33);
+            panelrepairsectionTab.Location = new Point(10, 25);
+            panelrepairsectionTab.Margin = new Padding(3, 2, 3, 2);
             panelrepairsectionTab.Name = "panelrepairsectionTab";
             panelrepairsectionTab.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            panelrepairsectionTab.Size = new Size(1108, 549);
+            panelrepairsectionTab.Size = new Size(970, 412);
             panelrepairsectionTab.TabIndex = 3;
             // 
             // guna2HtmlLabel14
             // 
             guna2HtmlLabel14.BackColor = Color.Transparent;
-            guna2HtmlLabel14.Location = new Point(20, 23);
+            guna2HtmlLabel14.Location = new Point(18, 17);
+            guna2HtmlLabel14.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel14.Name = "guna2HtmlLabel14";
-            guna2HtmlLabel14.Size = new Size(85, 22);
+            guna2HtmlLabel14.Size = new Size(67, 17);
             guna2HtmlLabel14.TabIndex = 0;
             guna2HtmlLabel14.Text = "Repair Tasks";
             // 
@@ -451,10 +488,11 @@
             btnaddRepairTask.FillColor = Color.FromArgb(216, 30, 44);
             btnaddRepairTask.Font = new Font("Segoe UI", 9F);
             btnaddRepairTask.ForeColor = Color.White;
-            btnaddRepairTask.Location = new Point(908, 11);
+            btnaddRepairTask.Location = new Point(794, 8);
+            btnaddRepairTask.Margin = new Padding(3, 2, 3, 2);
             btnaddRepairTask.Name = "btnaddRepairTask";
             btnaddRepairTask.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btnaddRepairTask.Size = new Size(188, 34);
+            btnaddRepairTask.Size = new Size(164, 26);
             btnaddRepairTask.TabIndex = 2;
             btnaddRepairTask.Text = "Add Repair Task";
             btnaddRepairTask.Click += btnaddRepairTask_Click;
@@ -463,9 +501,10 @@
             // 
             tabPage2.Controls.Add(panelupgradeSectionTab);
             tabPage2.Location = new Point(4, 44);
+            tabPage2.Margin = new Padding(3, 2, 3, 2);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1138, 656);
+            tabPage2.Padding = new Padding(3, 2, 3, 2);
+            tabPage2.Size = new Size(995, 480);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Upgrades";
             tabPage2.UseVisualStyleBackColor = true;
@@ -475,10 +514,11 @@
             panelupgradeSectionTab.Controls.Add(btnaddUpgradeTask);
             panelupgradeSectionTab.Controls.Add(guna2HtmlLabel15);
             panelupgradeSectionTab.CustomizableEdges = customizableEdges15;
-            panelupgradeSectionTab.Location = new Point(18, 30);
+            panelupgradeSectionTab.Location = new Point(16, 22);
+            panelupgradeSectionTab.Margin = new Padding(3, 2, 3, 2);
             panelupgradeSectionTab.Name = "panelupgradeSectionTab";
             panelupgradeSectionTab.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            panelupgradeSectionTab.Size = new Size(1117, 603);
+            panelupgradeSectionTab.Size = new Size(977, 452);
             panelupgradeSectionTab.TabIndex = 4;
             // 
             // btnaddUpgradeTask
@@ -492,10 +532,11 @@
             btnaddUpgradeTask.FillColor = Color.FromArgb(216, 30, 44);
             btnaddUpgradeTask.Font = new Font("Segoe UI", 9F);
             btnaddUpgradeTask.ForeColor = Color.White;
-            btnaddUpgradeTask.Location = new Point(924, 12);
+            btnaddUpgradeTask.Location = new Point(808, 9);
+            btnaddUpgradeTask.Margin = new Padding(3, 2, 3, 2);
             btnaddUpgradeTask.Name = "btnaddUpgradeTask";
             btnaddUpgradeTask.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            btnaddUpgradeTask.Size = new Size(169, 32);
+            btnaddUpgradeTask.Size = new Size(148, 24);
             btnaddUpgradeTask.TabIndex = 3;
             btnaddUpgradeTask.Text = "Add Upgrade Task";
             btnaddUpgradeTask.Click += btnaddUpgradeTask_Click;
@@ -503,9 +544,10 @@
             // guna2HtmlLabel15
             // 
             guna2HtmlLabel15.BackColor = Color.Transparent;
-            guna2HtmlLabel15.Location = new Point(13, 22);
+            guna2HtmlLabel15.Location = new Point(11, 16);
+            guna2HtmlLabel15.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel15.Name = "guna2HtmlLabel15";
-            guna2HtmlLabel15.Size = new Size(100, 22);
+            guna2HtmlLabel15.Size = new Size(79, 17);
             guna2HtmlLabel15.TabIndex = 1;
             guna2HtmlLabel15.Text = "Upgrade Tasks";
             // 
@@ -513,9 +555,10 @@
             // 
             tabPage3.Controls.Add(panelsericetaskSectionTab);
             tabPage3.Location = new Point(4, 44);
+            tabPage3.Margin = new Padding(3, 2, 3, 2);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(1138, 656);
+            tabPage3.Padding = new Padding(3, 2, 3, 2);
+            tabPage3.Size = new Size(995, 480);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Services";
             tabPage3.UseVisualStyleBackColor = true;
@@ -526,10 +569,11 @@
             panelsericetaskSectionTab.Controls.Add(guna2HtmlLabel16);
             panelsericetaskSectionTab.CustomizableEdges = customizableEdges19;
             panelsericetaskSectionTab.Dock = DockStyle.Fill;
-            panelsericetaskSectionTab.Location = new Point(3, 3);
+            panelsericetaskSectionTab.Location = new Point(3, 2);
+            panelsericetaskSectionTab.Margin = new Padding(3, 2, 3, 2);
             panelsericetaskSectionTab.Name = "panelsericetaskSectionTab";
             panelsericetaskSectionTab.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            panelsericetaskSectionTab.Size = new Size(1132, 650);
+            panelsericetaskSectionTab.Size = new Size(989, 476);
             panelsericetaskSectionTab.TabIndex = 4;
             // 
             // btnaddServiceTask
@@ -543,10 +587,11 @@
             btnaddServiceTask.FillColor = Color.FromArgb(216, 30, 44);
             btnaddServiceTask.Font = new Font("Segoe UI", 9F);
             btnaddServiceTask.ForeColor = Color.White;
-            btnaddServiceTask.Location = new Point(934, 12);
+            btnaddServiceTask.Location = new Point(817, 9);
+            btnaddServiceTask.Margin = new Padding(3, 2, 3, 2);
             btnaddServiceTask.Name = "btnaddServiceTask";
             btnaddServiceTask.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            btnaddServiceTask.Size = new Size(160, 31);
+            btnaddServiceTask.Size = new Size(140, 23);
             btnaddServiceTask.TabIndex = 3;
             btnaddServiceTask.Text = "Add Service Task";
             btnaddServiceTask.Click += btnaddServiceTask_Click;
@@ -554,21 +599,24 @@
             // guna2HtmlLabel16
             // 
             guna2HtmlLabel16.BackColor = Color.Transparent;
-            guna2HtmlLabel16.Location = new Point(14, 21);
+            guna2HtmlLabel16.Location = new Point(12, 16);
+            guna2HtmlLabel16.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel16.Name = "guna2HtmlLabel16";
-            guna2HtmlLabel16.Size = new Size(89, 22);
+            guna2HtmlLabel16.Size = new Size(71, 17);
             guna2HtmlLabel16.TabIndex = 1;
             guna2HtmlLabel16.Text = "Service Tasks";
             // 
             // guna2Separator2
             // 
-            guna2Separator2.Location = new Point(34, 1014);
+            guna2Separator2.Location = new Point(30, 760);
+            guna2Separator2.Margin = new Padding(3, 2, 3, 2);
             guna2Separator2.Name = "guna2Separator2";
-            guna2Separator2.Size = new Size(1179, 12);
+            guna2Separator2.Size = new Size(1032, 9);
             guna2Separator2.TabIndex = 32;
             // 
             // panelJobSectionBillingandCost
             // 
+            panelJobSectionBillingandCost.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panelJobSectionBillingandCost.BackColor = Color.WhiteSmoke;
             panelJobSectionBillingandCost.Controls.Add(btnviewjobSectiongenerateInvoice);
             panelJobSectionBillingandCost.Controls.Add(btnjobviewSectionsaveBillingInfo);
@@ -586,10 +634,11 @@
             panelJobSectionBillingandCost.Controls.Add(guna2HtmlLabel11);
             panelJobSectionBillingandCost.CustomizableEdges = customizableEdges35;
             panelJobSectionBillingandCost.ForeColor = Color.Black;
-            panelJobSectionBillingandCost.Location = new Point(48, 733);
+            panelJobSectionBillingandCost.Location = new Point(42, 550);
+            panelJobSectionBillingandCost.Margin = new Padding(3, 2, 3, 2);
             panelJobSectionBillingandCost.Name = "panelJobSectionBillingandCost";
             panelJobSectionBillingandCost.ShadowDecoration.CustomizableEdges = customizableEdges36;
-            panelJobSectionBillingandCost.Size = new Size(1162, 256);
+            panelJobSectionBillingandCost.Size = new Size(1017, 192);
             panelJobSectionBillingandCost.TabIndex = 18;
             // 
             // btnviewjobSectiongenerateInvoice
@@ -602,10 +651,11 @@
             btnviewjobSectiongenerateInvoice.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnviewjobSectiongenerateInvoice.Font = new Font("Segoe UI", 9F);
             btnviewjobSectiongenerateInvoice.ForeColor = Color.White;
-            btnviewjobSectiongenerateInvoice.Location = new Point(619, 202);
+            btnviewjobSectiongenerateInvoice.Location = new Point(542, 152);
+            btnviewjobSectiongenerateInvoice.Margin = new Padding(3, 2, 3, 2);
             btnviewjobSectiongenerateInvoice.Name = "btnviewjobSectiongenerateInvoice";
             btnviewjobSectiongenerateInvoice.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            btnviewjobSectiongenerateInvoice.Size = new Size(225, 31);
+            btnviewjobSectiongenerateInvoice.Size = new Size(197, 23);
             btnviewjobSectiongenerateInvoice.TabIndex = 32;
             btnviewjobSectiongenerateInvoice.Text = "Generate Invoice";
             btnviewjobSectiongenerateInvoice.Click += btnviewjobSectiongenerateInvoice_Click;
@@ -621,10 +671,11 @@
             btnjobviewSectionsaveBillingInfo.FillColor = Color.FromArgb(216, 30, 44);
             btnjobviewSectionsaveBillingInfo.Font = new Font("Segoe UI", 9F);
             btnjobviewSectionsaveBillingInfo.ForeColor = Color.White;
-            btnjobviewSectionsaveBillingInfo.Location = new Point(881, 202);
+            btnjobviewSectionsaveBillingInfo.Location = new Point(771, 152);
+            btnjobviewSectionsaveBillingInfo.Margin = new Padding(3, 2, 3, 2);
             btnjobviewSectionsaveBillingInfo.Name = "btnjobviewSectionsaveBillingInfo";
             btnjobviewSectionsaveBillingInfo.ShadowDecoration.CustomizableEdges = customizableEdges26;
-            btnjobviewSectionsaveBillingInfo.Size = new Size(250, 31);
+            btnjobviewSectionsaveBillingInfo.Size = new Size(219, 23);
             btnjobviewSectionsaveBillingInfo.TabIndex = 31;
             btnjobviewSectionsaveBillingInfo.Text = "Save Billing ";
             btnjobviewSectionsaveBillingInfo.Click += btnjobviewSectionsaveBillingInfo_Click;
@@ -633,26 +684,30 @@
             // 
             lblcalculatedProfit.BackColor = Color.Transparent;
             lblcalculatedProfit.ForeColor = Color.Black;
-            lblcalculatedProfit.Location = new Point(148, 202);
+            lblcalculatedProfit.Location = new Point(130, 152);
+            lblcalculatedProfit.Margin = new Padding(3, 2, 3, 2);
             lblcalculatedProfit.Name = "lblcalculatedProfit";
-            lblcalculatedProfit.Size = new Size(113, 22);
+            lblcalculatedProfit.Size = new Size(91, 17);
             lblcalculatedProfit.TabIndex = 30;
             lblcalculatedProfit.Text = "Calculated Profit";
             // 
             // guna2HtmlLabel13
             // 
+            guna2HtmlLabel13.AutoSize = false;
             guna2HtmlLabel13.BackColor = Color.Transparent;
-            guna2HtmlLabel13.Location = new Point(7, 202);
+            guna2HtmlLabel13.Location = new Point(6, 152);
+            guna2HtmlLabel13.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel13.Name = "guna2HtmlLabel13";
-            guna2HtmlLabel13.Size = new Size(113, 22);
+            guna2HtmlLabel13.Size = new Size(91, 17);
             guna2HtmlLabel13.TabIndex = 29;
             guna2HtmlLabel13.Text = "Calculated Profit";
             // 
             // guna2Separator1
             // 
-            guna2Separator1.Location = new Point(7, 164);
+            guna2Separator1.Location = new Point(6, 123);
+            guna2Separator1.Margin = new Padding(3, 2, 3, 2);
             guna2Separator1.Name = "guna2Separator1";
-            guna2Separator1.Size = new Size(1140, 12);
+            guna2Separator1.Size = new Size(998, 9);
             guna2Separator1.TabIndex = 28;
             // 
             // checkboxBillingViewIspaid
@@ -663,9 +718,10 @@
             checkboxBillingViewIspaid.CheckedState.BorderThickness = 0;
             checkboxBillingViewIspaid.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             checkboxBillingViewIspaid.ForeColor = Color.Black;
-            checkboxBillingViewIspaid.Location = new Point(7, 134);
+            checkboxBillingViewIspaid.Location = new Point(6, 100);
+            checkboxBillingViewIspaid.Margin = new Padding(3, 2, 3, 2);
             checkboxBillingViewIspaid.Name = "checkboxBillingViewIspaid";
-            checkboxBillingViewIspaid.Size = new Size(80, 24);
+            checkboxBillingViewIspaid.Size = new Size(65, 19);
             checkboxBillingViewIspaid.TabIndex = 27;
             checkboxBillingViewIspaid.Text = "Is Paid?";
             checkboxBillingViewIspaid.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
@@ -679,12 +735,13 @@
             datetimepickerbillPaymentDate.CustomizableEdges = customizableEdges27;
             datetimepickerbillPaymentDate.Font = new Font("Segoe UI", 9F);
             datetimepickerbillPaymentDate.Format = DateTimePickerFormat.Long;
-            datetimepickerbillPaymentDate.Location = new Point(881, 64);
+            datetimepickerbillPaymentDate.Location = new Point(771, 48);
+            datetimepickerbillPaymentDate.Margin = new Padding(3, 2, 3, 2);
             datetimepickerbillPaymentDate.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             datetimepickerbillPaymentDate.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             datetimepickerbillPaymentDate.Name = "datetimepickerbillPaymentDate";
             datetimepickerbillPaymentDate.ShadowDecoration.CustomizableEdges = customizableEdges28;
-            datetimepickerbillPaymentDate.Size = new Size(250, 36);
+            datetimepickerbillPaymentDate.Size = new Size(219, 27);
             datetimepickerbillPaymentDate.TabIndex = 26;
             datetimepickerbillPaymentDate.Value = new DateTime(2025, 6, 6, 22, 25, 29, 710);
             // 
@@ -699,10 +756,11 @@
             cmbboxPaymentMethod.Font = new Font("Segoe UI", 10F);
             cmbboxPaymentMethod.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxPaymentMethod.ItemHeight = 30;
-            cmbboxPaymentMethod.Location = new Point(626, 63);
+            cmbboxPaymentMethod.Location = new Point(548, 47);
+            cmbboxPaymentMethod.Margin = new Padding(3, 2, 3, 2);
             cmbboxPaymentMethod.Name = "cmbboxPaymentMethod";
             cmbboxPaymentMethod.ShadowDecoration.CustomizableEdges = customizableEdges30;
-            cmbboxPaymentMethod.Size = new Size(218, 36);
+            cmbboxPaymentMethod.Size = new Size(191, 36);
             cmbboxPaymentMethod.TabIndex = 25;
             // 
             // txtboxManualJobCost
@@ -716,13 +774,12 @@
             txtboxManualJobCost.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxManualJobCost.Font = new Font("Segoe UI", 9F);
             txtboxManualJobCost.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxManualJobCost.Location = new Point(308, 64);
-            txtboxManualJobCost.Margin = new Padding(3, 4, 3, 4);
+            txtboxManualJobCost.Location = new Point(270, 48);
             txtboxManualJobCost.Name = "txtboxManualJobCost";
             txtboxManualJobCost.PlaceholderText = "";
             txtboxManualJobCost.SelectedText = "";
             txtboxManualJobCost.ShadowDecoration.CustomizableEdges = customizableEdges32;
-            txtboxManualJobCost.Size = new Size(256, 36);
+            txtboxManualJobCost.Size = new Size(224, 27);
             txtboxManualJobCost.TabIndex = 24;
             // 
             // txtboxBillingAmount
@@ -736,70 +793,75 @@
             txtboxBillingAmount.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxBillingAmount.Font = new Font("Segoe UI", 9F);
             txtboxBillingAmount.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxBillingAmount.Location = new Point(7, 64);
-            txtboxBillingAmount.Margin = new Padding(3, 4, 3, 4);
+            txtboxBillingAmount.Location = new Point(6, 48);
             txtboxBillingAmount.Name = "txtboxBillingAmount";
             txtboxBillingAmount.PlaceholderText = "";
             txtboxBillingAmount.SelectedText = "";
             txtboxBillingAmount.ShadowDecoration.CustomizableEdges = customizableEdges34;
-            txtboxBillingAmount.Size = new Size(244, 36);
+            txtboxBillingAmount.Size = new Size(214, 27);
             txtboxBillingAmount.TabIndex = 23;
             // 
             // guna2HtmlLabel9
             // 
             guna2HtmlLabel9.BackColor = Color.Transparent;
-            guna2HtmlLabel9.Location = new Point(881, 35);
+            guna2HtmlLabel9.Location = new Point(771, 26);
+            guna2HtmlLabel9.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            guna2HtmlLabel9.Size = new Size(96, 22);
+            guna2HtmlLabel9.Size = new Size(77, 17);
             guna2HtmlLabel9.TabIndex = 22;
             guna2HtmlLabel9.Text = "Payment Date";
             // 
             // guna2HtmlLabel12
             // 
             guna2HtmlLabel12.BackColor = Color.Transparent;
-            guna2HtmlLabel12.Location = new Point(7, 35);
+            guna2HtmlLabel12.Location = new Point(6, 26);
+            guna2HtmlLabel12.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel12.Name = "guna2HtmlLabel12";
-            guna2HtmlLabel12.Size = new Size(137, 22);
+            guna2HtmlLabel12.Size = new Size(111, 17);
             guna2HtmlLabel12.TabIndex = 19;
             guna2HtmlLabel12.Text = "Billing Amount(LKR)";
             // 
             // guna2HtmlLabel10
             // 
             guna2HtmlLabel10.BackColor = Color.Transparent;
-            guna2HtmlLabel10.Location = new Point(626, 35);
+            guna2HtmlLabel10.Location = new Point(548, 26);
+            guna2HtmlLabel10.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel10.Name = "guna2HtmlLabel10";
-            guna2HtmlLabel10.Size = new Size(116, 22);
+            guna2HtmlLabel10.Size = new Size(95, 17);
             guna2HtmlLabel10.TabIndex = 21;
             guna2HtmlLabel10.Text = "Payment Method";
             // 
             // guna2HtmlLabel11
             // 
             guna2HtmlLabel11.BackColor = Color.Transparent;
-            guna2HtmlLabel11.Location = new Point(308, 35);
+            guna2HtmlLabel11.Location = new Point(270, 26);
+            guna2HtmlLabel11.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel11.Name = "guna2HtmlLabel11";
-            guna2HtmlLabel11.Size = new Size(147, 22);
+            guna2HtmlLabel11.Size = new Size(119, 17);
             guna2HtmlLabel11.TabIndex = 20;
             guna2HtmlLabel11.Text = "Manual Job Cost(LKR)";
             // 
             // lblJobSectionBillingandCost
             // 
+            lblJobSectionBillingandCost.AutoSize = false;
             lblJobSectionBillingandCost.BackColor = Color.Transparent;
-            lblJobSectionBillingandCost.Location = new Point(48, 705);
+            lblJobSectionBillingandCost.Location = new Point(42, 529);
+            lblJobSectionBillingandCost.Margin = new Padding(3, 2, 3, 2);
             lblJobSectionBillingandCost.Name = "lblJobSectionBillingandCost";
-            lblJobSectionBillingandCost.Size = new Size(107, 22);
+            lblJobSectionBillingandCost.Size = new Size(86, 17);
             lblJobSectionBillingandCost.TabIndex = 17;
             lblJobSectionBillingandCost.Text = "Billing and Cost";
             // 
             // ViewJobSection
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelviewjobSection);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ViewJobSection";
-            Size = new Size(1270, 1813);
+            Size = new Size(1111, 1360);
             Load += ViewJobSection_Load;
             panelviewjobSection.ResumeLayout(false);
-            panelviewjobSection.PerformLayout();
             guna2Panel1.ResumeLayout(false);
             guna2Panel1.PerformLayout();
             panelJobViewTasksSection.ResumeLayout(false);

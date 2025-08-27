@@ -135,5 +135,17 @@ namespace DAL.Repositories.ComponentRepository
 
 
         }
+
+        public async Task<List<Component>> GetPriorityComponentsAsync()
+        {
+            return await _context.Components
+                .Where(c => c.QuantityInStock < 5 || // Low stock
+                           c.AddedDate >= DateTime.Now.AddDays(-30)) // Recently added
+                .OrderBy(c => c.QuantityInStock) // Low stock first
+                .ThenByDescending(c => c.AddedDate)
+                .Take(20) // Limit to top 10 priority components
+                .ToListAsync();
+
+        }
     }
 }

@@ -382,7 +382,7 @@ namespace Presentation.SubSections.Jobs
                     {
                         col.Item().Row(r =>
                         {
-                            r.RelativeItem().Text(label).FontSize(9).FontColor(Colors.Grey.Darken2);
+                            r.RelativeItem().Text(label).FontSize(8).FontColor(Colors.Grey.Darken2);
                             var valueText = r.RelativeItem().AlignRight().Text(value).SemiBold();
                             if (!string.IsNullOrEmpty(color))
                                 valueText.FontColor(color);
@@ -394,7 +394,7 @@ namespace Presentation.SubSections.Jobs
                     detailRow("Date:", DateTime.Now.ToString("yyyy-MM-dd"), null);
                     detailRow("Payment Status:",
                         _loadedJobWithDetails?.Billing?.IsPaid == true
-                            ? $"PAID on {_loadedJobWithDetails.Billing.PaymentDate:yyyy-MM-dd} via {_loadedJobWithDetails.Billing.PaymentMethod}"
+                            ? $"PAID on {_loadedJobWithDetails.Billing.PaymentDate?.ToString("yyyy-MM-dd h:mm tt", System.Globalization.CultureInfo.InvariantCulture)} via {_loadedJobWithDetails.Billing.PaymentMethod}"
                             : "UNPAID",
                         _loadedJobWithDetails?.Billing?.IsPaid == true ? Colors.Green.Medium : Colors.Red.Medium
                     );
@@ -424,7 +424,7 @@ namespace Presentation.SubSections.Jobs
         private void ComposeLineItemsTable(IContainer container)
         {   
             
-            container.MinHeight(300) // Ensure the table has enough space
+            container.MinHeight(260) // Ensure the table has enough space
 
 
 
@@ -607,7 +607,7 @@ namespace Presentation.SubSections.Jobs
                         column.Item().Element(c => BulletPoint(c, "වගකීම් කාලය යටතේ ආවරණය වන තහවුරු කරන ලද දෝෂ සහිත අවස්ථාවකදී හැර, වරක් විකුණන ලද භාණ්ඩ ආපසු ලබා දීමට හෝ හුවමාරු කිරීමට සුදුසුකම් නොලබයි."));
                         //column.Item().Element(c => BulletPoint(c, "ලිඛිතව වෙනත් ආකාරයකින් එකඟ වී නොමැති නම්, භාණ්ඩ ලබා ගැනීමේදී ගෙවීම සිදු කළ යුතුය."));
                         column.Item().Element(c => BulletPoint(c, "සම්පූර්ණ වගකීම් ප්‍රතිලාභ ලබාගැනිම සඳහා අලුත්වැඩියාව අවසන් වී දින 7ක් ඇතුළත උපාංග ලබාගත යුතුය."));
-                        column.Item().Element(c => BulletPoint(c, "භාණ්ඩය බෙදා හැරීමෙන් හෝ ලබා ගැනීමෙන් පසු, යම් ආරවුලක් හෝ ගැටළුවක් ඇත්නම් ඒ බව දින 3ක් ඇතුළත දැනුවත් කළ යුතුය."));
+                        column.Item().Element(c => BulletPoint(c, "භාණ්ඩය බෙදා හැරීමෙන් හෝ ලබා ගැනීමෙන් පසු, යම් ගැටළුවක් ඇත්නම් ඒ බව දින 3ක් ඇතුළත දැනුවත් කළ යුතුය."));
                         column.Item().Element(c => BulletPoint(c, "භාණ්ඩ ලබාගැනීමේ ප්‍රමාදයන් හෝ ලබා නොගත් උපාංග හේතුවෙන් සිදුවන කිසිදු අලාභයක් සඳහා අප වගකියනු නොලැබේ."));
                     });
 

@@ -72,7 +72,7 @@ namespace Presentation.Sections.Dashboard
 
 
                     int customersthisMonth = await dashboardService.GetNewCustomersThisMonthCountAsync();
-                    lblDashboardSectionNewCustomersCount.Text = customersthisMonth.ToString();
+                    lblDashboardSectionNewCustomersCount1.Text = customersthisMonth.ToString();
 
 
                     //load jobs needing attention

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -69,6 +70,8 @@
             btnDashboardSectionClose = new Guna.UI2.WinForms.Guna2TileButton();
             btnDashboardSectionMaximize = new Guna.UI2.WinForms.Guna2TileButton();
             btnDashboardSectionMinimize = new Guna.UI2.WinForms.Guna2TileButton();
+            guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(components);
+            guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(components);
             dashbordsidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)sidepanelLogoBox).BeginInit();
             panelDashboardContainer.SuspendLayout();
@@ -76,6 +79,7 @@
             // 
             // dashbordsidePanel
             // 
+            dashbordsidePanel.AllowDrop = true;
             dashbordsidePanel.Controls.Add(sidepanelLogoBox);
             dashbordsidePanel.Controls.Add(btnsidepanelUser);
             dashbordsidePanel.Controls.Add(btnLogout);
@@ -91,10 +95,12 @@
             dashbordsidePanel.FillColor = Color.FromArgb(33, 33, 33);
             dashbordsidePanel.ForeColor = Color.Transparent;
             dashbordsidePanel.Location = new Point(0, 0);
+            dashbordsidePanel.Margin = new Padding(3, 2, 3, 2);
             dashbordsidePanel.Name = "dashbordsidePanel";
             dashbordsidePanel.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            dashbordsidePanel.Size = new Size(328, 918);
+            dashbordsidePanel.Size = new Size(287, 688);
             dashbordsidePanel.TabIndex = 0;
+            dashbordsidePanel.Paint += dashbordsidePanel_Paint;
             // 
             // sidepanelLogoBox
             // 
@@ -102,11 +108,11 @@
             sidepanelLogoBox.CustomizableEdges = customizableEdges1;
             sidepanelLogoBox.Image = Presentation.Properties.Resources.Background;
             sidepanelLogoBox.ImageRotate = 0F;
-            sidepanelLogoBox.Location = new Point(0, 13);
-            sidepanelLogoBox.Margin = new Padding(3, 3, 5, 3);
+            sidepanelLogoBox.Location = new Point(0, 10);
+            sidepanelLogoBox.Margin = new Padding(3, 2, 4, 2);
             sidepanelLogoBox.Name = "sidepanelLogoBox";
             sidepanelLogoBox.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            sidepanelLogoBox.Size = new Size(328, 162);
+            sidepanelLogoBox.Size = new Size(280, 114);
             sidepanelLogoBox.SizeMode = PictureBoxSizeMode.Zoom;
             sidepanelLogoBox.TabIndex = 0;
             sidepanelLogoBox.TabStop = false;
@@ -114,7 +120,6 @@
             // 
             // btnsidepanelUser
             // 
-            btnsidepanelUser.Anchor = AnchorStyles.Left;
             btnsidepanelUser.CustomizableEdges = customizableEdges3;
             btnsidepanelUser.DisabledState.BorderColor = Color.DarkGray;
             btnsidepanelUser.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -126,10 +131,11 @@
             btnsidepanelUser.Image = Presentation.Properties.Resources.Admin_Settings_Male1;
             btnsidepanelUser.ImageAlign = HorizontalAlignment.Left;
             btnsidepanelUser.ImageSize = new Size(24, 24);
-            btnsidepanelUser.Location = new Point(12, 743);
+            btnsidepanelUser.Location = new Point(10, 557);
+            btnsidepanelUser.Margin = new Padding(3, 2, 3, 2);
             btnsidepanelUser.Name = "btnsidepanelUser";
             btnsidepanelUser.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnsidepanelUser.Size = new Size(313, 58);
+            btnsidepanelUser.Size = new Size(274, 44);
             btnsidepanelUser.TabIndex = 9;
             btnsidepanelUser.Text = "   Admin";
             btnsidepanelUser.TextAlign = HorizontalAlignment.Left;
@@ -137,7 +143,7 @@
             // 
             // btnLogout
             // 
-            btnLogout.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnLogout.Anchor = AnchorStyles.Bottom;
             btnLogout.CustomizableEdges = customizableEdges5;
             btnLogout.DisabledState.BorderColor = Color.DarkGray;
             btnLogout.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -151,18 +157,18 @@
             btnLogout.Image = Presentation.Properties.Resources.Logout;
             btnLogout.ImageOffset = new Point(-5, 0);
             btnLogout.ImageSize = new Size(22, 22);
-            btnLogout.Location = new Point(0, 848);
+            btnLogout.Location = new Point(0, 636);
+            btnLogout.Margin = new Padding(3, 2, 3, 2);
             btnLogout.Name = "btnLogout";
             btnLogout.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnLogout.Size = new Size(328, 58);
-            btnLogout.TabIndex = 8;
+            btnLogout.Size = new Size(287, 44);
+            btnLogout.TabIndex = 10;
             btnLogout.Text = "Logout";
             btnLogout.TextOffset = new Point(-5, 0);
             btnLogout.Click += btnLogout_Click;
             // 
             // btnsidepanelComponents
             // 
-            btnsidepanelComponents.Anchor = AnchorStyles.Left;
             btnsidepanelComponents.CustomizableEdges = customizableEdges7;
             btnsidepanelComponents.DisabledState.BorderColor = Color.DarkGray;
             btnsidepanelComponents.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -176,10 +182,11 @@
             btnsidepanelComponents.Image = Presentation.Properties.Resources.Advanced_Search;
             btnsidepanelComponents.ImageAlign = HorizontalAlignment.Left;
             btnsidepanelComponents.ImageSize = new Size(22, 22);
-            btnsidepanelComponents.Location = new Point(12, 656);
+            btnsidepanelComponents.Location = new Point(10, 492);
+            btnsidepanelComponents.Margin = new Padding(3, 2, 3, 2);
             btnsidepanelComponents.Name = "btnsidepanelComponents";
             btnsidepanelComponents.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnsidepanelComponents.Size = new Size(313, 58);
+            btnsidepanelComponents.Size = new Size(274, 44);
             btnsidepanelComponents.TabIndex = 7;
             btnsidepanelComponents.Text = "   Components";
             btnsidepanelComponents.TextAlign = HorizontalAlignment.Left;
@@ -187,7 +194,6 @@
             // 
             // btnsidepanelJobs
             // 
-            btnsidepanelJobs.Anchor = AnchorStyles.Left;
             btnsidepanelJobs.CustomizableEdges = customizableEdges9;
             btnsidepanelJobs.DisabledState.BorderColor = Color.DarkGray;
             btnsidepanelJobs.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -201,10 +207,11 @@
             btnsidepanelJobs.Image = Presentation.Properties.Resources.New_Job;
             btnsidepanelJobs.ImageAlign = HorizontalAlignment.Left;
             btnsidepanelJobs.ImageSize = new Size(22, 22);
-            btnsidepanelJobs.Location = new Point(12, 569);
+            btnsidepanelJobs.Location = new Point(10, 427);
+            btnsidepanelJobs.Margin = new Padding(3, 2, 3, 2);
             btnsidepanelJobs.Name = "btnsidepanelJobs";
             btnsidepanelJobs.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btnsidepanelJobs.Size = new Size(313, 58);
+            btnsidepanelJobs.Size = new Size(274, 44);
             btnsidepanelJobs.TabIndex = 6;
             btnsidepanelJobs.Text = "   Jobs";
             btnsidepanelJobs.TextAlign = HorizontalAlignment.Left;
@@ -212,7 +219,6 @@
             // 
             // btnsidepanelDevices
             // 
-            btnsidepanelDevices.Anchor = AnchorStyles.Left;
             btnsidepanelDevices.CustomizableEdges = customizableEdges11;
             btnsidepanelDevices.DisabledState.BorderColor = Color.DarkGray;
             btnsidepanelDevices.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -226,10 +232,11 @@
             btnsidepanelDevices.Image = Presentation.Properties.Resources.MacBook;
             btnsidepanelDevices.ImageAlign = HorizontalAlignment.Left;
             btnsidepanelDevices.ImageSize = new Size(22, 22);
-            btnsidepanelDevices.Location = new Point(12, 480);
+            btnsidepanelDevices.Location = new Point(10, 360);
+            btnsidepanelDevices.Margin = new Padding(3, 2, 3, 2);
             btnsidepanelDevices.Name = "btnsidepanelDevices";
             btnsidepanelDevices.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            btnsidepanelDevices.Size = new Size(313, 58);
+            btnsidepanelDevices.Size = new Size(274, 44);
             btnsidepanelDevices.TabIndex = 5;
             btnsidepanelDevices.Text = "   Devices";
             btnsidepanelDevices.TextAlign = HorizontalAlignment.Left;
@@ -237,7 +244,6 @@
             // 
             // btnsidepanelCus
             // 
-            btnsidepanelCus.Anchor = AnchorStyles.Left;
             btnsidepanelCus.CustomizableEdges = customizableEdges13;
             btnsidepanelCus.DisabledState.BorderColor = Color.DarkGray;
             btnsidepanelCus.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -251,10 +257,11 @@
             btnsidepanelCus.Image = Presentation.Properties.Resources.Users;
             btnsidepanelCus.ImageAlign = HorizontalAlignment.Left;
             btnsidepanelCus.ImageSize = new Size(22, 22);
-            btnsidepanelCus.Location = new Point(12, 399);
+            btnsidepanelCus.Location = new Point(10, 299);
+            btnsidepanelCus.Margin = new Padding(3, 2, 3, 2);
             btnsidepanelCus.Name = "btnsidepanelCus";
             btnsidepanelCus.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            btnsidepanelCus.Size = new Size(313, 58);
+            btnsidepanelCus.Size = new Size(274, 44);
             btnsidepanelCus.TabIndex = 4;
             btnsidepanelCus.Text = "   Customers";
             btnsidepanelCus.TextAlign = HorizontalAlignment.Left;
@@ -262,7 +269,6 @@
             // 
             // btnsidepanelDashboard
             // 
-            btnsidepanelDashboard.Anchor = AnchorStyles.Left;
             btnsidepanelDashboard.CustomizableEdges = customizableEdges15;
             btnsidepanelDashboard.DisabledState.BorderColor = Color.DarkGray;
             btnsidepanelDashboard.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -276,10 +282,12 @@
             btnsidepanelDashboard.Image = Presentation.Properties.Resources.Speed;
             btnsidepanelDashboard.ImageAlign = HorizontalAlignment.Left;
             btnsidepanelDashboard.ImageSize = new Size(22, 22);
-            btnsidepanelDashboard.Location = new Point(12, 311);
+            btnsidepanelDashboard.Location = new Point(10, 233);
+            btnsidepanelDashboard.Margin = new Padding(3, 2, 3, 2);
             btnsidepanelDashboard.Name = "btnsidepanelDashboard";
+            btnsidepanelDashboard.PressedColor = Color.Azure;
             btnsidepanelDashboard.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnsidepanelDashboard.Size = new Size(313, 58);
+            btnsidepanelDashboard.Size = new Size(274, 44);
             btnsidepanelDashboard.TabIndex = 3;
             btnsidepanelDashboard.Text = "   Dashboard";
             btnsidepanelDashboard.TextAlign = HorizontalAlignment.Left;
@@ -290,33 +298,36 @@
             guna2Separator2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             guna2Separator2.BackColor = Color.Transparent;
             guna2Separator2.FillColor = Color.FromArgb(216, 30, 44);
-            guna2Separator2.Location = new Point(0, 813);
+            guna2Separator2.Location = new Point(0, 610);
+            guna2Separator2.Margin = new Padding(3, 2, 3, 2);
             guna2Separator2.Name = "guna2Separator2";
-            guna2Separator2.Size = new Size(328, 12);
+            guna2Separator2.Size = new Size(287, 9);
             guna2Separator2.TabIndex = 2;
             // 
             // guna2Separator1
             // 
             guna2Separator1.BackColor = Color.Transparent;
             guna2Separator1.FillColor = Color.FromArgb(224, 224, 224);
-            guna2Separator1.Location = new Point(0, 189);
+            guna2Separator1.Location = new Point(0, 142);
+            guna2Separator1.Margin = new Padding(3, 2, 3, 2);
             guna2Separator1.Name = "guna2Separator1";
-            guna2Separator1.Size = new Size(328, 12);
+            guna2Separator1.Size = new Size(287, 9);
             guna2Separator1.TabIndex = 1;
             // 
             // panelDashboardContainer
             // 
+            panelDashboardContainer.AllowDrop = true;
             panelDashboardContainer.BackColor = Color.White;
             panelDashboardContainer.Controls.Add(btnDashboardSectionClose);
             panelDashboardContainer.Controls.Add(btnDashboardSectionMaximize);
             panelDashboardContainer.Controls.Add(btnDashboardSectionMinimize);
             panelDashboardContainer.CustomizableEdges = customizableEdges25;
-            panelDashboardContainer.Dock = DockStyle.Fill;
             panelDashboardContainer.ForeColor = SystemColors.ControlLight;
-            panelDashboardContainer.Location = new Point(328, 0);
+            panelDashboardContainer.Location = new Point(287, 0);
+            panelDashboardContainer.Margin = new Padding(3, 2, 3, 2);
             panelDashboardContainer.Name = "panelDashboardContainer";
             panelDashboardContainer.ShadowDecoration.CustomizableEdges = customizableEdges26;
-            panelDashboardContainer.Size = new Size(1472, 918);
+            panelDashboardContainer.Size = new Size(1279, 688);
             panelDashboardContainer.TabIndex = 1;
             // 
             // btnDashboardSectionClose
@@ -334,10 +345,11 @@
             btnDashboardSectionClose.HoverState.BorderColor = Color.FromArgb(224, 224, 224);
             btnDashboardSectionClose.Image = Presentation.Properties.Resources.Close1;
             btnDashboardSectionClose.ImageSize = new Size(25, 25);
-            btnDashboardSectionClose.Location = new Point(1417, 13);
+            btnDashboardSectionClose.Location = new Point(1231, 12);
+            btnDashboardSectionClose.Margin = new Padding(3, 2, 3, 2);
             btnDashboardSectionClose.Name = "btnDashboardSectionClose";
             btnDashboardSectionClose.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            btnDashboardSectionClose.Size = new Size(40, 40);
+            btnDashboardSectionClose.Size = new Size(35, 30);
             btnDashboardSectionClose.TabIndex = 6;
             btnDashboardSectionClose.Click += btnDashboardSectionClose_Click;
             // 
@@ -356,10 +368,11 @@
             btnDashboardSectionMaximize.HoverState.BorderColor = Color.FromArgb(224, 224, 224);
             btnDashboardSectionMaximize.Image = Presentation.Properties.Resources.Maximize_Window1;
             btnDashboardSectionMaximize.ImageSize = new Size(25, 25);
-            btnDashboardSectionMaximize.Location = new Point(1371, 12);
+            btnDashboardSectionMaximize.Location = new Point(1191, 11);
+            btnDashboardSectionMaximize.Margin = new Padding(3, 2, 3, 2);
             btnDashboardSectionMaximize.Name = "btnDashboardSectionMaximize";
             btnDashboardSectionMaximize.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            btnDashboardSectionMaximize.Size = new Size(40, 40);
+            btnDashboardSectionMaximize.Size = new Size(35, 30);
             btnDashboardSectionMaximize.TabIndex = 5;
             btnDashboardSectionMaximize.Click += btnDashboardSectionMaximize_Click;
             // 
@@ -378,21 +391,33 @@
             btnDashboardSectionMinimize.HoverState.BorderColor = Color.FromArgb(224, 224, 224);
             btnDashboardSectionMinimize.Image = Presentation.Properties.Resources.Horizontal_Line1;
             btnDashboardSectionMinimize.ImageSize = new Size(25, 25);
-            btnDashboardSectionMinimize.Location = new Point(1325, 12);
+            btnDashboardSectionMinimize.Location = new Point(1151, 11);
+            btnDashboardSectionMinimize.Margin = new Padding(3, 2, 3, 2);
             btnDashboardSectionMinimize.Name = "btnDashboardSectionMinimize";
             btnDashboardSectionMinimize.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            btnDashboardSectionMinimize.Size = new Size(40, 40);
+            btnDashboardSectionMinimize.Size = new Size(35, 30);
             btnDashboardSectionMinimize.TabIndex = 4;
             btnDashboardSectionMinimize.Click += btnDashboardSectionMinimize_Click;
             // 
+            // guna2DragControl1
+            // 
+            guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            guna2DragControl1.UseTransparentDrag = true;
+            // 
+            // guna2DragControl2
+            // 
+            guna2DragControl2.DockIndicatorTransparencyValue = 0.6D;
+            guna2DragControl2.UseTransparentDrag = true;
+            // 
             // Dashboard
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1800, 918);
+            ClientSize = new Size(1566, 688);
             Controls.Add(panelDashboardContainer);
             Controls.Add(dashbordsidePanel);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Dashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashbord";
@@ -419,5 +444,7 @@
         private Guna.UI2.WinForms.Guna2TileButton btnDashboardSectionMaximize;
         private Guna.UI2.WinForms.Guna2TileButton btnDashboardSectionMinimize;
         private Guna.UI2.WinForms.Guna2Button btnsidepanelUser;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
     }
 }

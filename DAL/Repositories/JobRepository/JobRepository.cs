@@ -169,9 +169,10 @@ namespace DAL.Repositories.JobRepository
 
         public async Task<int> CountCompletedJobsNotPaidAsync()
         {
-            //count the number of completed jobs that are not paid
+            //count the number of completed jobs that are not paid and do not include jobs that are cancelled
+
             return await _dbContext.Jobs
-                .Where(j => j.JobStatus == JobStatus.TasksCompleted || j.JobStatus == JobStatus.ReadyForBilling && (j.Billing != null || !j.Billing.IsPaid == false))
+                .Where(j => j.JobStatus == JobStatus.TasksCompleted || j.JobStatus == JobStatus.ReadyForBilling && (j.JobStatus != JobStatus.Cancelled || j.Billing != null || !j.Billing.IsPaid == false))
                 .CountAsync();
         }
 
@@ -399,6 +400,18 @@ namespace DAL.Repositories.JobRepository
             return _dbContext.Jobs
                 .Include(j => j.Device).ThenInclude(d => d.Customer) // Include Device and Customer navigation properties
                 .ToListAsync();
+        }
+
+
+        // this should return true if there are active upgrade records for a given job ID.
+        public async Task<bool> HasActiveUpgradeRecordsAsync(int jobId)
+        {
+            // Check if there are any active upgrade records for the given job ID
+            return await _dbContext.UpgradeRecords
+                .Where(ur => ur.JobId == jobId && ur.UpgradeStatus != UpgradeStatus.Cancelled)
+                .AnyAsync();
+
+
         }
 
 

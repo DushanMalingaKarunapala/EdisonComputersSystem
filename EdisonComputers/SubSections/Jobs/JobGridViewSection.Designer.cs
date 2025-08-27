@@ -48,6 +48,7 @@
             // 
             dataGridViewCellStyle1.BackColor = Color.White;
             jobgridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            jobgridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.White;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -67,11 +68,13 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             jobgridView.DefaultCellStyle = dataGridViewCellStyle3;
             jobgridView.GridColor = Color.FromArgb(239, 241, 243);
-            jobgridView.Location = new Point(41, 294);
+            jobgridView.Location = new Point(36, 220);
+            jobgridView.Margin = new Padding(3, 2, 3, 2);
             jobgridView.Name = "jobgridView";
             jobgridView.RowHeadersVisible = false;
             jobgridView.RowHeadersWidth = 51;
-            jobgridView.Size = new Size(1202, 589);
+            jobgridView.RowTemplate.Height = 29;
+            jobgridView.Size = new Size(1052, 442);
             jobgridView.TabIndex = 0;
             jobgridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WhiteGrid;
             jobgridView.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
@@ -99,6 +102,7 @@
             // 
             // cmbboxjobsectionfilterCategory
             // 
+            cmbboxjobsectionfilterCategory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cmbboxjobsectionfilterCategory.BackColor = Color.Transparent;
             cmbboxjobsectionfilterCategory.CustomizableEdges = customizableEdges1;
             cmbboxjobsectionfilterCategory.DrawMode = DrawMode.OwnerDrawFixed;
@@ -108,15 +112,17 @@
             cmbboxjobsectionfilterCategory.Font = new Font("Segoe UI", 10F);
             cmbboxjobsectionfilterCategory.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxjobsectionfilterCategory.ItemHeight = 30;
-            cmbboxjobsectionfilterCategory.Location = new Point(856, 243);
+            cmbboxjobsectionfilterCategory.Location = new Point(749, 182);
+            cmbboxjobsectionfilterCategory.Margin = new Padding(3, 2, 3, 2);
             cmbboxjobsectionfilterCategory.Name = "cmbboxjobsectionfilterCategory";
             cmbboxjobsectionfilterCategory.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            cmbboxjobsectionfilterCategory.Size = new Size(175, 36);
+            cmbboxjobsectionfilterCategory.Size = new Size(154, 36);
             cmbboxjobsectionfilterCategory.TabIndex = 1;
             cmbboxjobsectionfilterCategory.SelectedIndexChanged += cmbboxjobsectionfilterCategory_SelectedIndexChanged_1;
             // 
             // cmbboxjobsectionfilterValue
             // 
+            cmbboxjobsectionfilterValue.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cmbboxjobsectionfilterValue.BackColor = Color.Transparent;
             cmbboxjobsectionfilterValue.CustomizableEdges = customizableEdges3;
             cmbboxjobsectionfilterValue.DrawMode = DrawMode.OwnerDrawFixed;
@@ -126,10 +132,11 @@
             cmbboxjobsectionfilterValue.Font = new Font("Segoe UI", 10F);
             cmbboxjobsectionfilterValue.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxjobsectionfilterValue.ItemHeight = 30;
-            cmbboxjobsectionfilterValue.Location = new Point(1070, 243);
+            cmbboxjobsectionfilterValue.Location = new Point(936, 182);
+            cmbboxjobsectionfilterValue.Margin = new Padding(3, 2, 3, 2);
             cmbboxjobsectionfilterValue.Name = "cmbboxjobsectionfilterValue";
             cmbboxjobsectionfilterValue.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            cmbboxjobsectionfilterValue.Size = new Size(175, 36);
+            cmbboxjobsectionfilterValue.Size = new Size(154, 36);
             cmbboxjobsectionfilterValue.TabIndex = 2;
             cmbboxjobsectionfilterValue.SelectedIndexChanged += cmbboxjobsectionfilterValue_SelectedIndexChanged_1;
             // 
@@ -144,26 +151,26 @@
             searchboxjobsgriviewSection.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             searchboxjobsgriviewSection.Font = new Font("Segoe UI", 9F);
             searchboxjobsgriviewSection.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            searchboxjobsgriviewSection.Location = new Point(41, 243);
-            searchboxjobsgriviewSection.Margin = new Padding(3, 4, 3, 4);
+            searchboxjobsgriviewSection.Location = new Point(36, 182);
             searchboxjobsgriviewSection.Name = "searchboxjobsgriviewSection";
             searchboxjobsgriviewSection.PlaceholderText = "Search Job";
             searchboxjobsgriviewSection.SelectedText = "";
             searchboxjobsgriviewSection.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            searchboxjobsgriviewSection.Size = new Size(234, 36);
+            searchboxjobsgriviewSection.Size = new Size(205, 27);
             searchboxjobsgriviewSection.TabIndex = 3;
             searchboxjobsgriviewSection.TextChanged += searchboxjobsgriviewSection_TextChanged;
             // 
             // JobGridViewSection
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(searchboxjobsgriviewSection);
             Controls.Add(cmbboxjobsectionfilterValue);
             Controls.Add(cmbboxjobsectionfilterCategory);
             Controls.Add(jobgridView);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "JobGridViewSection";
-            Size = new Size(1315, 911);
+            Size = new Size(1151, 683);
             Load += JobGridViewSection_Load;
             ((System.ComponentModel.ISupportInitialize)jobgridView).EndInit();
             ResumeLayout(false);

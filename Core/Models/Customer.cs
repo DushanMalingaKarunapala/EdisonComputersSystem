@@ -26,10 +26,13 @@ namespace Core.Models
         //newly added property : recordstatus
         public RecordStatus RecordStatus { get; set; } = RecordStatus.Active;
 
-
+        [Required]
+        [Phone]
+        [RegularExpression(@"^[\d\s\+\-\(\)]+$", ErrorMessage ="Invalid Phone number format")] //updated regex to allow spaces, +, -, and parentheses
         public required string Phone { get; set; }
 
         [MaxLength(255)]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")] //updated to use EmailAddress attribute for validation
         public string? Email { get; set; }
 
         public string? Address { get; set; } 

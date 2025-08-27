@@ -26,5 +26,12 @@ namespace Core.IRepository.ICustomerRepository
         //a method to search customers by name, phone, or email
         Task<List<Customer>> SearchCustomersAsync(string searchTerm);
 
+
+        //a method to check if a customer exists by phone and optionally by email
+        Task<bool> ExistsAsync(string phone, string? email = null, int? excludeCustomerId = null);
+
+
+        //a method to get recently added customers within a specified months
+        Task<List<Customer>> GetRecentlyAddedCustomersAsync(int months);
     }
 }

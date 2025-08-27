@@ -35,7 +35,7 @@ namespace Presentation.Sections.Customers
             //initialize the customer grid view with the customer service
             _customerGridView = new CustomerGridView( this, _serviceProvider, RefreshAndShowGrid);
             //set up the main section panel
-            panelCustomerSection.Dock = DockStyle.Bottom;
+            panelCustomerSection.Dock = DockStyle.Fill;
             //default to the customer grid view
 
             SwitchCustomerSection(_customerGridView);
@@ -51,7 +51,7 @@ namespace Presentation.Sections.Customers
 
             //add the new section to the panel
             currentsubSection = newSection;
-            currentsubSection.Dock = DockStyle.Bottom;
+            currentsubSection.Dock = DockStyle.Fill;
             panelCustomerSection.Controls.Add(currentsubSection);
         }
 

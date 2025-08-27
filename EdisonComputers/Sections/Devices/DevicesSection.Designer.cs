@@ -42,11 +42,13 @@
             // 
             // lbldashboardTitle
             // 
+            lbldashboardTitle.AutoSize = false;
             lbldashboardTitle.BackColor = Color.Transparent;
             lbldashboardTitle.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbldashboardTitle.Location = new Point(31, 140);
+            lbldashboardTitle.Location = new Point(27, 105);
+            lbldashboardTitle.Margin = new Padding(3, 2, 3, 2);
             lbldashboardTitle.Name = "lbldashboardTitle";
-            lbldashboardTitle.Size = new Size(101, 39);
+            lbldashboardTitle.Size = new Size(82, 32);
             lbldashboardTitle.TabIndex = 4;
             lbldashboardTitle.Text = "Devices";
             // 
@@ -54,9 +56,10 @@
             // 
             guna2Separator1.Anchor = AnchorStyles.Top;
             guna2Separator1.FillColor = Color.FromArgb(224, 224, 224);
-            guna2Separator1.Location = new Point(31, 185);
+            guna2Separator1.Location = new Point(27, 139);
+            guna2Separator1.Margin = new Padding(3, 2, 3, 2);
             guna2Separator1.Name = "guna2Separator1";
-            guna2Separator1.Size = new Size(1448, 12);
+            guna2Separator1.Size = new Size(1267, 9);
             guna2Separator1.TabIndex = 3;
             // 
             // btnaddDevice
@@ -73,10 +76,11 @@
             btnaddDevice.ForeColor = Color.White;
             btnaddDevice.Image = (Image)resources.GetObject("btnaddDevice.Image");
             btnaddDevice.ImageAlign = HorizontalAlignment.Left;
-            btnaddDevice.Location = new Point(1265, 127);
+            btnaddDevice.Location = new Point(1107, 95);
+            btnaddDevice.Margin = new Padding(3, 2, 3, 2);
             btnaddDevice.Name = "btnaddDevice";
             btnaddDevice.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnaddDevice.Size = new Size(225, 52);
+            btnaddDevice.Size = new Size(197, 39);
             btnaddDevice.TabIndex = 6;
             btnaddDevice.Text = "Add New Device";
             btnaddDevice.Click += btnaddDevice_Click;
@@ -89,20 +93,21 @@
             paneldeviceSection.CustomizableEdges = customizableEdges3;
             paneldeviceSection.Dock = DockStyle.Fill;
             paneldeviceSection.Location = new Point(0, 0);
+            paneldeviceSection.Margin = new Padding(3, 2, 3, 2);
             paneldeviceSection.Name = "paneldeviceSection";
             paneldeviceSection.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            paneldeviceSection.Size = new Size(1538, 793);
+            paneldeviceSection.Size = new Size(1346, 595);
             paneldeviceSection.TabIndex = 7;
             // 
             // DevicesSection
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(paneldeviceSection);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "DevicesSection";
-            Size = new Size(1538, 793);
+            Size = new Size(1346, 595);
             paneldeviceSection.ResumeLayout(false);
-            paneldeviceSection.PerformLayout();
             ResumeLayout(false);
         }
 

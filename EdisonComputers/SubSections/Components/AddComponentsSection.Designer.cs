@@ -74,65 +74,73 @@
             // 
             // guna2HtmlLabel1
             // 
+            guna2HtmlLabel1.AutoSize = false;
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(52, 192);
+            guna2HtmlLabel1.Location = new Point(46, 202);
+            guna2HtmlLabel1.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(163, 30);
+            guna2HtmlLabel1.Size = new Size(132, 23);
             guna2HtmlLabel1.TabIndex = 0;
             guna2HtmlLabel1.Text = "Add Components";
             // 
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Location = new Point(67, 117);
+            guna2HtmlLabel2.Location = new Point(59, 88);
+            guna2HtmlLabel2.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(98, 22);
+            guna2HtmlLabel2.Size = new Size(78, 17);
             guna2HtmlLabel2.TabIndex = 1;
             guna2HtmlLabel2.Text = "Serial Number";
             // 
             // guna2HtmlLabel3
             // 
             guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Location = new Point(392, 117);
+            guna2HtmlLabel3.Location = new Point(343, 88);
+            guna2HtmlLabel3.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(43, 22);
+            guna2HtmlLabel3.Size = new Size(35, 17);
             guna2HtmlLabel3.TabIndex = 2;
             guna2HtmlLabel3.Text = "Name";
             // 
             // guna2HtmlLabel4
             // 
             guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.Location = new Point(736, 117);
+            guna2HtmlLabel4.Location = new Point(644, 88);
+            guna2HtmlLabel4.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(117, 22);
+            guna2HtmlLabel4.Size = new Size(95, 17);
             guna2HtmlLabel4.TabIndex = 3;
             guna2HtmlLabel4.Text = "Component Type";
             // 
             // guna2HtmlLabel5
             // 
             guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Location = new Point(67, 223);
+            guna2HtmlLabel5.Location = new Point(59, 167);
+            guna2HtmlLabel5.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(79, 22);
+            guna2HtmlLabel5.Size = new Size(63, 17);
             guna2HtmlLabel5.TabIndex = 4;
             guna2HtmlLabel5.Text = "Description";
             // 
             // guna2HtmlLabel6
             // 
             guna2HtmlLabel6.BackColor = Color.Transparent;
-            guna2HtmlLabel6.Location = new Point(392, 223);
+            guna2HtmlLabel6.Location = new Point(343, 167);
+            guna2HtmlLabel6.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            guna2HtmlLabel6.Size = new Size(66, 22);
+            guna2HtmlLabel6.Size = new Size(54, 17);
             guna2HtmlLabel6.TabIndex = 5;
             guna2HtmlLabel6.Text = "Unit Price";
             // 
             // guna2HtmlLabel7
             // 
             guna2HtmlLabel7.BackColor = Color.Transparent;
-            guna2HtmlLabel7.Location = new Point(736, 223);
+            guna2HtmlLabel7.Location = new Point(644, 167);
+            guna2HtmlLabel7.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            guna2HtmlLabel7.Size = new Size(113, 22);
+            guna2HtmlLabel7.Size = new Size(93, 17);
             guna2HtmlLabel7.TabIndex = 6;
             guna2HtmlLabel7.Text = "Quantity In stock";
             // 
@@ -147,13 +155,12 @@
             txtboxcomponentqty.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxcomponentqty.Font = new Font("Segoe UI", 9F);
             txtboxcomponentqty.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxcomponentqty.Location = new Point(736, 252);
-            txtboxcomponentqty.Margin = new Padding(3, 4, 3, 4);
+            txtboxcomponentqty.Location = new Point(644, 189);
             txtboxcomponentqty.Name = "txtboxcomponentqty";
             txtboxcomponentqty.PlaceholderText = "";
             txtboxcomponentqty.SelectedText = "";
             txtboxcomponentqty.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtboxcomponentqty.Size = new Size(254, 34);
+            txtboxcomponentqty.Size = new Size(222, 26);
             txtboxcomponentqty.TabIndex = 23;
             // 
             // cmbboxComponentType
@@ -167,10 +174,11 @@
             cmbboxComponentType.Font = new Font("Segoe UI", 10F);
             cmbboxComponentType.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxComponentType.ItemHeight = 30;
-            cmbboxComponentType.Location = new Point(736, 146);
+            cmbboxComponentType.Location = new Point(644, 110);
+            cmbboxComponentType.Margin = new Padding(3, 2, 3, 2);
             cmbboxComponentType.Name = "cmbboxComponentType";
             cmbboxComponentType.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            cmbboxComponentType.Size = new Size(254, 36);
+            cmbboxComponentType.Size = new Size(223, 36);
             cmbboxComponentType.TabIndex = 20;
             // 
             // btnsaveComponent
@@ -184,10 +192,11 @@
             btnsaveComponent.FillColor = Color.FromArgb(216, 30, 44);
             btnsaveComponent.Font = new Font("Segoe UI", 9F);
             btnsaveComponent.ForeColor = Color.White;
-            btnsaveComponent.Location = new Point(680, 437);
+            btnsaveComponent.Location = new Point(595, 328);
+            btnsaveComponent.Margin = new Padding(3, 2, 3, 2);
             btnsaveComponent.Name = "btnsaveComponent";
             btnsaveComponent.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnsaveComponent.Size = new Size(212, 41);
+            btnsaveComponent.Size = new Size(186, 31);
             btnsaveComponent.TabIndex = 25;
             btnsaveComponent.Text = "Save";
             btnsaveComponent.Click += btnsaveComponent_Click;
@@ -203,10 +212,11 @@
             btncancel.FillColor = Color.FromArgb(224, 224, 224);
             btncancel.Font = new Font("Segoe UI", 9F);
             btncancel.ForeColor = Color.White;
-            btncancel.Location = new Point(410, 437);
+            btncancel.Location = new Point(359, 328);
+            btncancel.Margin = new Padding(3, 2, 3, 2);
             btncancel.Name = "btncancel";
             btncancel.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btncancel.Size = new Size(212, 41);
+            btncancel.Size = new Size(186, 31);
             btncancel.TabIndex = 26;
             btncancel.Text = "Cancel";
             btncancel.Click += btncancel_Click;
@@ -221,10 +231,11 @@
             btncomponentSectionBack.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btncomponentSectionBack.Font = new Font("Segoe UI", 9F);
             btncomponentSectionBack.ForeColor = Color.White;
-            btncomponentSectionBack.Location = new Point(150, 437);
+            btncomponentSectionBack.Location = new Point(131, 328);
+            btncomponentSectionBack.Margin = new Padding(3, 2, 3, 2);
             btncomponentSectionBack.Name = "btncomponentSectionBack";
             btncomponentSectionBack.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btncomponentSectionBack.Size = new Size(212, 41);
+            btncomponentSectionBack.Size = new Size(186, 31);
             btncomponentSectionBack.TabIndex = 27;
             btncomponentSectionBack.Text = "Back";
             btncomponentSectionBack.Click += btncomponentSectionBack_Click;
@@ -240,13 +251,12 @@
             txtboxcomponentSerialNo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxcomponentSerialNo.Font = new Font("Segoe UI", 9F);
             txtboxcomponentSerialNo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxcomponentSerialNo.Location = new Point(67, 146);
-            txtboxcomponentSerialNo.Margin = new Padding(3, 4, 3, 4);
+            txtboxcomponentSerialNo.Location = new Point(59, 110);
             txtboxcomponentSerialNo.Name = "txtboxcomponentSerialNo";
             txtboxcomponentSerialNo.PlaceholderText = "";
             txtboxcomponentSerialNo.SelectedText = "";
             txtboxcomponentSerialNo.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            txtboxcomponentSerialNo.Size = new Size(246, 36);
+            txtboxcomponentSerialNo.Size = new Size(215, 27);
             txtboxcomponentSerialNo.TabIndex = 18;
             // 
             // txtboxcomponentName
@@ -260,13 +270,12 @@
             txtboxcomponentName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxcomponentName.Font = new Font("Segoe UI", 9F);
             txtboxcomponentName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxcomponentName.Location = new Point(392, 146);
-            txtboxcomponentName.Margin = new Padding(3, 4, 3, 4);
+            txtboxcomponentName.Location = new Point(343, 110);
             txtboxcomponentName.Name = "txtboxcomponentName";
             txtboxcomponentName.PlaceholderText = "";
             txtboxcomponentName.SelectedText = "";
             txtboxcomponentName.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            txtboxcomponentName.Size = new Size(247, 36);
+            txtboxcomponentName.Size = new Size(216, 27);
             txtboxcomponentName.TabIndex = 19;
             // 
             // txtboxcomponentDescription
@@ -280,13 +289,12 @@
             txtboxcomponentDescription.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxcomponentDescription.Font = new Font("Segoe UI", 9F);
             txtboxcomponentDescription.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxcomponentDescription.Location = new Point(67, 252);
-            txtboxcomponentDescription.Margin = new Padding(3, 4, 3, 4);
+            txtboxcomponentDescription.Location = new Point(59, 189);
             txtboxcomponentDescription.Name = "txtboxcomponentDescription";
             txtboxcomponentDescription.PlaceholderText = "";
             txtboxcomponentDescription.SelectedText = "";
             txtboxcomponentDescription.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            txtboxcomponentDescription.Size = new Size(246, 34);
+            txtboxcomponentDescription.Size = new Size(215, 26);
             txtboxcomponentDescription.TabIndex = 21;
             // 
             // txtboxcomponentUnitPrice
@@ -300,13 +308,12 @@
             txtboxcomponentUnitPrice.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxcomponentUnitPrice.Font = new Font("Segoe UI", 9F);
             txtboxcomponentUnitPrice.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxcomponentUnitPrice.Location = new Point(392, 252);
-            txtboxcomponentUnitPrice.Margin = new Padding(3, 4, 3, 4);
+            txtboxcomponentUnitPrice.Location = new Point(343, 189);
             txtboxcomponentUnitPrice.Name = "txtboxcomponentUnitPrice";
             txtboxcomponentUnitPrice.PlaceholderText = "";
             txtboxcomponentUnitPrice.SelectedText = "";
             txtboxcomponentUnitPrice.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            txtboxcomponentUnitPrice.Size = new Size(247, 34);
+            txtboxcomponentUnitPrice.Size = new Size(216, 26);
             txtboxcomponentUnitPrice.TabIndex = 22;
             // 
             // txtboxcomponentWarranty
@@ -320,26 +327,27 @@
             txtboxcomponentWarranty.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxcomponentWarranty.Font = new Font("Segoe UI", 9F);
             txtboxcomponentWarranty.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxcomponentWarranty.Location = new Point(67, 346);
-            txtboxcomponentWarranty.Margin = new Padding(3, 4, 3, 4);
+            txtboxcomponentWarranty.Location = new Point(59, 260);
             txtboxcomponentWarranty.Name = "txtboxcomponentWarranty";
             txtboxcomponentWarranty.PlaceholderText = "";
             txtboxcomponentWarranty.SelectedText = "";
             txtboxcomponentWarranty.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            txtboxcomponentWarranty.Size = new Size(246, 34);
+            txtboxcomponentWarranty.Size = new Size(215, 26);
             txtboxcomponentWarranty.TabIndex = 24;
             // 
             // guna2HtmlLabel9
             // 
             guna2HtmlLabel9.BackColor = Color.Transparent;
-            guna2HtmlLabel9.Location = new Point(67, 317);
+            guna2HtmlLabel9.Location = new Point(59, 238);
+            guna2HtmlLabel9.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            guna2HtmlLabel9.Size = new Size(246, 22);
+            guna2HtmlLabel9.Size = new Size(199, 17);
             guna2HtmlLabel9.TabIndex = 23;
             guna2HtmlLabel9.Text = "Warranty Period(in Months:Optional)";
             // 
             // paneladdComponentSection
             // 
+            paneladdComponentSection.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             paneladdComponentSection.BackColor = SystemColors.InactiveBorder;
             paneladdComponentSection.Controls.Add(guna2HtmlLabel9);
             paneladdComponentSection.Controls.Add(guna2HtmlLabel2);
@@ -359,25 +367,26 @@
             paneladdComponentSection.Controls.Add(cmbboxComponentType);
             paneladdComponentSection.Controls.Add(btnsaveComponent);
             paneladdComponentSection.CustomizableEdges = customizableEdges21;
-            paneladdComponentSection.Location = new Point(52, 256);
+            paneladdComponentSection.Location = new Point(46, 229);
+            paneladdComponentSection.Margin = new Padding(3, 2, 3, 2);
             paneladdComponentSection.Name = "paneladdComponentSection";
             paneladdComponentSection.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            paneladdComponentSection.Size = new Size(1034, 545);
+            paneladdComponentSection.Size = new Size(1021, 372);
             paneladdComponentSection.TabIndex = 24;
             // 
             // AddComponentsSection
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(paneladdComponentSection);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AddComponentsSection";
-            Size = new Size(1538, 834);
+            Size = new Size(1346, 626);
             Load += AddComponentsSection_Load;
             paneladdComponentSection.ResumeLayout(false);
             paneladdComponentSection.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

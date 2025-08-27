@@ -1,4 +1,5 @@
-﻿using Core.Enums;
+﻿using Core.Common;
+using Core.Enums;
 using Core.IRepository;
 using Core.IRepository.IServiceRecordRepository;
 using Core.Models;
@@ -26,31 +27,44 @@ namespace BLL.Services.ServiceRecordService
 
         public async Task AddServiceRecordAsync(Core.Models.ServiceRecord serviceRecord)
         {
-            if (serviceRecord == null)
-            {
-                throw new ArgumentNullException(nameof(serviceRecord), "Service record cannot be null.");
-            }
-            // Validate that the job exists before adding the service record
-            // Validate the job exists before adding the upgrade record
-            if (serviceRecord.JobId <= 0)
-            {
-                throw new ArgumentException("Invalid Job ID for the upgrade record.");
-            }
 
-
-            await _serviceRecordRepository.AddServiceRecordAsync(serviceRecord);
-
-            //update the job status from checkedin to in progress
-            using (var scope = _serviceProvider.CreateScope())
+            try
             {
-                var jobService = scope.ServiceProvider.GetRequiredService<IRepository<Job>>();
-                var job = await jobService.GetById(serviceRecord.JobId);
-                if (job == null)
+                LoggingService.LogInformation($"Adding service record for job {serviceRecord.JobId}: {serviceRecord.ServiceDescription}");
+
+                if (serviceRecord == null)
                 {
-                    throw new ArgumentException($"Job with ID {serviceRecord.JobId} does not exist.");
+                    throw new ArgumentNullException(nameof(serviceRecord), "Service record cannot be null.");
                 }
-                job.JobStatus = JobStatus.InProgress;
-                await jobService.Update(job);
+                // Validate that the job exists before adding the service record
+                // Validate the job exists before adding the upgrade record
+                if (serviceRecord.JobId <= 0)
+                {
+                    throw new ArgumentException("Invalid Job ID for the upgrade record.");
+                }
+
+
+                await _serviceRecordRepository.AddServiceRecordAsync(serviceRecord);
+
+                LoggingService.LogInformation($"Successfully added service record: {serviceRecord.ServiceRecordId} for job {serviceRecord.JobId}");
+
+                //update the job status from checkedin to in progress
+                using (var scope = _serviceProvider.CreateScope())
+                {
+                    var jobService = scope.ServiceProvider.GetRequiredService<IRepository<Job>>();
+                    var job = await jobService.GetById(serviceRecord.JobId);
+                    if (job == null)
+                    {
+                        throw new ArgumentException($"Job with ID {serviceRecord.JobId} does not exist.");
+                    }
+                    job.JobStatus = JobStatus.InProgress;
+                    await jobService.Update(job);
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError(ex, $"Failed to add service record for job {serviceRecord.JobId}");
+                throw;
             }
         }
 
@@ -69,15 +83,27 @@ namespace BLL.Services.ServiceRecordService
 
         public async Task UpdateServiceRecordAsync(ServiceRecord serviceRecord)
         {
-            if (serviceRecord == null)
+            try
             {
-                throw new ArgumentNullException(nameof(serviceRecord), "Service record cannot be null.");
+                LoggingService.LogInformation($"Updating service record {serviceRecord.ServiceRecordId} for job {serviceRecord.JobId}");
+
+                if (serviceRecord == null)
+                {
+                    throw new ArgumentNullException(nameof(serviceRecord), "Service record cannot be null.");
+                }
+                if (serviceRecord.ServiceRecordId <= 0)
+                {
+                    throw new ArgumentException("Invalid Service Record ID.");
+                }
+                await _serviceRecordRepository.UpdateServiceRecord(serviceRecord);
+                LoggingService.LogInformation($"Successfully updated service record: {serviceRecord.ServiceRecordId} for job {serviceRecord.JobId}");
+
             }
-            if (serviceRecord.ServiceRecordId <= 0)
+            catch (Exception ex)
             {
-                throw new ArgumentException("Invalid Service Record ID.");
+                LoggingService.LogError(ex, $"Failed to update service record for job {serviceRecord.JobId}");
+                throw;
             }
-            await _serviceRecordRepository.UpdateServiceRecord(serviceRecord);
         }
 
 

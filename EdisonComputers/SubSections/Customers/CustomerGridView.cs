@@ -39,8 +39,8 @@ namespace Presentation.SubSections.Customers
             SetupGridViewColumns(); // Define the grid structure first
 
             PopulateFilterCategories(); // Populate the first ComboBox
-            await LoadAllCustomersAsync(); // Load all data initially
-
+            //await LoadAllCustomersAsync(); // Load all data initially
+            await LoadRecentActiveCustomersByDefaultAsync(); // Load recent active customers by default
 
 
         }
@@ -49,6 +49,7 @@ namespace Presentation.SubSections.Customers
         {
             var categories = new List<FilterCategory>
         {
+            new FilterCategory { DisplayName = "Active Customers (6 Months)", Value = "RecentActive" },
             new FilterCategory { DisplayName = "Show All", Value = "All" },
             new FilterCategory { DisplayName = "By Record Status", Value = "RecordStatus" },
             new FilterCategory { DisplayName = "By Device Type", Value = "DeviceType" }
@@ -67,21 +68,83 @@ namespace Presentation.SubSections.Customers
 
 
 
+        private async Task LoadRecentActiveCustomersByDefaultAsync()
+        {
+            try
+            {
+                using (var scope = _serviceProvider.CreateScope())
+                {
+                    var customerService = scope.ServiceProvider.GetRequiredService<CustomerService>();
+                    // Get customers active in last 6 months (have recent jobs or added recently)
+                    var recentCustomers = await customerService.GetRecentActiveCustomersAsync(6);
+                    BindCustomersToGrid(recentCustomers.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading recent customers: {ex.Message}", "Error");
+            }
+        }
+
+
+
+
+
+
+
+
+
+
 
         //method to refresh the grid view data
         // A better refresh method that reloads based on current filter
         public async Task RefreshGridView()
         {
-            if (cmbboxcustomerFilterCategory.SelectedValue?.ToString() == "All" || cmbboxcustomerFilterValue.SelectedItem == null)
+            //if (cmbboxcustomerFilterCategory.SelectedValue?.ToString() == "All" || cmbboxcustomerFilterValue.SelectedItem == null)
+            //{
+            //    await LoadAllCustomersAsync();
+            //}
+            //else
+            //{
+            //    // Re-apply the current filter
+            //    cmbboxcustomerFilterValue_SelectedIndexChanged(this, EventArgs.Empty);
+            //}
+            //new approach to handle the refresh based on selected category and value
+            if (cmbboxcustomerFilterCategory.SelectedValue != null)
             {
-                await LoadAllCustomersAsync();
+                string category = cmbboxcustomerFilterCategory.SelectedValue.ToString();
+
+                switch (category)
+                {
+                    case "RecentActive":
+                        await LoadRecentActiveCustomersByDefaultAsync();
+                        break;
+                    case "All":
+                        await LoadAllCustomersAsync();
+                        break;
+                    default:
+                        // For other filters with values
+                        if (cmbboxcustomerFilterValue.SelectedValue != null)
+                        {
+                            cmbboxcustomerFilterValue_SelectedIndexChanged(this, EventArgs.Empty);
+                        }
+                        else
+                        {
+                            // Fallback to default if no specific value is selected
+                            await LoadRecentActiveCustomersByDefaultAsync();
+                        }
+                        break;
+                }
             }
             else
             {
-                // Re-apply the current filter
-                cmbboxcustomerFilterValue_SelectedIndexChanged(this, EventArgs.Empty);
+                // Fallback if no category is selected
+                await LoadRecentActiveCustomersByDefaultAsync();
             }
         }
+
+
+
 
 
         //add action button to the grid view
@@ -94,7 +157,10 @@ namespace Presentation.SubSections.Customers
                 Name = "View",
                 HeaderText = "   View",
 
-                Image = Resource1.Eye2, // 👁️
+                Image = Resource1.Eye3, // 👁️
+              
+
+               
                 Width = 2,
                 ImageLayout = DataGridViewImageCellLayout.Zoom,
 
@@ -107,7 +173,7 @@ namespace Presentation.SubSections.Customers
             {
                 Name = "Edit",
                 HeaderText = "Edit",
-                Image = Resource1.Create, // ✏️
+                Image = Resource1.Create3, // ✏️
                 Width = 2,
                 ImageLayout = DataGridViewImageCellLayout.Zoom
             };
@@ -116,7 +182,7 @@ namespace Presentation.SubSections.Customers
             {
                 Name = "Delete",
                 HeaderText = "Delete",
-                Image = Resource1.Waste, // 🗑️
+                Image = Resource1.Remove, // 🗑️
                 Width = 2,
                 ImageLayout = DataGridViewImageCellLayout.Zoom
             };
@@ -183,7 +249,7 @@ namespace Presentation.SubSections.Customers
                 HeaderText = "Added Date",
                 DataPropertyName = "Added",
                 Width = 150,
-                DefaultCellStyle = new DataGridViewCellStyle { Format = "MM/dd/yyyy" } // Format date
+                DefaultCellStyle = new DataGridViewCellStyle { Format = "yyyy/MM/dd h:mm tt", FormatProvider = System.Globalization.CultureInfo.InvariantCulture } // Format date
             });
             gridviewCustomer.Columns.Add(new DataGridViewTextBoxColumn
             {
@@ -284,11 +350,20 @@ namespace Presentation.SubSections.Customers
                     cmbboxcustomerFilterValue.DataSource = Enum.GetValues(typeof(Core.Enums.DeviceType));
                     break;
 
+
                 case "All":
-                default:
+
                     cmbboxcustomerFilterValue.Enabled = false; // Nothing to select for "All"
                     await LoadAllCustomersAsync(); // Reload all customers
                     break;
+
+                case "RecentActive":
+                default:
+                    cmbboxcustomerFilterValue.Enabled = false;
+                    await LoadRecentActiveCustomersByDefaultAsync();
+                    break;
+
+               
             }
         }
 

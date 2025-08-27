@@ -1,4 +1,5 @@
-﻿using Core.Enums;
+﻿using Core.Common;
+using Core.Enums;
 using Core.IRepository;
 using Core.IRepository.IDeviceImageRepository;
 using Core.IRepository.IDeviceRepository;
@@ -36,13 +37,52 @@ namespace BLL.Services.DeviceService
 
         public async Task AddDevice(int customerId, Device device)
         {
-            if (device == null)
+            try
             {
-                throw new ArgumentNullException(nameof(device), "Device cannot be null");
-            }
+                LoggingService.LogInformation($"Adding device: {device.Brand} {device.Model} for customer {customerId}");
 
-            await _deviceRepository.AddDevice(customerId, device);
+
+                // Validate the device object
+                if (device == null)
+                    throw new ArgumentNullException(nameof(device), "Device cannot be null");
+
+                // Validate device properties
+                if (string.IsNullOrWhiteSpace(device.Model))
+                    throw new ArgumentException("Device model is required.", nameof(device.Model));
+
+                if (device.Model.Length > 150)
+                    throw new ArgumentException("Device model cannot exceed 150 characters.", nameof(device.Model));
+
+                if (!string.IsNullOrEmpty(device.Brand) && device.Brand.Length > 100)
+                    throw new ArgumentException("Device brand cannot exceed 100 characters.", nameof(device.Brand));
+
+                if (!string.IsNullOrEmpty(device.SerialNumber) && device.SerialNumber.Length > 100)
+                    throw new ArgumentException("Device serial number cannot exceed 100 characters.", nameof(device.SerialNumber));
+
+                // Check for duplicate serial number if provided
+                if (!string.IsNullOrWhiteSpace(device.SerialNumber))
+                {
+                    var existingDevices = await _genericRepository.GetAll();
+                    if (existingDevices.Any(d => d.SerialNumber == device.SerialNumber && d.RecordStatus == RecordStatus.Active))
+                    {
+                        throw new ArgumentException("A device with this serial number already exists.");
+                    }
+                }
+
+           
+
+
+                await _deviceRepository.AddDevice(customerId, device);
+                LoggingService.LogInformation($"Successfully added device: {device.DeviceId} - {device.Brand} {device.Model}");
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError(ex, $"Failed to add device for customer {customerId}: {device?.Brand} {device?.Model}");
+                throw;
+            }
         }
+
+
 
         public async Task UpdateDevice(Device device)
         {
@@ -51,7 +91,19 @@ namespace BLL.Services.DeviceService
 
         public async Task DeleteDevice(int id)
         {
-            await _genericRepository.Delete(id);
+            try
+            {
+                LoggingService.LogInformation($"Deleting device: {id}");
+
+                await _genericRepository.Delete(id);
+
+                LoggingService.LogInformation($"Successfully deleted device: {id}");
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError(ex, $"Failed to delete device: {id}");
+                throw;
+            }
         }
 
         public async Task<List<Device>> GetDevicebyCustomerId(int customerId)
@@ -88,7 +140,17 @@ namespace BLL.Services.DeviceService
 
         public async Task<Device> UpdateDevice(Device devicetoupdate, List<DeviceImage> imagestoadd, List<int> imagestoremove)
         {
-            return await _deviceRepository.UpdateDevice(devicetoupdate, imagestoadd, imagestoremove);
+            try
+            {
+                LoggingService.LogInformation($"Updating device: {devicetoupdate.DeviceId} - {devicetoupdate.Brand} {devicetoupdate.Model}");
+
+                return await _deviceRepository.UpdateDevice(devicetoupdate, imagestoadd, imagestoremove);
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError(ex, $"Failed to update device: {devicetoupdate.DeviceId}");
+                throw;
+            }
         }
 
 
@@ -140,6 +202,17 @@ namespace BLL.Services.DeviceService
             return await _deviceRepository.GetAllDevicesWithCustomerFullName();
 
 
+        }
+
+
+        //get recently added devices (last 30 days)
+        public async Task<List<Device>> GetRecentDevicesAsync(int days)
+        {
+            if (days <= 0)
+            {
+                throw new ArgumentException("Days must be greater than zero.", nameof(days));
+            }
+            return await _deviceRepository.GetRecentDevicesAsync(days);
         }
     }
 }

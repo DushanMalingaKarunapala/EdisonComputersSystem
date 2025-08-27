@@ -89,8 +89,9 @@ namespace Presentation.SubSections.Tasks.ServiceTask
             {
                 Name = "Edit",
                 HeaderText = "Edit",
-                Image = Resource1.Create, // ✏️
+                Image = Resource1.Create3, // ✏️
                 Width = 2,
+              
                 ImageLayout = DataGridViewImageCellLayout.Zoom
             };
 
@@ -98,7 +99,7 @@ namespace Presentation.SubSections.Tasks.ServiceTask
             {
                 Name = "Delete",
                 HeaderText = "Delete",
-                Image = Resource1.Waste, // 🗑️
+                Image = Resource1.Remove, // 🗑️
                 Width = 2,
                 ImageLayout = DataGridViewImageCellLayout.Zoom
             };

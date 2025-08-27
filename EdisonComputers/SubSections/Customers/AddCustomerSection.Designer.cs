@@ -67,16 +67,19 @@
             // 
             // guna2HtmlLabel1
             // 
+            guna2HtmlLabel1.AutoSize = false;
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(29, 102);
+            guna2HtmlLabel1.Location = new Point(21, 147);
+            guna2HtmlLabel1.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(186, 30);
+            guna2HtmlLabel1.Size = new Size(150, 23);
             guna2HtmlLabel1.TabIndex = 0;
             guna2HtmlLabel1.Text = "Add New Customer";
             // 
             // paneladdcustomerform
             // 
+            paneladdcustomerform.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             paneladdcustomerform.BackColor = SystemColors.InactiveBorder;
             paneladdcustomerform.BorderRadius = 5;
             paneladdcustomerform.Controls.Add(guna2HtmlLabel6);
@@ -94,18 +97,20 @@
             paneladdcustomerform.Controls.Add(txtboxCusPhone);
             paneladdcustomerform.Controls.Add(txtboxCusFirstname);
             paneladdcustomerform.CustomizableEdges = customizableEdges17;
-            paneladdcustomerform.Location = new Point(29, 138);
+            paneladdcustomerform.Location = new Point(21, 174);
+            paneladdcustomerform.Margin = new Padding(3, 2, 3, 2);
             paneladdcustomerform.Name = "paneladdcustomerform";
             paneladdcustomerform.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            paneladdcustomerform.Size = new Size(1399, 588);
+            paneladdcustomerform.Size = new Size(1224, 407);
             paneladdcustomerform.TabIndex = 10;
             // 
             // guna2HtmlLabel6
             // 
             guna2HtmlLabel6.BackColor = Color.Transparent;
-            guna2HtmlLabel6.Location = new Point(323, 23);
+            guna2HtmlLabel6.Location = new Point(285, 59);
+            guna2HtmlLabel6.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            guna2HtmlLabel6.Size = new Size(73, 22);
+            guna2HtmlLabel6.Size = new Size(59, 17);
             guna2HtmlLabel6.TabIndex = 23;
             guna2HtmlLabel6.Text = "Last Name";
             // 
@@ -121,13 +126,12 @@
             txtboxCusLastName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxCusLastName.Font = new Font("Segoe UI", 9F);
             txtboxCusLastName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxCusLastName.Location = new Point(323, 52);
-            txtboxCusLastName.Margin = new Padding(3, 4, 3, 4);
+            txtboxCusLastName.Location = new Point(285, 81);
             txtboxCusLastName.Name = "txtboxCusLastName";
             txtboxCusLastName.PlaceholderText = "";
             txtboxCusLastName.SelectedText = "";
             txtboxCusLastName.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtboxCusLastName.Size = new Size(286, 46);
+            txtboxCusLastName.Size = new Size(250, 34);
             txtboxCusLastName.TabIndex = 11;
             // 
             // btnaddcusSectionBack
@@ -140,10 +144,11 @@
             btnaddcusSectionBack.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnaddcusSectionBack.Font = new Font("Segoe UI", 9F);
             btnaddcusSectionBack.ForeColor = Color.White;
-            btnaddcusSectionBack.Location = new Point(309, 472);
+            btnaddcusSectionBack.Location = new Point(254, 357);
+            btnaddcusSectionBack.Margin = new Padding(3, 2, 3, 2);
             btnaddcusSectionBack.Name = "btnaddcusSectionBack";
             btnaddcusSectionBack.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnaddcusSectionBack.Size = new Size(214, 45);
+            btnaddcusSectionBack.Size = new Size(187, 34);
             btnaddcusSectionBack.TabIndex = 21;
             btnaddcusSectionBack.Text = "Back";
             btnaddcusSectionBack.Click += btnaddcusSectionBack_Click;
@@ -159,10 +164,11 @@
             btncusSave.FillColor = Color.FromArgb(216, 30, 44);
             btncusSave.Font = new Font("Segoe UI", 9F);
             btncusSave.ForeColor = Color.White;
-            btncusSave.Location = new Point(849, 472);
+            btncusSave.Location = new Point(727, 357);
+            btncusSave.Margin = new Padding(3, 2, 3, 2);
             btncusSave.Name = "btncusSave";
             btncusSave.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btncusSave.Size = new Size(214, 45);
+            btncusSave.Size = new Size(187, 34);
             btncusSave.TabIndex = 20;
             btncusSave.Text = "Save Customer";
             btncusSave.Click += btncusSave_Click;
@@ -178,54 +184,60 @@
             btnaddcusSectionCancel.FillColor = Color.FromArgb(224, 224, 224);
             btnaddcusSectionCancel.Font = new Font("Segoe UI", 9F);
             btnaddcusSectionCancel.ForeColor = Color.White;
-            btnaddcusSectionCancel.Location = new Point(580, 472);
+            btnaddcusSectionCancel.Location = new Point(492, 357);
+            btnaddcusSectionCancel.Margin = new Padding(3, 2, 3, 2);
             btnaddcusSectionCancel.Name = "btnaddcusSectionCancel";
             btnaddcusSectionCancel.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnaddcusSectionCancel.Size = new Size(214, 45);
+            btnaddcusSectionCancel.Size = new Size(187, 34);
             btnaddcusSectionCancel.TabIndex = 19;
             btnaddcusSectionCancel.Text = "Cancel";
             btnaddcusSectionCancel.Click += btnaddcusSectionCancel_Click;
             // 
             // guna2Separator1
             // 
-            guna2Separator1.Location = new Point(25, 418);
+            guna2Separator1.Location = new Point(18, 326);
+            guna2Separator1.Margin = new Padding(3, 2, 3, 2);
             guna2Separator1.Name = "guna2Separator1";
-            guna2Separator1.Size = new Size(1203, 12);
+            guna2Separator1.Size = new Size(1053, 9);
             guna2Separator1.TabIndex = 18;
             // 
             // guna2HtmlLabel5
             // 
             guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Location = new Point(18, 183);
+            guna2HtmlLabel5.Location = new Point(18, 153);
+            guna2HtmlLabel5.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(56, 22);
+            guna2HtmlLabel5.Size = new Size(45, 17);
             guna2HtmlLabel5.TabIndex = 17;
             guna2HtmlLabel5.Text = "Address";
             // 
             // guna2HtmlLabel4
             // 
             guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.Location = new Point(942, 23);
+            guna2HtmlLabel4.Location = new Point(826, 59);
+            guna2HtmlLabel4.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(40, 22);
+            guna2HtmlLabel4.Size = new Size(32, 17);
             guna2HtmlLabel4.TabIndex = 16;
             guna2HtmlLabel4.Text = "Email";
             // 
             // guna2HtmlLabel3
             // 
             guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Location = new Point(636, 23);
+            guna2HtmlLabel3.Location = new Point(558, 59);
+            guna2HtmlLabel3.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(44, 22);
+            guna2HtmlLabel3.Size = new Size(37, 17);
             guna2HtmlLabel3.TabIndex = 15;
             guna2HtmlLabel3.Text = "Phone";
             // 
             // guna2HtmlLabel2
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Location = new Point(18, 23);
+            guna2HtmlLabel2.Location = new Point(18, 59);
+            guna2HtmlLabel2.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(74, 22);
+            guna2HtmlLabel2.Size = new Size(60, 17);
             guna2HtmlLabel2.TabIndex = 14;
             guna2HtmlLabel2.Text = "First Name";
             // 
@@ -241,13 +253,12 @@
             txtboxCusAddress.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxCusAddress.Font = new Font("Segoe UI", 9F);
             txtboxCusAddress.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxCusAddress.Location = new Point(18, 212);
-            txtboxCusAddress.Margin = new Padding(3, 4, 3, 4);
+            txtboxCusAddress.Location = new Point(18, 175);
             txtboxCusAddress.Name = "txtboxCusAddress";
             txtboxCusAddress.PlaceholderText = "";
             txtboxCusAddress.SelectedText = "";
             txtboxCusAddress.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            txtboxCusAddress.Size = new Size(1210, 147);
+            txtboxCusAddress.Size = new Size(1059, 110);
             txtboxCusAddress.TabIndex = 14;
             // 
             // txtboxCusEmail
@@ -262,13 +273,12 @@
             txtboxCusEmail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxCusEmail.Font = new Font("Segoe UI", 9F);
             txtboxCusEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxCusEmail.Location = new Point(942, 52);
-            txtboxCusEmail.Margin = new Padding(3, 4, 3, 4);
+            txtboxCusEmail.Location = new Point(826, 81);
             txtboxCusEmail.Name = "txtboxCusEmail";
             txtboxCusEmail.PlaceholderText = "";
             txtboxCusEmail.SelectedText = "";
             txtboxCusEmail.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            txtboxCusEmail.Size = new Size(286, 46);
+            txtboxCusEmail.Size = new Size(250, 34);
             txtboxCusEmail.TabIndex = 13;
             // 
             // txtboxCusPhone
@@ -283,13 +293,12 @@
             txtboxCusPhone.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxCusPhone.Font = new Font("Segoe UI", 9F);
             txtboxCusPhone.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxCusPhone.Location = new Point(636, 52);
-            txtboxCusPhone.Margin = new Padding(3, 4, 3, 4);
+            txtboxCusPhone.Location = new Point(558, 81);
             txtboxCusPhone.Name = "txtboxCusPhone";
             txtboxCusPhone.PlaceholderText = "";
             txtboxCusPhone.SelectedText = "";
             txtboxCusPhone.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            txtboxCusPhone.Size = new Size(286, 46);
+            txtboxCusPhone.Size = new Size(250, 34);
             txtboxCusPhone.TabIndex = 12;
             // 
             // txtboxCusFirstname
@@ -304,27 +313,26 @@
             txtboxCusFirstname.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxCusFirstname.Font = new Font("Segoe UI", 9F);
             txtboxCusFirstname.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxCusFirstname.Location = new Point(18, 52);
-            txtboxCusFirstname.Margin = new Padding(3, 4, 3, 4);
+            txtboxCusFirstname.Location = new Point(18, 81);
             txtboxCusFirstname.Name = "txtboxCusFirstname";
             txtboxCusFirstname.PlaceholderText = "";
             txtboxCusFirstname.SelectedText = "";
             txtboxCusFirstname.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            txtboxCusFirstname.Size = new Size(286, 46);
+            txtboxCusFirstname.Size = new Size(250, 34);
             txtboxCusFirstname.TabIndex = 10;
             // 
             // AddCustomerSection
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(paneladdcustomerform);
             Controls.Add(guna2HtmlLabel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AddCustomerSection";
-            Size = new Size(1481, 797);
+            Size = new Size(1296, 598);
             paneladdcustomerform.ResumeLayout(false);
             paneladdcustomerform.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

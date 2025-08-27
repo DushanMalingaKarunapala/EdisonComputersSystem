@@ -62,59 +62,42 @@ namespace Presentation.SubSections
                 setuiEnabled(false);
 
                 //validate inputs
-                // --- 1. Validate Inputs ---
+
+                var validationErrors = new List<string>();
+
                 if (string.IsNullOrWhiteSpace(txtboxcomponentName.Text))
-                {
-                    MessageBox.Show("Component Name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtboxcomponentName.Focus();
-                    setuiEnabled(true);
-                    return;
+                    validationErrors.Add("Component Name is required.");
 
-                }
                 if (cmbboxComponentType.SelectedItem == null)
-                {
-                    MessageBox.Show("Please select a component type.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    cmbboxComponentType.Focus();
-                    setuiEnabled(true);
-                    return;
-                }
-                //convert the price to decimal
+                    validationErrors.Add("Please select a component type.");
+
+                // Fix: Parse price correctly
                 if (!decimal.TryParse(txtboxcomponentUnitPrice.Text, out decimal price) || price < 0)
-                {
-                    MessageBox.Show("Please enter a valid price.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    setuiEnabled(true);
-                    return;
-                }
+                    validationErrors.Add("Please enter a valid, non-negative price.");
 
+                if (!int.TryParse(txtboxcomponentqty.Text, out int quantity) || quantity <= 0)
+                    validationErrors.Add("Please enter a valid quantity greater than 0.");
 
-                int? defaultWarrantyInMonths = null; // Start with null for no warranty
-                if (!string.IsNullOrWhiteSpace(txtboxcomponentWarranty.Text)) // Only parse if user entered something
+                // Validate warranty period
+                int? warrantyPeriod = null;
+                if (!string.IsNullOrWhiteSpace(txtboxcomponentWarranty.Text))
                 {
-                    if (int.TryParse(txtboxcomponentWarranty.Text, out int warrantyPeriod) && warrantyPeriod >= 0)
+                    if (!int.TryParse(txtboxcomponentWarranty.Text, out int period) || period < 0)
                     {
-                        defaultWarrantyInMonths = warrantyPeriod; // Assign the parsed value (can be 0 or more)
+                        validationErrors.Add("Please enter a valid, non-negative warranty period.");
                     }
                     else
                     {
-                        MessageBox.Show("Please enter a valid, non-negative number for warranty period in months.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtboxcomponentWarranty.Focus();
-                        setuiEnabled(true);
-                        return;
+                        warrantyPeriod = period > 0 ? period : null;
                     }
                 }
 
-
-
-
-                decimal nudcomponentPrice = price; // Assuming nudcomponentPrice is a NumericUpDown control for price
-                //check if the quantity is a positive integer 
-                if (!int.TryParse(txtboxcomponentqty.Text, out int quantity) || quantity <= 0)
+                if (validationErrors.Any())
                 {
-                    MessageBox.Show("Please enter a valid quantity.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(string.Join("\n", validationErrors), "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     setuiEnabled(true);
                     return;
                 }
-
 
                 //set ui enabled if validation fails
 
@@ -127,8 +110,9 @@ namespace Presentation.SubSections
                     Name = txtboxcomponentName.Text.Trim(),
                     Type = (ComponentType)cmbboxComponentType.SelectedItem, // Assuming ComponentType is an enum
                     Description = txtboxcomponentDescription.Text.Trim(),
-                    Price = nudcomponentPrice, // Assuming nudcomponentPrice is a NumericUpDown control for price
-                    DefaultWarrantyInMonths = defaultWarrantyInMonths,
+                    Price = price, 
+                    AddedDate = DateTime.Now, // Set the current date and time as the added date
+                    DefaultWarrantyInMonths = warrantyPeriod,
                     StockStatus = ComponentStockStatus.StockStatus.InStock, // Default stock status
                     QuantityInStock = quantity // Assuming txtboxcomponentqty is a TextBox for quantity
                 };

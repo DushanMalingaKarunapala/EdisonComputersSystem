@@ -26,5 +26,9 @@ namespace Core.IRepository.IDeviceRepository
 
         //a method to get all devices including theier customer full name
         Task<List<Device>> GetAllDevicesWithCustomerFullName();
+
+
+        //a method to get recetly added devices based on the number of days specified
+        Task<List<Device>> GetRecentDevicesAsync(int days); 
     }
 }

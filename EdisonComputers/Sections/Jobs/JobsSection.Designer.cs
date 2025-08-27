@@ -47,9 +47,10 @@
             panelJobSection.CustomizableEdges = customizableEdges3;
             panelJobSection.Dock = DockStyle.Fill;
             panelJobSection.Location = new Point(0, 0);
+            panelJobSection.Margin = new Padding(3, 2, 3, 2);
             panelJobSection.Name = "panelJobSection";
             panelJobSection.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            panelJobSection.Size = new Size(1538, 793);
+            panelJobSection.Size = new Size(1346, 595);
             panelJobSection.TabIndex = 0;
             // 
             // btnaddJob
@@ -65,10 +66,11 @@
             btnaddJob.Font = new Font("Segoe UI", 9F);
             btnaddJob.ForeColor = Color.White;
             btnaddJob.Image = Properties.Resources.Add;
-            btnaddJob.Location = new Point(1248, 131);
+            btnaddJob.Location = new Point(1092, 98);
+            btnaddJob.Margin = new Padding(3, 2, 3, 2);
             btnaddJob.Name = "btnaddJob";
             btnaddJob.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnaddJob.Size = new Size(225, 52);
+            btnaddJob.Size = new Size(197, 39);
             btnaddJob.TabIndex = 3;
             btnaddJob.Text = "Add New Job";
             btnaddJob.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
@@ -77,31 +79,34 @@
             // guna2Separator1
             // 
             guna2Separator1.Anchor = AnchorStyles.Top;
-            guna2Separator1.Location = new Point(26, 189);
+            guna2Separator1.Location = new Point(23, 142);
+            guna2Separator1.Margin = new Padding(3, 2, 3, 2);
             guna2Separator1.Name = "guna2Separator1";
-            guna2Separator1.Size = new Size(1447, 12);
+            guna2Separator1.Size = new Size(1266, 9);
             guna2Separator1.TabIndex = 2;
             // 
             // guna2HtmlLabel1
             // 
+            guna2HtmlLabel1.AutoSize = false;
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(26, 144);
+            guna2HtmlLabel1.Location = new Point(23, 108);
+            guna2HtmlLabel1.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(61, 39);
+            guna2HtmlLabel1.Size = new Size(50, 32);
             guna2HtmlLabel1.TabIndex = 1;
             guna2HtmlLabel1.Text = "Jobs";
             // 
             // JobsSection
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelJobSection);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "JobsSection";
-            Size = new Size(1538, 793);
+            Size = new Size(1346, 595);
             Load += JobsSection_Load;
             panelJobSection.ResumeLayout(false);
-            panelJobSection.PerformLayout();
             ResumeLayout(false);
         }
 

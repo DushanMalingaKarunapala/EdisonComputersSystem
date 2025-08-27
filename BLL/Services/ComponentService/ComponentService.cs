@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,36 +25,63 @@ namespace BLL.Services.ComponentService
         }
         public async Task AddComponentAsync(Core.Models.Component component)
         {
-            if (component.Price < 0)
+
+            try
             {
-                throw new ArgumentException("Component price cannot be negative.");
+                LoggingService.LogInformation($"Adding component: {component.Name} ({component.Type})");
+
+                if (component.Price < 0)
+                {
+                    throw new ArgumentException("Component price cannot be negative.");
+                }
+                if (string.IsNullOrWhiteSpace(component.Name))
+                {
+                    throw new ArgumentException("Component name cannot be null or empty.");
+                }
+                if (component.QuantityInStock < 0)
+                {
+                    throw new ArgumentException("Component quantity in stock cannot be negative.");
+                }
+                await _componentRepository.Add(component);
+
+                LoggingService.LogInformation($"Successfully added component: {component.ComponentId} - {component.Name}");
+
             }
-            if(string.IsNullOrWhiteSpace(component.Name))
+            catch (Exception ex)
             {
-                throw new ArgumentException("Component name cannot be null or empty.");
+                LoggingService.LogError(ex, $"Failed to add component: {component?.Name}");
+                throw;
             }
-            if(component.QuantityInStock < 0)
-            {
-                throw new ArgumentException("Component quantity in stock cannot be negative.");
-            }
-            await _componentRepository.Add(component);
         }
+
 
         public async Task UpdateComponent(Core.Models.Component component)
         {
-            if (component.Price < 0)
+
+            try
             {
-                throw new ArgumentException("Component price cannot be negative.");
+                LoggingService.LogInformation($"Updating component: {component.ComponentId} - {component.Name}");
+                if (component.Price < 0)
+                {
+                    throw new ArgumentException("Component price cannot be negative.");
+                }
+                if (string.IsNullOrWhiteSpace(component.Name))
+                {
+                    throw new ArgumentException("Component name cannot be null or empty.");
+                }
+                if (component.QuantityInStock < 0)
+                {
+                    throw new ArgumentException("Component quantity in stock cannot be negative.");
+                }
+                await _componentRepository.Update(component);
+                LoggingService.LogInformation($"Successfully updated component: {component.ComponentId}");
+
             }
-            if (string.IsNullOrWhiteSpace(component.Name))
+            catch (Exception ex)
             {
-                throw new ArgumentException("Component name cannot be null or empty.");
+                LoggingService.LogError(ex, $"Failed to update component: {component.ComponentId}");
+                throw;
             }
-            if (component.QuantityInStock < 0)
-            {
-                throw new ArgumentException("Component quantity in stock cannot be negative.");
-            }
-            await _componentRepository.Update(component);
         }
 
         public async Task DeleteComponent(int id)
@@ -106,6 +134,13 @@ namespace BLL.Services.ComponentService
                 return new List<Core.Models.Component>();
             }
             return await _componentRepository.SearchComponentsAsync(searchTerm);
+        }
+
+
+        //a method to fetch only the priority components
+        public async Task<List<Core.Models.Component>> GetPriorityComponentsAsync()
+        {
+            return await _componentRepository.GetPriorityComponentsAsync();
         }
 
 
