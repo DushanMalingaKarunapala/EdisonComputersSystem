@@ -120,6 +120,7 @@ namespace DAL.Repositories.DeviceRepository
         public async Task<List<Device>> GetDeviceByDeviceType(DeviceType deviceType)
         {
             return await _dbContext.Devices
+                .Include(d => d.Customer) // Include customer details
                 .Where(d => d.DeviceType == deviceType)
                 .ToListAsync();
 
@@ -129,6 +130,7 @@ namespace DAL.Repositories.DeviceRepository
         public async Task<List<Device>> GetDeviceByRecordStatus(RecordStatus recordStatus)
         {
             return await _dbContext.Devices
+                .Include(d => d.Customer) // Include customer details  
                 .Where(d => d.RecordStatus == recordStatus)
                 .ToListAsync();
 

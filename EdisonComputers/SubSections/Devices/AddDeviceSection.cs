@@ -1,6 +1,7 @@
 ﻿using BLL.Services.CustomerService;
 using BLL.Services.DeviceService;
 using Core.Enums;
+using Core.Helpers;
 using Core.IService;
 using Core.Models;
 using Core.ViewModels;
@@ -267,6 +268,11 @@ namespace Presentation.SubSections.Devices
                 // Enhanced validation
                 var validationErrors = new List<string>();
 
+                //if the selected customer is empty or record status is deleted show error message
+                if (cmbboxDevselectCustomer1.SelectedItem == null || ((Customer)cmbboxDevselectCustomer1.SelectedItem).RecordStatus == RecordStatus.Deleted)
+                    validationErrors.Add("Please select a valid customer (not deleted).");
+
+
                 if (string.IsNullOrWhiteSpace(txtboxdeviceModel.Text))
                     validationErrors.Add("Device Model is required.");
 
@@ -275,6 +281,8 @@ namespace Presentation.SubSections.Devices
 
                 if (cmbboxDevselectType.SelectedItem == null)
                     validationErrors.Add("Please select a device type.");
+
+
 
                 // Validate Brand if not a new build
                 //if (!chkIsNewBuild.Checked && string.IsNullOrWhiteSpace(txtboxdeviceBrand.Text))
@@ -314,7 +322,8 @@ namespace Presentation.SubSections.Devices
                     //for the recieved date use current date and time instead of the datetimepicker value
                     ReceivedDate = DateTime.Now, // Use current date and time for the received date
                     //ReceivedDate = datetimepickerdeviceRecievedDate.Value,
-                    DeviceImages = _selecteddeviceImagePaths.Select(path => new DeviceImage { ImagePath = path }).ToList() // Convert selected image paths to DeviceImage objects
+                    //DeviceImages = _selecteddeviceImagePaths.Select(path => new DeviceImage { ImagePath = path }).ToList() // Convert selected image paths to DeviceImage objects
+                    DeviceImages = new List<DeviceImage>() // Initialize an empty list; images will be saved after device creation
                 };
 
 
@@ -322,7 +331,39 @@ namespace Presentation.SubSections.Devices
                 {
                     // Get the device service from the service provider
                     var _deviceService = scope.ServiceProvider.GetRequiredService<DeviceService>();
+                    // SAVE DEVICE FIRST TO GET THE ID
+
                     await _deviceService.AddDevice(newDevice.CustomerId, newDevice);
+
+                    // Now save each image using the ImageManager and associate with the device ID
+                    //newly added code from here-------------
+                    var deviceImages = new List<DeviceImage>();
+                    foreach (string selectedPath in _selecteddeviceImagePaths)
+                    {
+                        try
+                        {
+                            // Save image to managed folder and get relative path
+                            string relativePath = ImageManager.SaveDeviceImage(newDevice.DeviceId, selectedPath);
+
+                            deviceImages.Add(new DeviceImage
+                            {
+                                ImagePath = relativePath,
+                                DeviceId = newDevice.DeviceId
+                            });
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Failed to save image {Path.GetFileName(selectedPath)}: {ex.Message}",
+                                           "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+
+                    // Add images to device if any were successfully saved
+                    if (deviceImages.Any())
+                    {
+                        await _deviceService.AddImages(newDevice.DeviceId, deviceImages);
+                    }
+                    //newly added code ends here---------------- -
 
                     _callback?.Invoke(); // Call the callback to refresh the device grid view after adding a new device
 

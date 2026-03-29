@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,10 @@ namespace Core.Models
         //this property is removed as new property called defaultwarrantyperiodinmonths is added
         //public DateTime WarrantyExpiry { get; set; } // Warranty expiry date for the upgrade
 
-
+        //new property to hold the service charge separately from the component costs, as not all repairs will have components
+        // Add new property for service charge
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal ServiceCharge { get; set; } = 0; // Default to 0
 
         public string? UpgradeDescription { get; set; } // Optional description of the upgrade
         public UpgradeStatus UpgradeStatus { get; set; } = UpgradeStatus.Requested; // Default status

@@ -39,7 +39,9 @@ namespace Core.ViewModels
         // Calculated Values
         public decimal TotalComponentChargeToCustomer { get; set; }
         public decimal ActualStoreCostForComponents { get; set; }
-        
+
+        public decimal TotalServiceCharge { get; set; } //newly added on 2026.03.24 to capture total service charge from all tasks
+
         public decimal CalculatedProfit { get; set; }
     }
 }

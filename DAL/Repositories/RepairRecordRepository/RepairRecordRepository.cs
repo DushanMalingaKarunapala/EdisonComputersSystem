@@ -76,6 +76,8 @@ namespace DAL.Repositories.RepairRecordRepository
             existingRecord.RepairNotes = repairRecord.RepairNotes;
             existingRecord.RepairStatus = repairRecord.RepairStatus;
             existingRecord.WarrantyPeriodinMonths = repairRecord.WarrantyPeriodinMonths;
+            existingRecord.WarrantyUnit = repairRecord.WarrantyUnit; //this is required to know whether the warranty is in months or days, as the warranty period in months property can be used for both months or days based on this warranty unit property
+            existingRecord.ServiceCharge = repairRecord.ServiceCharge;
 
 
             //handle repair record components(smart update)

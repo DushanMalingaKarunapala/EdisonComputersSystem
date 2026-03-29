@@ -279,6 +279,9 @@ namespace DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<decimal>("ServiceCharge")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int?>("WarrantyPeriodinMonths")
                         .HasColumnType("int");
 
@@ -328,6 +331,9 @@ namespace DAL.Migrations
                     b.Property<string>("Note")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("ServiceCharge")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("ServiceDescription")
                         .HasColumnType("nvarchar(max)");
 
@@ -356,6 +362,9 @@ namespace DAL.Migrations
 
                     b.Property<int>("JobId")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("ServiceCharge")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("UpgradeDescription")
                         .HasColumnType("nvarchar(max)");

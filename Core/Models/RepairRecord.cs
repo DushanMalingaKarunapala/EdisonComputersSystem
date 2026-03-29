@@ -17,6 +17,11 @@ namespace Core.Models
 
         public string? ProblemDescription { get; set; }
 
+        //new property to hold the service charge separately from the component costs, as not all repairs will have components
+        // Add new property for service charge
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal ServiceCharge { get; set; } = 0; // Default to 0
+
         // Renamed from RepairDetails for clarity - what the technician did
         public string? RepairNotes { get; set; } //work log
 

@@ -34,7 +34,17 @@ namespace Presentation.SubSections.Customers
         //load the customer details into the textboxes when the section is loaded
         private async void EditCustomerSection_Load(object sender, EventArgs e)
         {
+            InitializeCustomerStatusComboBox();
             await LoadCustomer(_customerId); //load the customer details into the textboxes for editing
+        }
+
+
+        private void InitializeCustomerStatusComboBox()
+        {
+            // Initialize the customer status combo box with enum values
+            cmbboxCusStatus.DataSource = Enum.GetValues(typeof(Core.Enums.RecordStatus));
+            //prevent the user from typing in the combo box
+            cmbboxCusStatus.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
 
@@ -55,6 +65,7 @@ namespace Presentation.SubSections.Customers
                         txtboxCusPhone.Text = customer.Phone;
                         txtboxCusAddress.Text = customer.Address;
                         datetimecusAddedDate.Value = customer.Created;
+                        cmbboxCusStatus.SelectedItem = customer.RecordStatus; //set the selected item to the customer's record status
                     }
                     else
                     {
@@ -101,7 +112,11 @@ namespace Presentation.SubSections.Customers
                         Phone = txtboxCusPhone.Text,
                         Address = txtboxCusAddress.Text,
                         Created = datetimecusAddedDate.Value, //use the date from the datetimepicker
-                        Updated = DateTime.Now //set the updated date to now
+                        Updated = DateTime.Now, //set the updated date to now
+                        RecordStatus = (Core.Enums.RecordStatus)cmbboxCusStatus.SelectedItem //get the selected record status from the combo box
+
+
+
 
 
                     };

@@ -30,6 +30,12 @@ namespace Core.Enums
         Laptop,
         Pendrive,
         Webcam,
+        Battery,
+        HDDCaddy,
+        MousePad,
+        Display,
+        Camera,
+
         Other
     }
 }

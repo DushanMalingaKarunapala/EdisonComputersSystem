@@ -72,6 +72,7 @@ namespace Presentation.SubSections.Tasks.RepairTask
                         cmbboxaddRepairSectionRepairStatus.DataSource = Enum.GetValues(typeof(Core.Enums.RepairStatus));
                         cmbboxaddRepairSectionRepairStatus.SelectedItem = _loadedRepairRecord.RepairStatus; // Assuming RepairStatus is an enum
                         cmbboxSelectWarrantyUnit.SelectedItem = _loadedRepairRecord.WarrantyUnit; // Assuming WarrantyUnit is an enum
+                        txtboxEditRepairTaskServiceCharge.Text = _loadedRepairRecord.ServiceCharge.ToString("F2"); // Format as currency with 2 decimal places
 
 
                         // Populate _currentrepairComponents from loaded data
@@ -152,7 +153,9 @@ namespace Presentation.SubSections.Tasks.RepairTask
                 RepairNotes = txtboxaddrepairsectionRepairNotes.Text,
                 WarrantyPeriodinMonths = warrantyPeriod,
                 WarrantyUnit = warrantyUnit, // Use the selected unit
-                RepairStatus = (Core.Enums.RepairStatus)cmbboxaddRepairSectionRepairStatus.SelectedItem
+                RepairStatus = (Core.Enums.RepairStatus)cmbboxaddRepairSectionRepairStatus.SelectedItem,
+                //add service charge as well from the form if needed in the future, for now it is not included in the UI so it will just be 0 as default
+                ServiceCharge = txtboxEditRepairTaskServiceCharge.Text != string.Empty && decimal.TryParse(txtboxEditRepairTaskServiceCharge.Text, out decimal serviceCharge) ? serviceCharge : 0 // Default to 0 if empty or invalid
             };
 
 

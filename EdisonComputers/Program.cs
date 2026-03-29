@@ -18,7 +18,10 @@ namespace Presentation
         {
             try
             {
-                Application.SetHighDpiMode(HighDpiMode.SystemAware);
+                Application.SetHighDpiMode(HighDpiMode.DpiUnawareGdiScaled); // Better scaling on high-DPI displays
+                // Alternative options:
+                // Application.SetHighDpiMode(HighDpiMode.DpiUnaware); // Most consistent across environments
+                // Application.SetHighDpiMode(HighDpiMode.SystemAware); // Scales based on system DPI at startup, but won't adjust if DPI changes
                 // Configure logging first
                 LoggingService.ConfigureLogging();
                 LoggingService.LogInformation("Application starting");
@@ -102,7 +105,7 @@ namespace Presentation
                 var deviceService = serviceProvider.GetRequiredService<BLL.Services.DeviceService.DeviceService>();
 
 
-                Application.Run(new Login(serviceProvider));
+                Application.Run(new Dashboard(serviceProvider));
             }
             catch (Exception ex)
             {

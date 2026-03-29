@@ -1,5 +1,6 @@
 ﻿using BLL.Services.DeviceService;
 using Core.Enums;
+using Core.Helpers;
 using Core.Models;
 using Guna.UI2.Designer;
 using Microsoft.Extensions.DependencyInjection;
@@ -135,9 +136,10 @@ namespace Presentation.SubSections.Devices
                                 FillColor = Color.Red,
                                 ForeColor = Color.White,
                                 Font = new Font("Segoe UI", 8F, FontStyle.Bold),
-                                Location = new Point(imagePanel.Width - 20, 0), // Top-right corner
+                                Location = new Point(imagePanel.Width - 25, 2), // Top-right corner
                                 Tag = img.Id, // Also tag the button with the DeviceImage ID
-                                Cursor = Cursors.Hand
+                                Cursor = Cursors.Hand,
+                                Anchor = AnchorStyles.Top | AnchorStyles.Right // Keep it positioned correctly
                             };
 
                             deleteButton.Click += (s, args) =>
@@ -162,49 +164,93 @@ namespace Presentation.SubSections.Devices
                             };
 
 
+                            //string imagePath = Path.Combine("C:\\Users\\Asus\\Downloads", img.ImagePath);
+
+                            //if (File.Exists(imagePath))
+                            //{
+                            //    try
+                            //    {
+                            //        // Load the image
+                            //        pictureBox.Image = Image.FromFile(imagePath);
+
+                            //        pictureBox.Click += (s, args) => ShowImageInPopup(imagePath);
+
+                            //        imagePanel.Controls.Add(pictureBox);
+                            //        imagePanel.Controls.Add(deleteButton); // Add delete button to the panel
+
+                            //        deviceimageflowLayout.Controls.Add(imagePanel);
+                            //    }
+                            //    catch (Exception ex) // File is not a valid image or is corrupted
+                            //    {
+                            //        Console.WriteLine($"Error loading image {imagePath}: {ex.Message}. File might be corrupted or not an image.");
+                            //        // Optionally add a placeholder error image to pictureBox
+
+                            //        // Optionally add a placeholder for broken images
+                            //        var errorLabel = new Label { Text = "Error", Size = new Size(100, 100), TextAlign = ContentAlignment.MiddleCenter, BorderStyle = BorderStyle.FixedSingle };
+                            //        imagePanel.Controls.Add(errorLabel);
+                            //        imagePanel.Controls.Add(deleteButton); // Still allow deleting the record
+                            //        deviceimageflowLayout.Controls.Add(imagePanel);
 
 
+                            //    }
+
+                            //}
+                            //else
+                            //{
+                            //    Console.WriteLine($"Image file not found: {imagePath}");
+                            //    // Optionally add a placeholder "image not found" image
+
+                            //    var notFoundLabel = new Label { Text = "Not Found", Size = new Size(100, 100), TextAlign = ContentAlignment.MiddleCenter, BorderStyle = BorderStyle.FixedSingle };
+                            //    imagePanel.Controls.Add(notFoundLabel);
+                            //    imagePanel.Controls.Add(deleteButton); // Still allow deleting the record
+                            //    deviceimageflowLayout.Controls.Add(imagePanel);
+                            //}
 
 
+                            //use the ImageManager to get the full image path--------------------------- changed from here
+                            string imagePath = Core.Helpers.ImageManager.GetFullImagePath(img.ImagePath);
 
-                            string imagePath = Path.Combine("C:\\Users\\Asus\\Downloads", img.ImagePath);
-
-                            if (File.Exists(imagePath))
+                            if (ImageManager.ImageExists(img.ImagePath))
                             {
                                 try
                                 {
-                                    // Load the image
-                                    pictureBox.Image = Image.FromFile(imagePath);
-
+                                    // Load the image without locking the file
+                                    pictureBox.Image = LoadImageWithoutLocking(imagePath);
                                     pictureBox.Click += (s, args) => ShowImageInPopup(imagePath);
 
+                                    // Fix the control hierarchy too
                                     imagePanel.Controls.Add(pictureBox);
-                                    imagePanel.Controls.Add(deleteButton); // Add delete button to the panel
-
-                                    deviceimageflowLayout.Controls.Add(imagePanel);
+                                    imagePanel.Controls.Add(deleteButton);
+                                    deleteButton.BringToFront();
+                                    deviceimageflowLayout.Controls.Add(imagePanel); ;
                                 }
-                                catch (Exception ex) // File is not a valid image or is corrupted
+                                catch (Exception ex)
                                 {
-                                    Console.WriteLine($"Error loading image {imagePath}: {ex.Message}. File might be corrupted or not an image.");
-                                    // Optionally add a placeholder error image to pictureBox
-
-                                    // Optionally add a placeholder for broken images
-                                    var errorLabel = new Label { Text = "Error", Size = new Size(100, 100), TextAlign = ContentAlignment.MiddleCenter, BorderStyle = BorderStyle.FixedSingle };
-                                    imagePanel.Controls.Add(errorLabel);
+                                    Console.WriteLine($"Error loading image {imagePath}: {ex.Message}");
+                                    // Add placeholder for broken image
+                                    var errorLabel = new Label
+                                    {
+                                        Text = "Error Loading",
+                                        Size = new Size(100, 100),
+                                        TextAlign = ContentAlignment.MiddleCenter,
+                                        BorderStyle = BorderStyle.FixedSingle
+                                    };
+                                    deviceimageflowLayout.Controls.Add(errorLabel);
                                     imagePanel.Controls.Add(deleteButton); // Still allow deleting the record
-                                    deviceimageflowLayout.Controls.Add(imagePanel);
-
-
+                                    deviceimageflowLayout.Controls.Add(imagePanel); // Add the panel even if image load failed
                                 }
-
                             }
                             else
                             {
-                                Console.WriteLine($"Image file not found: {imagePath}");
-                                // Optionally add a placeholder "image not found" image
-
-                                var notFoundLabel = new Label { Text = "Not Found", Size = new Size(100, 100), TextAlign = ContentAlignment.MiddleCenter, BorderStyle = BorderStyle.FixedSingle };
-                                imagePanel.Controls.Add(notFoundLabel);
+                                // Add placeholder for missing image
+                                var notFoundLabel = new Label
+                                {
+                                    Text = "Image Not Found",
+                                    Size = new Size(100, 100),
+                                    TextAlign = ContentAlignment.MiddleCenter,
+                                    BorderStyle = BorderStyle.FixedSingle
+                                };
+                                deviceimageflowLayout.Controls.Add(notFoundLabel);
                                 imagePanel.Controls.Add(deleteButton); // Still allow deleting the record
                                 deviceimageflowLayout.Controls.Add(imagePanel);
                             }
@@ -232,6 +278,16 @@ namespace Presentation.SubSections.Devices
 
             }
 
+        }
+
+
+        // this helper method will load the image without locking the file
+        private Image LoadImageWithoutLocking(string imagePath)
+        {
+            using (var stream = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+            {
+                return Image.FromStream(stream);
+            }
         }
 
 
@@ -302,7 +358,27 @@ namespace Presentation.SubSections.Devices
                 };
 
                 //prepare the new device image objects to add
-                var imagestoadd = _newImageFilePathsToAdd.Select(path => new DeviceImage { ImagePath = path }).ToList();
+                //var imagestoadd = _newImageFilePathsToAdd.Select(path => new DeviceImage { ImagePath = path }).ToList(); // this was commented out because we need to save the images to managed folders first now
+
+                // ✅ PROCESS NEW IMAGES - SAVE TO MANAGED FOLDERS
+                var imagestoadd = new List<DeviceImage>();
+
+                //use the ImageManager to save each new image and get the relative path
+
+                foreach (string newImagePath in _newImageFilePathsToAdd)
+                {
+                    try
+                    {
+                        string relativePath = ImageManager.SaveDeviceImage(_deviceId, newImagePath);
+                        imagestoadd.Add(new DeviceImage { ImagePath = relativePath });
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Failed to save image {Path.GetFileName(newImagePath)}: {ex.Message}",
+                                       "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+
 
 
                 //call the the service to update the device with images
@@ -313,6 +389,19 @@ namespace Presentation.SubSections.Devices
                     var updatedDevice = await deviceService.UpdateDevice(devicetoupdate, imagestoadd, _imageIdsToRemove);
                     if (updatedDevice != null)
                     {
+
+                        // ✅ DELETE REMOVED IMAGES FROM FILE SYSTEM   -----newly added code from here
+                        foreach (int imageId in _imageIdsToRemove)
+                        {
+                            // You'll need to get the image path from the original _loadeddevice
+                            var imageToDelete = _loadeddevice.DeviceImages.FirstOrDefault(img => img.Id == imageId);
+                            if (imageToDelete != null)
+                            {
+                                ImageManager.DeleteDeviceImage(imageToDelete.ImagePath);
+                            }
+                        }
+                        // ----- to here
+
                         MessageBox.Show("Device updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         // Clear the lists after successful update
                         _imageIdsToRemove.Clear();
@@ -357,9 +446,37 @@ namespace Presentation.SubSections.Devices
 
                         // Display a preview of the newly selected image
                         // You can add these to the same deviceimageflowLayout or a separate one for "new" images
-                        var imagePanel = new Guna.UI2.WinForms.Guna2Panel { /* ... same styling as existing ... */ };
-                        var pictureBox = new Guna.UI2.WinForms.Guna2PictureBox { /* ... */ };
-                        var removeNewButton = new Guna.UI2.WinForms.Guna2CircleButton { /* ... Text = "X" ... */ };
+                        // ✅ COMPLETE THE STYLING:
+                        var imagePanel = new Guna.UI2.WinForms.Guna2Panel
+                        {
+                            Size = new Size(110, 110),
+                            Margin = new Padding(5),
+                            BorderRadius = 8,
+                            FillColor = Color.Transparent
+                        };
+
+                        var pictureBox = new Guna.UI2.WinForms.Guna2PictureBox
+                        {
+                            Dock = DockStyle.Fill,
+                            SizeMode = PictureBoxSizeMode.Zoom,
+                            Cursor = Cursors.Hand,
+                            Tag = filePath,
+                            BorderRadius = 8
+                        };
+
+                        var removeNewButton = new Guna.UI2.WinForms.Guna2CircleButton
+                        {
+                            Text = "X",
+                            Size = new Size(22, 22),
+                            FillColor = Color.FromArgb(200, Color.Red),
+                            ForeColor = Color.White,
+                            Font = new Font("Segoe UI", 8F, FontStyle.Bold),
+                            Location = new Point(imagePanel.Width - 25, 2),
+                            Tag = filePath,
+                            Cursor = Cursors.Hand,
+                            Anchor = AnchorStyles.Top | AnchorStyles.Right
+                        };
+
 
                         // Tag the remove button with the filePath so you can remove it from _newImageFilePathsToAdd
                         removeNewButton.Tag = filePath;
@@ -381,6 +498,7 @@ namespace Presentation.SubSections.Devices
                                 pictureBox.Click += (s, args) => ShowImageInPopup(filePath);
                                 imagePanel.Controls.Add(pictureBox);
                                 imagePanel.Controls.Add(removeNewButton);
+                                removeNewButton.BringToFront();
                                 deviceimageflowLayout.Controls.Add(imagePanel);
                             }
                             catch (Exception ex) { Console.WriteLine($"Error previewing new image {filePath}: {ex.Message}"); }

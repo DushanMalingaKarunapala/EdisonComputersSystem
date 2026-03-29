@@ -28,27 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gridvieweditrepairSectionaddedComponents = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -68,6 +70,8 @@
             lbleditrepairrecordSectionID = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbboxSelectWarrantyUnit = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            label1 = new Label();
+            txtboxEditRepairTaskServiceCharge = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)gridvieweditrepairSectionaddedComponents).BeginInit();
             SuspendLayout();
             // 
@@ -84,26 +88,26 @@
             // 
             // gridvieweditrepairSectionaddedComponents
             // 
-            dataGridViewCellStyle1.BackColor = Color.White;
-            gridvieweditrepairSectionaddedComponents.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            gridvieweditrepairSectionaddedComponents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            gridvieweditrepairSectionaddedComponents.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            gridvieweditrepairSectionaddedComponents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             gridvieweditrepairSectionaddedComponents.ColumnHeadersHeight = 20;
             gridvieweditrepairSectionaddedComponents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(239, 241, 243);
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            gridvieweditrepairSectionaddedComponents.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(239, 241, 243);
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            gridvieweditrepairSectionaddedComponents.DefaultCellStyle = dataGridViewCellStyle6;
             gridvieweditrepairSectionaddedComponents.GridColor = Color.FromArgb(239, 241, 243);
             gridvieweditrepairSectionaddedComponents.Location = new Point(30, 439);
             gridvieweditrepairSectionaddedComponents.Margin = new Padding(3, 2, 3, 2);
@@ -141,7 +145,7 @@
             // 
             guna2HtmlLabel5.AutoSize = false;
             guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Location = new Point(568, 356);
+            guna2HtmlLabel5.Location = new Point(515, 356);
             guna2HtmlLabel5.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(197, 17);
@@ -183,7 +187,7 @@
             // 
             // txtboxeditrepairSectionWarrantyPeriod
             // 
-            txtboxeditrepairSectionWarrantyPeriod.CustomizableEdges = customizableEdges1;
+            txtboxeditrepairSectionWarrantyPeriod.CustomizableEdges = customizableEdges21;
             txtboxeditrepairSectionWarrantyPeriod.DefaultText = "";
             txtboxeditrepairSectionWarrantyPeriod.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtboxeditrepairSectionWarrantyPeriod.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -192,18 +196,18 @@
             txtboxeditrepairSectionWarrantyPeriod.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxeditrepairSectionWarrantyPeriod.Font = new Font("Segoe UI", 9F);
             txtboxeditrepairSectionWarrantyPeriod.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxeditrepairSectionWarrantyPeriod.Location = new Point(568, 376);
+            txtboxeditrepairSectionWarrantyPeriod.Location = new Point(515, 376);
             txtboxeditrepairSectionWarrantyPeriod.Name = "txtboxeditrepairSectionWarrantyPeriod";
             txtboxeditrepairSectionWarrantyPeriod.PlaceholderText = "Enter Warranty Period in Whole Numbers";
             txtboxeditrepairSectionWarrantyPeriod.SelectedText = "";
-            txtboxeditrepairSectionWarrantyPeriod.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtboxeditrepairSectionWarrantyPeriod.Size = new Size(256, 27);
+            txtboxeditrepairSectionWarrantyPeriod.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            txtboxeditrepairSectionWarrantyPeriod.Size = new Size(245, 27);
             txtboxeditrepairSectionWarrantyPeriod.TabIndex = 15;
             // 
             // cmbboxaddRepairSectionRepairStatus
             // 
             cmbboxaddRepairSectionRepairStatus.BackColor = Color.Transparent;
-            cmbboxaddRepairSectionRepairStatus.CustomizableEdges = customizableEdges3;
+            cmbboxaddRepairSectionRepairStatus.CustomizableEdges = customizableEdges23;
             cmbboxaddRepairSectionRepairStatus.DrawMode = DrawMode.OwnerDrawFixed;
             cmbboxaddRepairSectionRepairStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbboxaddRepairSectionRepairStatus.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -214,13 +218,13 @@
             cmbboxaddRepairSectionRepairStatus.Location = new Point(30, 376);
             cmbboxaddRepairSectionRepairStatus.Margin = new Padding(3, 2, 3, 2);
             cmbboxaddRepairSectionRepairStatus.Name = "cmbboxaddRepairSectionRepairStatus";
-            cmbboxaddRepairSectionRepairStatus.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            cmbboxaddRepairSectionRepairStatus.Size = new Size(232, 36);
+            cmbboxaddRepairSectionRepairStatus.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            cmbboxaddRepairSectionRepairStatus.Size = new Size(201, 36);
             cmbboxaddRepairSectionRepairStatus.TabIndex = 14;
             // 
             // txtboxaddrepairsectionRepairNotes
             // 
-            txtboxaddrepairsectionRepairNotes.CustomizableEdges = customizableEdges5;
+            txtboxaddrepairsectionRepairNotes.CustomizableEdges = customizableEdges25;
             txtboxaddrepairsectionRepairNotes.DefaultText = "";
             txtboxaddrepairsectionRepairNotes.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtboxaddrepairsectionRepairNotes.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -233,13 +237,13 @@
             txtboxaddrepairsectionRepairNotes.Name = "txtboxaddrepairsectionRepairNotes";
             txtboxaddrepairsectionRepairNotes.PlaceholderText = "";
             txtboxaddrepairsectionRepairNotes.SelectedText = "";
-            txtboxaddrepairsectionRepairNotes.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            txtboxaddrepairsectionRepairNotes.ShadowDecoration.CustomizableEdges = customizableEdges26;
             txtboxaddrepairsectionRepairNotes.Size = new Size(912, 65);
             txtboxaddrepairsectionRepairNotes.TabIndex = 13;
             // 
             // txtboxaddrepairsectionDescription
             // 
-            txtboxaddrepairsectionDescription.CustomizableEdges = customizableEdges7;
+            txtboxaddrepairsectionDescription.CustomizableEdges = customizableEdges27;
             txtboxaddrepairsectionDescription.DefaultText = "";
             txtboxaddrepairsectionDescription.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtboxaddrepairsectionDescription.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -252,7 +256,7 @@
             txtboxaddrepairsectionDescription.Name = "txtboxaddrepairsectionDescription";
             txtboxaddrepairsectionDescription.PlaceholderText = "";
             txtboxaddrepairsectionDescription.SelectedText = "";
-            txtboxaddrepairsectionDescription.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            txtboxaddrepairsectionDescription.ShadowDecoration.CustomizableEdges = customizableEdges28;
             txtboxaddrepairsectionDescription.Size = new Size(912, 58);
             txtboxaddrepairsectionDescription.TabIndex = 12;
             // 
@@ -270,7 +274,7 @@
             // btneditRepairSectionBack
             // 
             btneditRepairSectionBack.BorderRadius = 5;
-            btneditRepairSectionBack.CustomizableEdges = customizableEdges9;
+            btneditRepairSectionBack.CustomizableEdges = customizableEdges29;
             btneditRepairSectionBack.DisabledState.BorderColor = Color.DarkGray;
             btneditRepairSectionBack.DisabledState.CustomBorderColor = Color.DarkGray;
             btneditRepairSectionBack.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -280,7 +284,7 @@
             btneditRepairSectionBack.Location = new Point(191, 598);
             btneditRepairSectionBack.Margin = new Padding(3, 2, 3, 2);
             btneditRepairSectionBack.Name = "btneditRepairSectionBack";
-            btneditRepairSectionBack.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btneditRepairSectionBack.ShadowDecoration.CustomizableEdges = customizableEdges30;
             btneditRepairSectionBack.Size = new Size(187, 34);
             btneditRepairSectionBack.TabIndex = 25;
             btneditRepairSectionBack.Text = "Back";
@@ -289,7 +293,7 @@
             // btneditRepairSectionCancel
             // 
             btneditRepairSectionCancel.BorderRadius = 5;
-            btneditRepairSectionCancel.CustomizableEdges = customizableEdges11;
+            btneditRepairSectionCancel.CustomizableEdges = customizableEdges31;
             btneditRepairSectionCancel.DisabledState.BorderColor = Color.DarkGray;
             btneditRepairSectionCancel.DisabledState.CustomBorderColor = Color.DarkGray;
             btneditRepairSectionCancel.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -300,7 +304,7 @@
             btneditRepairSectionCancel.Location = new Point(396, 598);
             btneditRepairSectionCancel.Margin = new Padding(3, 2, 3, 2);
             btneditRepairSectionCancel.Name = "btneditRepairSectionCancel";
-            btneditRepairSectionCancel.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btneditRepairSectionCancel.ShadowDecoration.CustomizableEdges = customizableEdges32;
             btneditRepairSectionCancel.Size = new Size(187, 34);
             btneditRepairSectionCancel.TabIndex = 24;
             btneditRepairSectionCancel.Text = "Cancel";
@@ -309,7 +313,7 @@
             // btnrepairSectionUpdate
             // 
             btnrepairSectionUpdate.BorderRadius = 5;
-            btnrepairSectionUpdate.CustomizableEdges = customizableEdges13;
+            btnrepairSectionUpdate.CustomizableEdges = customizableEdges33;
             btnrepairSectionUpdate.DisabledState.BorderColor = Color.DarkGray;
             btnrepairSectionUpdate.DisabledState.CustomBorderColor = Color.DarkGray;
             btnrepairSectionUpdate.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -320,7 +324,7 @@
             btnrepairSectionUpdate.Location = new Point(601, 598);
             btnrepairSectionUpdate.Margin = new Padding(3, 2, 3, 2);
             btnrepairSectionUpdate.Name = "btnrepairSectionUpdate";
-            btnrepairSectionUpdate.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btnrepairSectionUpdate.ShadowDecoration.CustomizableEdges = customizableEdges34;
             btnrepairSectionUpdate.Size = new Size(187, 34);
             btnrepairSectionUpdate.TabIndex = 23;
             btnrepairSectionUpdate.Text = "Update Repair Task";
@@ -328,7 +332,7 @@
             // 
             // btneditRepairTaskSectionaddComponents
             // 
-            btneditRepairTaskSectionaddComponents.CustomizableEdges = customizableEdges15;
+            btneditRepairTaskSectionaddComponents.CustomizableEdges = customizableEdges35;
             btneditRepairTaskSectionaddComponents.DisabledState.BorderColor = Color.DarkGray;
             btneditRepairTaskSectionaddComponents.DisabledState.CustomBorderColor = Color.DarkGray;
             btneditRepairTaskSectionaddComponents.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -338,7 +342,7 @@
             btneditRepairTaskSectionaddComponents.Location = new Point(396, 544);
             btneditRepairTaskSectionaddComponents.Margin = new Padding(3, 2, 3, 2);
             btneditRepairTaskSectionaddComponents.Name = "btneditRepairTaskSectionaddComponents";
-            btneditRepairTaskSectionaddComponents.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btneditRepairTaskSectionaddComponents.ShadowDecoration.CustomizableEdges = customizableEdges36;
             btneditRepairTaskSectionaddComponents.Size = new Size(178, 27);
             btneditRepairTaskSectionaddComponents.TabIndex = 22;
             btneditRepairTaskSectionaddComponents.Text = "Select Components";
@@ -368,7 +372,7 @@
             // cmbboxSelectWarrantyUnit
             // 
             cmbboxSelectWarrantyUnit.BackColor = Color.Transparent;
-            cmbboxSelectWarrantyUnit.CustomizableEdges = customizableEdges17;
+            cmbboxSelectWarrantyUnit.CustomizableEdges = customizableEdges37;
             cmbboxSelectWarrantyUnit.DrawMode = DrawMode.OwnerDrawFixed;
             cmbboxSelectWarrantyUnit.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbboxSelectWarrantyUnit.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -376,10 +380,10 @@
             cmbboxSelectWarrantyUnit.Font = new Font("Segoe UI", 10F);
             cmbboxSelectWarrantyUnit.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxSelectWarrantyUnit.ItemHeight = 30;
-            cmbboxSelectWarrantyUnit.Location = new Point(326, 376);
+            cmbboxSelectWarrantyUnit.Location = new Point(273, 376);
             cmbboxSelectWarrantyUnit.Margin = new Padding(3, 2, 3, 2);
             cmbboxSelectWarrantyUnit.Name = "cmbboxSelectWarrantyUnit";
-            cmbboxSelectWarrantyUnit.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            cmbboxSelectWarrantyUnit.ShadowDecoration.CustomizableEdges = customizableEdges38;
             cmbboxSelectWarrantyUnit.Size = new Size(182, 36);
             cmbboxSelectWarrantyUnit.TabIndex = 28;
             // 
@@ -387,7 +391,7 @@
             // 
             guna2HtmlLabel8.AutoSize = false;
             guna2HtmlLabel8.BackColor = Color.Transparent;
-            guna2HtmlLabel8.Location = new Point(326, 356);
+            guna2HtmlLabel8.Location = new Point(273, 356);
             guna2HtmlLabel8.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             guna2HtmlLabel8.Size = new Size(189, 17);
@@ -395,11 +399,41 @@
             guna2HtmlLabel8.Text = "Select Warranty Unit(Days/Months)";
             guna2HtmlLabel8.Visible = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(799, 356);
+            label1.Name = "label1";
+            label1.Size = new Size(90, 15);
+            label1.TabIndex = 30;
+            label1.Text = "Service Charge?";
+            // 
+            // txtboxEditRepairTaskServiceCharge
+            // 
+            txtboxEditRepairTaskServiceCharge.CustomizableEdges = customizableEdges39;
+            txtboxEditRepairTaskServiceCharge.DefaultText = "";
+            txtboxEditRepairTaskServiceCharge.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtboxEditRepairTaskServiceCharge.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtboxEditRepairTaskServiceCharge.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtboxEditRepairTaskServiceCharge.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtboxEditRepairTaskServiceCharge.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtboxEditRepairTaskServiceCharge.Font = new Font("Segoe UI", 9F);
+            txtboxEditRepairTaskServiceCharge.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtboxEditRepairTaskServiceCharge.Location = new Point(799, 376);
+            txtboxEditRepairTaskServiceCharge.Name = "txtboxEditRepairTaskServiceCharge";
+            txtboxEditRepairTaskServiceCharge.PlaceholderText = "";
+            txtboxEditRepairTaskServiceCharge.SelectedText = "";
+            txtboxEditRepairTaskServiceCharge.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            txtboxEditRepairTaskServiceCharge.Size = new Size(143, 27);
+            txtboxEditRepairTaskServiceCharge.TabIndex = 31;
+            // 
             // EditRepairTask
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
+            Controls.Add(txtboxEditRepairTaskServiceCharge);
+            Controls.Add(label1);
             Controls.Add(guna2HtmlLabel8);
             Controls.Add(cmbboxSelectWarrantyUnit);
             Controls.Add(lbleditrepairrecordSectionID);
@@ -449,5 +483,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lbleditrepairrecordSectionID;
         private Guna.UI2.WinForms.Guna2ComboBox cmbboxSelectWarrantyUnit;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
+        private Label label1;
+        private Guna.UI2.WinForms.Guna2TextBox txtboxEditRepairTaskServiceCharge;
     }
 }

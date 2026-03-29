@@ -185,7 +185,9 @@ namespace DAL.Repositories.JobRepository
             var cutoffDate = DateTime.Now.AddDays(-days);
             return await _dbContext.Jobs
                 .Include(j => j.Device).ThenInclude(d => d.Customer) // Include Device and Customer navigation properties
-                .Where(j => j.CheckedInDate >= cutoffDate)
+                                                                     //dont include jobs that are cancelled
+
+                .Where(j => j.JobStatus != JobStatus.Cancelled && j.CheckedInDate >= cutoffDate) // filter by cutoff date and exclude cancelled jobs
                 .OrderByDescending(j => j.CheckedInDate) // order by the date the job was checked in
                 .ToListAsync();
 
@@ -239,6 +241,7 @@ namespace DAL.Repositories.JobRepository
             IsPaid = j.Billing != null ? (j.Billing.IsPaid ?? false) : false,
             PaymentDate = j.Billing != null ? j.Billing.PaymentDate : null,
             PaymentMethod = j.Billing != null ? j.Billing.PaymentMethod : PaymentMethods.Cash,
+           
 
             // --- Database-side Calculations ---
             TotalComponentChargeToCustomer =
@@ -247,7 +250,17 @@ namespace DAL.Repositories.JobRepository
 
             ActualStoreCostForComponents =
                 (j.RepairRecords.SelectMany(rr => rr.RepairRecordComponents).Sum(rrc => (decimal?)rrc.QuantityUsed * rrc.Component.Price) ?? 0) +
-                (j.UpgradeRecords.SelectMany(ur => ur.UpgradeRecordComponents).Sum(urc => (decimal?)urc.QuantityUsed * urc.Component.Price) ?? 0)
+                (j.UpgradeRecords.SelectMany(ur => ur.UpgradeRecordComponents).Sum(urc => (decimal?)urc.QuantityUsed * urc.Component.Price) ?? 0),
+
+            //newly added on 2026.03.24 to calculate total service charge for the job by summing up all service charges from repair records, upgrade records and service records for a given job id
+             
+            TotalServiceCharge = 
+                (j.RepairRecords.Sum(rr => (decimal?)rr.ServiceCharge) ?? 0) +
+                (j.UpgradeRecords.Sum(ur => (decimal?)ur.ServiceCharge) ?? 0) +
+                (j.ServiceRecords.Sum(sr => (decimal?)sr.ServiceCharge) ?? 0)
+
+
+            
 
         }).FirstOrDefaultAsync();
 
@@ -255,7 +268,9 @@ namespace DAL.Repositories.JobRepository
             if (result != null)
             {
                 // Calculate profit in C# after getting the data
-                result.CalculatedProfit = result.BillingAmount - result.ActualStoreCostForComponents;
+                //result.CalculatedProfit = result.BillingAmount - result.ActualStoreCostForComponents; //this is removed on 2026.03.24 since there is no actualstorecostforcomponets property anymore and replaced with total service charge and manual job cost
+                result.CalculatedProfit = result.TotalServiceCharge + result.ManualJobCost; // Profit is now calculated as the sum of total service charge and manual job cost, which aligns with  new profit calculation rule as component costs are not included in profit calculation according to the new rule added on 2026.03.24
+                result.BillingAmount = result.TotalComponentChargeToCustomer + result.TotalServiceCharge + result.ManualJobCost; // Total amount billed to the customer is now the sum of component charges, service charges and manual job cost
             }
 
             return result;
@@ -275,7 +290,22 @@ namespace DAL.Repositories.JobRepository
                     PaymentMonth = b.PaymentDate.Value.Month,
                     SaleAmount = b.Amount,
                     // This is the profit for this specific job, according to your rule
-                    ProfitForJob = b.Job.ManualJobCost ?? 0
+
+                    //profit for job should include manual job cost + service charges from upgrade records , repair records and service records
+
+                    //ProfitForJob = b.Job.ManualJobCost ?? 0
+                    ProfitForJob = (b.Job.ManualJobCost ?? 0)
+                    // Add service charges from all record types (non-cancelled only)
+                    + (b.Job.RepairRecords
+                        .Where(rr => rr.RepairStatus != RepairStatus.Cancelled)
+                        .Sum(rr => (decimal?)rr.ServiceCharge) ?? 0)
+                    + (b.Job.UpgradeRecords
+                        .Where(ur => ur.UpgradeStatus != UpgradeStatus.Cancelled)
+                        .Sum(ur => (decimal?)ur.ServiceCharge) ?? 0)
+                    + (b.Job.ServiceRecords
+                        .Where(sr => sr.ServiceStatus != ServiceStatus.ServiceCancelled)
+                        .Sum(sr => (decimal?)sr.ServiceCharge) ?? 0)
+
                 })
                 .ToListAsync(); // Execute the query and bring the flat list into C# memory
 
@@ -292,6 +322,8 @@ namespace DAL.Repositories.JobRepository
                     TotalSales = g.Sum(item => item.SaleAmount),
                     // Sum up the profit (ManualJobCost) for all bills in that month
                     TotalProfit = g.Sum(item => item.ProfitForJob)
+                
+                 
                 })
                 .OrderBy(s => s.Month)
                 .ToList();
@@ -411,6 +443,29 @@ namespace DAL.Repositories.JobRepository
                 .Where(ur => ur.JobId == jobId && ur.UpgradeStatus != UpgradeStatus.Cancelled)
                 .AnyAsync();
 
+
+        }
+
+
+        //new method to add up total service charge for a given job id by summing up all repair record, upgrade record and service record charges for a given job id
+        public async  Task<decimal> GetTotalServiceChargeForJobAsync(int jobId)
+        {
+            // This method calculates the total service charge for a given job by summing up all repair record, upgrade record, and service record service charges using servicecharge property in the service record, repair record and upgrade record
+            //sum up service charges from repair records , upgrade records and service records for a given job id
+
+            var repairServiceCharges = await _dbContext.RepairRecords
+                .Where(rr => rr.JobId == jobId)
+                .SumAsync(rr => (decimal?)rr.ServiceCharge) ?? 0;
+
+            var upgradeServiceCharges = await _dbContext.UpgradeRecords
+                .Where(ur => ur.JobId == jobId)
+                .SumAsync(ur => (decimal?)ur.ServiceCharge) ?? 0;
+
+            var serviceServiceCharges = await _dbContext.ServiceRecords
+                .Where(sr => sr.JobId == jobId)
+                .SumAsync(sr => (decimal?)sr.ServiceCharge) ?? 0;
+
+            return repairServiceCharges + upgradeServiceCharges + serviceServiceCharges;
 
         }
 

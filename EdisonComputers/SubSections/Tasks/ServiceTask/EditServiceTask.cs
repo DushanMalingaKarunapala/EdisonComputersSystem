@@ -67,6 +67,8 @@ namespace Presentation.SubSections.Tasks.ServiceTask
                         cmbboxservicetaskeditsectionServiceStatus.DataSource = Enum.GetValues(typeof(Core.Enums.ServiceStatus));
                         cmbboxservicetaskeditsectionServiceStatus.SelectedItem = _loadedServiceReocrd.ServiceStatus;
 
+                        txtboxserviceTaskEditServiceCharge.Text = _loadedServiceReocrd.ServiceCharge.ToString("F2"); // Format as currency with 2 decimal places
+
                     }
                 }
             }
@@ -101,7 +103,9 @@ namespace Presentation.SubSections.Tasks.ServiceTask
                 ServiceType = (Core.Enums.ServiceType)cmbboxservicetaskeditsectionServiceType.SelectedItem,
                 ServiceDescription = txtboxservicetaskeditsectionServiceDescription.Text,
                 Note = txtboxservicetaskeditsectionServiceNotes.Text,
-                ServiceStatus = (Core.Enums.ServiceStatus)cmbboxservicetaskeditsectionServiceStatus.SelectedItem
+                ServiceStatus = (Core.Enums.ServiceStatus)cmbboxservicetaskeditsectionServiceStatus.SelectedItem,
+                //addd service charge property here when it is added to the form
+                ServiceCharge = txtboxserviceTaskEditServiceCharge.Text != "" ? decimal.Parse(txtboxserviceTaskEditServiceCharge.Text) : 0 // default to 0 if empty
             };
 
             try

@@ -1,4 +1,5 @@
 ﻿using BLL.Services.DeviceService;
+using Core.Helpers;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,7 @@ namespace Presentation.SubSections.Devices
                     var device = await deviceService.GetDeviceByIdWithImages(_deviceId); // Fetch the device images asynchronously
                     if (device != null)
                     {
+
                         // Assuming you have labels or textboxes to display device details
                         lbldeviceID.Text = device.DeviceId.ToString();
                         lbldeviceBrand.Text = device.Brand;
@@ -82,35 +84,80 @@ namespace Presentation.SubSections.Devices
                             // Assuming "C:\Users\Asus\Downloads" is a base path for images
                             // and img.ImagePath is "device1_front.jpg" for example.
                             // If img.ImagePath is an ABSOLUTE path, then just use img.ImagePath.
-                            string imagePath = Path.Combine("C:\\Users\\Asus\\Downloads", img.ImagePath);
+                            //string imagePath = Path.Combine("C:\\Users\\Asus\\Downloads", img.ImagePath); // this was commented out uncomment this if you want to use a base path(hardcodedpath)
                             // If img.ImagePath is already absolute:
                             // string imagePath = img.ImagePath;
 
+                            //this was commented out because now we use the imagemanager class to get the full image path 
 
-                            if (File.Exists(imagePath))
+                            //if (File.Exists(imagePath))
+                            //{
+                            //    try
+                            //    {
+                            //        // Load the image
+                            //        pictureBox.Image = Image.FromFile(imagePath);
+
+                            //        pictureBox.Click += (s, args) => ShowImageInPopup(imagePath);
+                            //        deviceimageflowLayout.Controls.Add(pictureBox);
+                            //    }
+                            //    catch (OutOfMemoryException ex) // File is not a valid image or is corrupted
+                            //    {
+                            //        Console.WriteLine($"Error loading image {imagePath}: {ex.Message}. File might be corrupted or not an image.");
+                            //        // Optionally add a placeholder error image to pictureBox
+                            //    }
+                            //    catch (FileNotFoundException ex) // Should be caught by File.Exists, but good practice
+                            //    {
+                            //        Console.WriteLine($"Image file not found {imagePath}: {ex.Message}.");
+                            //    }
+                            //}
+                            //else
+                            //{
+                            //    Console.WriteLine($"Image file not found: {imagePath}");
+                            //    // Optionally add a placeholder "image not found" image
+                            //}
+
+                            //use the imagemanager class to get the full image path
+                            string imagePath = Core.Helpers.ImageManager.GetFullImagePath(img.ImagePath);
+
+                            if (ImageManager.ImageExists(img.ImagePath))
                             {
                                 try
                                 {
-                                    // Load the image
-                                    pictureBox.Image = Image.FromFile(imagePath);
+                                    // pictureBox.Image = Image.FromFile(imagePath);
+                                    // ✅ Load without file locking (optional optimization)
+                                    using (var stream = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+                                    {
+                                        pictureBox.Image = Image.FromStream(stream);
+                                    }
 
                                     pictureBox.Click += (s, args) => ShowImageInPopup(imagePath);
                                     deviceimageflowLayout.Controls.Add(pictureBox);
                                 }
-                                catch (OutOfMemoryException ex) // File is not a valid image or is corrupted
+                                catch (Exception ex)
                                 {
-                                    Console.WriteLine($"Error loading image {imagePath}: {ex.Message}. File might be corrupted or not an image.");
-                                    // Optionally add a placeholder error image to pictureBox
-                                }
-                                catch (FileNotFoundException ex) // Should be caught by File.Exists, but good practice
-                                {
-                                    Console.WriteLine($"Image file not found {imagePath}: {ex.Message}.");
+                                    Console.WriteLine($"Error loading image {imagePath}: {ex.Message}");
+                                    // Add placeholder for broken image
+                                    var errorLabel = new Label
+                                    {
+                                        Text = "Error Loading",
+                                        Size = new Size(100, 100),
+                                        TextAlign = ContentAlignment.MiddleCenter,
+                                        BorderStyle = BorderStyle.FixedSingle
+                                    };
+                                    deviceimageflowLayout.Controls.Add(errorLabel);
                                 }
                             }
                             else
                             {
-                                Console.WriteLine($"Image file not found: {imagePath}");
-                                // Optionally add a placeholder "image not found" image
+                                // Add placeholder for missing image
+                                var notFoundLabel = new Label
+                                {
+                                    Text = "Image Not Found",
+                                    Size = new Size(100, 100),
+                                    TextAlign = ContentAlignment.MiddleCenter,
+                                    BorderStyle = BorderStyle.FixedSingle
+                                };
+                                deviceimageflowLayout.Controls.Add(notFoundLabel);
                             }
                         }
 
@@ -149,23 +196,37 @@ namespace Presentation.SubSections.Devices
 
         private void ShowImageInPopup(string imagePath)
         {
-            Form popup = new Form
+            using (Form popup = new Form
             {
                 Width = 800,
                 Height = 600,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                StartPosition = FormStartPosition.CenterScreen
-            };
+                StartPosition = FormStartPosition.CenterScreen,
+                Text = "Image Preview" // Add a title
 
-            var pictureBox = new PictureBox
+            })
             {
-                Dock = DockStyle.Fill,
-                Image = Image.FromFile(imagePath),
-                SizeMode = PictureBoxSizeMode.Zoom
-            };
+                // ✅ Load without locking (good practice)
+                Image image;
+                using (var stream = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+                {
+                    image = Image.FromStream(stream);
+                }
 
-            popup.Controls.Add(pictureBox);
-            popup.ShowDialog();
+
+
+                var pictureBox = new PictureBox
+                {
+                    Dock = DockStyle.Fill,
+                    Image = image,
+                    SizeMode = PictureBoxSizeMode.Zoom
+                };
+
+                popup.Controls.Add(pictureBox);
+                popup.ShowDialog();
+                // ✅ Clean up
+                image?.Dispose();
+            }
         }
 
     }

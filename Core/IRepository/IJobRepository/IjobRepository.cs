@@ -82,6 +82,11 @@ namespace Core.IRepository.IJobRepository
 
         Task<bool> HasActiveUpgradeRecordsAsync(int jobId);
 
+        //newly added method to check if a job has any active service records -- 2026-03-24
+        //a method to add up total service charge for a given job id
+        Task<decimal> GetTotalServiceChargeForJobAsync(int jobId); //this will sum up all repair record, upgrade record and service record charges for a given job id
+
+
 
 
 

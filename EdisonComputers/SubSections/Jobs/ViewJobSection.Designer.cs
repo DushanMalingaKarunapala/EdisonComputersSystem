@@ -796,6 +796,7 @@
             txtboxBillingAmount.Location = new Point(6, 48);
             txtboxBillingAmount.Name = "txtboxBillingAmount";
             txtboxBillingAmount.PlaceholderText = "";
+            txtboxBillingAmount.ReadOnly = true;
             txtboxBillingAmount.SelectedText = "";
             txtboxBillingAmount.ShadowDecoration.CustomizableEdges = customizableEdges34;
             txtboxBillingAmount.Size = new Size(214, 27);

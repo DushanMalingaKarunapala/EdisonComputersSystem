@@ -95,8 +95,8 @@ namespace BLL.Services.JobService
 
         public async Task<Job> UpdateJob(int jobId, Job jobToUpdate)
         {
-            try 
-            { 
+            try
+            {
                 LoggingService.LogInformation($"Updating job with ID {jobId}");
 
                 return await _jobRepository.UpdateJob(jobId, jobToUpdate);
@@ -301,7 +301,7 @@ namespace BLL.Services.JobService
         //method to search jobs by device name and customer name
         public async Task<List<Job>> SearchJobsByDeviceAndCustomerAsync(string searchTerm)
         {
-            
+
 
             // This method should implement the logic to search jobs by device name and customer name
             // For example, you can use a repository method that filters jobs based on the search term
@@ -328,6 +328,18 @@ namespace BLL.Services.JobService
             }
 
             return await _jobRepository.HasActiveUpgradeRecordsAsync(jobId);
+        }
+
+
+        //new method to sum up all service charges for a given job by its id -- newly added on 2026-03-24
+        public async Task<decimal> GetTotalServiceChargeForJobAsync(int jobId)
+        {
+            //check job id is valid
+            if (jobId <= 0)
+            {
+                throw new ArgumentException("Invalid job ID.", nameof(jobId));
+            }
+            return await _jobRepository.GetTotalServiceChargeForJobAsync(jobId);
         }
     }
 }

@@ -68,7 +68,7 @@ namespace DAL.Repositories.CustomerRepository
         {
             var startOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             return await _dbContext.Customers
-                .Where(c => c.Created >= startOfMonth)
+                .Where(c => c.RecordStatus!= RecordStatus.Deleted &&  c.Created >= startOfMonth) //count only active customers not deleted
                 .CountAsync();
 
         }

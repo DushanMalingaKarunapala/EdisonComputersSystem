@@ -79,6 +79,8 @@ namespace DAL.Repositories.UpgradeRecordRepository
             existingRecord.UpgradeStatus = upradeRecord.UpgradeStatus;
             //existingRecord.WarrantyExpiry = upradeRecord.WarrantyExpiry;
             existingRecord.UpgradeType = upradeRecord.UpgradeType;
+            existingRecord.ServiceCharge = upradeRecord.ServiceCharge;
+            
 
 
             //handle upgrade record components(smart update)

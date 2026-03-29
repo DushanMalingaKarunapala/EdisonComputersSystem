@@ -42,6 +42,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             btneditdservicetask = new Guna.UI2.WinForms.Guna2Button();
             btnservicetaskeditsectionCancel = new Guna.UI2.WinForms.Guna2Button();
             btnservicetaskeditSectionBack = new Guna.UI2.WinForms.Guna2Button();
@@ -54,6 +56,8 @@
             txtboxservicetaskeditsectionServiceDescription = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbboxservicetaskeditsectionServiceStatus = new Guna.UI2.WinForms.Guna2ComboBox();
+            label1 = new Label();
+            txtboxserviceTaskEditServiceCharge = new Guna.UI2.WinForms.Guna2TextBox();
             SuspendLayout();
             // 
             // btneditdservicetask
@@ -193,7 +197,7 @@
             txtboxservicetaskeditsectionServiceNotes.PlaceholderText = "";
             txtboxservicetaskeditsectionServiceNotes.SelectedText = "";
             txtboxservicetaskeditsectionServiceNotes.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            txtboxservicetaskeditsectionServiceNotes.Size = new Size(658, 66);
+            txtboxservicetaskeditsectionServiceNotes.Size = new Size(728, 66);
             txtboxservicetaskeditsectionServiceNotes.TabIndex = 12;
             // 
             // txtboxservicetaskeditsectionServiceDescription
@@ -212,7 +216,7 @@
             txtboxservicetaskeditsectionServiceDescription.PlaceholderText = "";
             txtboxservicetaskeditsectionServiceDescription.SelectedText = "";
             txtboxservicetaskeditsectionServiceDescription.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            txtboxservicetaskeditsectionServiceDescription.Size = new Size(658, 60);
+            txtboxservicetaskeditsectionServiceDescription.Size = new Size(728, 60);
             txtboxservicetaskeditsectionServiceDescription.TabIndex = 11;
             // 
             // guna2HtmlLabel5
@@ -244,11 +248,41 @@
             cmbboxservicetaskeditsectionServiceStatus.Size = new Size(193, 36);
             cmbboxservicetaskeditsectionServiceStatus.TabIndex = 21;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(573, 353);
+            label1.Name = "label1";
+            label1.Size = new Size(90, 15);
+            label1.TabIndex = 23;
+            label1.Text = "Service Charge?";
+            // 
+            // txtboxserviceTaskEditServiceCharge
+            // 
+            txtboxserviceTaskEditServiceCharge.CustomizableEdges = customizableEdges15;
+            txtboxserviceTaskEditServiceCharge.DefaultText = "";
+            txtboxserviceTaskEditServiceCharge.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtboxserviceTaskEditServiceCharge.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtboxserviceTaskEditServiceCharge.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtboxserviceTaskEditServiceCharge.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtboxserviceTaskEditServiceCharge.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtboxserviceTaskEditServiceCharge.Font = new Font("Segoe UI", 9F);
+            txtboxserviceTaskEditServiceCharge.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtboxserviceTaskEditServiceCharge.Location = new Point(573, 372);
+            txtboxserviceTaskEditServiceCharge.Name = "txtboxserviceTaskEditServiceCharge";
+            txtboxserviceTaskEditServiceCharge.PlaceholderText = "";
+            txtboxserviceTaskEditServiceCharge.SelectedText = "";
+            txtboxserviceTaskEditServiceCharge.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            txtboxserviceTaskEditServiceCharge.Size = new Size(200, 36);
+            txtboxserviceTaskEditServiceCharge.TabIndex = 24;
+            // 
             // EditServiceTask
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
+            Controls.Add(txtboxserviceTaskEditServiceCharge);
+            Controls.Add(label1);
             Controls.Add(guna2HtmlLabel5);
             Controls.Add(cmbboxservicetaskeditsectionServiceStatus);
             Controls.Add(btneditdservicetask);
@@ -266,6 +300,7 @@
             Size = new Size(1079, 607);
             Load += EditServiceTask_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -282,5 +317,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtboxservicetaskeditsectionServiceDescription;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2ComboBox cmbboxservicetaskeditsectionServiceStatus;
+        private Label label1;
+        private Guna.UI2.WinForms.Guna2TextBox txtboxserviceTaskEditServiceCharge;
     }
 }

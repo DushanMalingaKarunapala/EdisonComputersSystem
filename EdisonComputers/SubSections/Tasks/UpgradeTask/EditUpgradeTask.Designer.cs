@@ -28,25 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             lbleditrepairrecordSectionID = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btneditUpgradeSectionBack = new Guna.UI2.WinForms.Guna2Button();
@@ -65,6 +67,8 @@
             lbleditupgradeSectionUpradeRecordID = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cmbboxeditsectionUpradeType = new Guna.UI2.WinForms.Guna2ComboBox();
+            txtboxUpgradeTaskEditServiceCharge = new Guna.UI2.WinForms.Guna2TextBox();
+            lblservicecharge = new Label();
             ((System.ComponentModel.ISupportInitialize)gridvieweditUpgradeSectionaddedComponents).BeginInit();
             SuspendLayout();
             // 
@@ -92,7 +96,7 @@
             // btneditUpgradeSectionBack
             // 
             btneditUpgradeSectionBack.BorderRadius = 5;
-            btneditUpgradeSectionBack.CustomizableEdges = customizableEdges1;
+            btneditUpgradeSectionBack.CustomizableEdges = customizableEdges19;
             btneditUpgradeSectionBack.DisabledState.BorderColor = Color.DarkGray;
             btneditUpgradeSectionBack.DisabledState.CustomBorderColor = Color.DarkGray;
             btneditUpgradeSectionBack.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -102,7 +106,7 @@
             btneditUpgradeSectionBack.Location = new Point(188, 524);
             btneditUpgradeSectionBack.Margin = new Padding(3, 2, 3, 2);
             btneditUpgradeSectionBack.Name = "btneditUpgradeSectionBack";
-            btneditUpgradeSectionBack.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btneditUpgradeSectionBack.ShadowDecoration.CustomizableEdges = customizableEdges20;
             btneditUpgradeSectionBack.Size = new Size(187, 34);
             btneditUpgradeSectionBack.TabIndex = 42;
             btneditUpgradeSectionBack.Text = "Back";
@@ -111,7 +115,7 @@
             // btneditUpgradeSectionCancel
             // 
             btneditUpgradeSectionCancel.BorderRadius = 5;
-            btneditUpgradeSectionCancel.CustomizableEdges = customizableEdges3;
+            btneditUpgradeSectionCancel.CustomizableEdges = customizableEdges21;
             btneditUpgradeSectionCancel.DisabledState.BorderColor = Color.DarkGray;
             btneditUpgradeSectionCancel.DisabledState.CustomBorderColor = Color.DarkGray;
             btneditUpgradeSectionCancel.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -122,7 +126,7 @@
             btneditUpgradeSectionCancel.Location = new Point(398, 524);
             btneditUpgradeSectionCancel.Margin = new Padding(3, 2, 3, 2);
             btneditUpgradeSectionCancel.Name = "btneditUpgradeSectionCancel";
-            btneditUpgradeSectionCancel.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btneditUpgradeSectionCancel.ShadowDecoration.CustomizableEdges = customizableEdges22;
             btneditUpgradeSectionCancel.Size = new Size(187, 34);
             btneditUpgradeSectionCancel.TabIndex = 41;
             btneditUpgradeSectionCancel.Text = "Cancel";
@@ -131,7 +135,7 @@
             // btnupgradeSectionUpdate
             // 
             btnupgradeSectionUpdate.BorderRadius = 5;
-            btnupgradeSectionUpdate.CustomizableEdges = customizableEdges5;
+            btnupgradeSectionUpdate.CustomizableEdges = customizableEdges23;
             btnupgradeSectionUpdate.DisabledState.BorderColor = Color.DarkGray;
             btnupgradeSectionUpdate.DisabledState.CustomBorderColor = Color.DarkGray;
             btnupgradeSectionUpdate.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -142,7 +146,7 @@
             btnupgradeSectionUpdate.Location = new Point(605, 524);
             btnupgradeSectionUpdate.Margin = new Padding(3, 2, 3, 2);
             btnupgradeSectionUpdate.Name = "btnupgradeSectionUpdate";
-            btnupgradeSectionUpdate.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnupgradeSectionUpdate.ShadowDecoration.CustomizableEdges = customizableEdges24;
             btnupgradeSectionUpdate.Size = new Size(187, 34);
             btnupgradeSectionUpdate.TabIndex = 40;
             btnupgradeSectionUpdate.Text = "Update Upgrade Task";
@@ -150,7 +154,7 @@
             // 
             // btneditUpgradeTaskSectionaddComponents
             // 
-            btneditUpgradeTaskSectionaddComponents.CustomizableEdges = customizableEdges7;
+            btneditUpgradeTaskSectionaddComponents.CustomizableEdges = customizableEdges25;
             btneditUpgradeTaskSectionaddComponents.DisabledState.BorderColor = Color.DarkGray;
             btneditUpgradeTaskSectionaddComponents.DisabledState.CustomBorderColor = Color.DarkGray;
             btneditUpgradeTaskSectionaddComponents.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -160,7 +164,7 @@
             btneditUpgradeTaskSectionaddComponents.Location = new Point(398, 442);
             btneditUpgradeTaskSectionaddComponents.Margin = new Padding(3, 2, 3, 2);
             btneditUpgradeTaskSectionaddComponents.Name = "btneditUpgradeTaskSectionaddComponents";
-            btneditUpgradeTaskSectionaddComponents.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btneditUpgradeTaskSectionaddComponents.ShadowDecoration.CustomizableEdges = customizableEdges26;
             btneditUpgradeTaskSectionaddComponents.Size = new Size(178, 27);
             btneditUpgradeTaskSectionaddComponents.TabIndex = 39;
             btneditUpgradeTaskSectionaddComponents.Text = "Select Components";
@@ -179,26 +183,26 @@
             // 
             // gridvieweditUpgradeSectionaddedComponents
             // 
-            dataGridViewCellStyle1.BackColor = Color.White;
-            gridvieweditUpgradeSectionaddedComponents.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            gridvieweditUpgradeSectionaddedComponents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            gridvieweditUpgradeSectionaddedComponents.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            gridvieweditUpgradeSectionaddedComponents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             gridvieweditUpgradeSectionaddedComponents.ColumnHeadersHeight = 20;
             gridvieweditUpgradeSectionaddedComponents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(239, 241, 243);
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            gridvieweditUpgradeSectionaddedComponents.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(239, 241, 243);
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            gridvieweditUpgradeSectionaddedComponents.DefaultCellStyle = dataGridViewCellStyle6;
             gridvieweditUpgradeSectionaddedComponents.GridColor = Color.FromArgb(239, 241, 243);
             gridvieweditUpgradeSectionaddedComponents.Location = new Point(28, 331);
             gridvieweditUpgradeSectionaddedComponents.Margin = new Padding(3, 2, 3, 2);
@@ -236,7 +240,7 @@
             // 
             guna2HtmlLabel5.AutoSize = false;
             guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Location = new Point(623, 248);
+            guna2HtmlLabel5.Location = new Point(562, 247);
             guna2HtmlLabel5.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(137, 17);
@@ -268,7 +272,7 @@
             // 
             // txtboxeditUpgradeSectionWarrantyPeriod
             // 
-            txtboxeditUpgradeSectionWarrantyPeriod.CustomizableEdges = customizableEdges9;
+            txtboxeditUpgradeSectionWarrantyPeriod.CustomizableEdges = customizableEdges27;
             txtboxeditUpgradeSectionWarrantyPeriod.DefaultText = "";
             txtboxeditUpgradeSectionWarrantyPeriod.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtboxeditUpgradeSectionWarrantyPeriod.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -277,19 +281,19 @@
             txtboxeditUpgradeSectionWarrantyPeriod.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtboxeditUpgradeSectionWarrantyPeriod.Font = new Font("Segoe UI", 9F);
             txtboxeditUpgradeSectionWarrantyPeriod.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtboxeditUpgradeSectionWarrantyPeriod.Location = new Point(623, 268);
+            txtboxeditUpgradeSectionWarrantyPeriod.Location = new Point(562, 269);
             txtboxeditUpgradeSectionWarrantyPeriod.Name = "txtboxeditUpgradeSectionWarrantyPeriod";
             txtboxeditUpgradeSectionWarrantyPeriod.PlaceholderText = "";
             txtboxeditUpgradeSectionWarrantyPeriod.SelectedText = "";
-            txtboxeditUpgradeSectionWarrantyPeriod.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            txtboxeditUpgradeSectionWarrantyPeriod.Size = new Size(250, 27);
+            txtboxeditUpgradeSectionWarrantyPeriod.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            txtboxeditUpgradeSectionWarrantyPeriod.Size = new Size(188, 36);
             txtboxeditUpgradeSectionWarrantyPeriod.TabIndex = 32;
             txtboxeditUpgradeSectionWarrantyPeriod.Visible = false;
             // 
             // cmbboxeditUpgradeSectionUpgradeStatus
             // 
             cmbboxeditUpgradeSectionUpgradeStatus.BackColor = Color.Transparent;
-            cmbboxeditUpgradeSectionUpgradeStatus.CustomizableEdges = customizableEdges11;
+            cmbboxeditUpgradeSectionUpgradeStatus.CustomizableEdges = customizableEdges29;
             cmbboxeditUpgradeSectionUpgradeStatus.DrawMode = DrawMode.OwnerDrawFixed;
             cmbboxeditUpgradeSectionUpgradeStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbboxeditUpgradeSectionUpgradeStatus.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -300,13 +304,13 @@
             cmbboxeditUpgradeSectionUpgradeStatus.Location = new Point(28, 268);
             cmbboxeditUpgradeSectionUpgradeStatus.Margin = new Padding(3, 2, 3, 2);
             cmbboxeditUpgradeSectionUpgradeStatus.Name = "cmbboxeditUpgradeSectionUpgradeStatus";
-            cmbboxeditUpgradeSectionUpgradeStatus.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            cmbboxeditUpgradeSectionUpgradeStatus.ShadowDecoration.CustomizableEdges = customizableEdges30;
             cmbboxeditUpgradeSectionUpgradeStatus.Size = new Size(232, 36);
             cmbboxeditUpgradeSectionUpgradeStatus.TabIndex = 31;
             // 
             // txtboxeditupgradesectionDescription
             // 
-            txtboxeditupgradesectionDescription.CustomizableEdges = customizableEdges13;
+            txtboxeditupgradesectionDescription.CustomizableEdges = customizableEdges31;
             txtboxeditupgradesectionDescription.DefaultText = "";
             txtboxeditupgradesectionDescription.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtboxeditupgradesectionDescription.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -319,7 +323,7 @@
             txtboxeditupgradesectionDescription.Name = "txtboxeditupgradesectionDescription";
             txtboxeditupgradesectionDescription.PlaceholderText = "";
             txtboxeditupgradesectionDescription.SelectedText = "";
-            txtboxeditupgradesectionDescription.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            txtboxeditupgradesectionDescription.ShadowDecoration.CustomizableEdges = customizableEdges32;
             txtboxeditupgradesectionDescription.Size = new Size(912, 58);
             txtboxeditupgradesectionDescription.TabIndex = 29;
             // 
@@ -348,7 +352,7 @@
             // 
             guna2HtmlLabel8.AutoSize = false;
             guna2HtmlLabel8.BackColor = Color.Transparent;
-            guna2HtmlLabel8.Location = new Point(323, 248);
+            guna2HtmlLabel8.Location = new Point(292, 248);
             guna2HtmlLabel8.Margin = new Padding(3, 2, 3, 2);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             guna2HtmlLabel8.Size = new Size(76, 17);
@@ -358,7 +362,7 @@
             // cmbboxeditsectionUpradeType
             // 
             cmbboxeditsectionUpradeType.BackColor = Color.Transparent;
-            cmbboxeditsectionUpradeType.CustomizableEdges = customizableEdges15;
+            cmbboxeditsectionUpradeType.CustomizableEdges = customizableEdges33;
             cmbboxeditsectionUpradeType.DrawMode = DrawMode.OwnerDrawFixed;
             cmbboxeditsectionUpradeType.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbboxeditsectionUpradeType.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -366,18 +370,48 @@
             cmbboxeditsectionUpradeType.Font = new Font("Segoe UI", 10F);
             cmbboxeditsectionUpradeType.ForeColor = Color.FromArgb(68, 88, 112);
             cmbboxeditsectionUpradeType.ItemHeight = 30;
-            cmbboxeditsectionUpradeType.Location = new Point(323, 268);
+            cmbboxeditsectionUpradeType.Location = new Point(292, 269);
             cmbboxeditsectionUpradeType.Margin = new Padding(3, 2, 3, 2);
             cmbboxeditsectionUpradeType.Name = "cmbboxeditsectionUpradeType";
-            cmbboxeditsectionUpradeType.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            cmbboxeditsectionUpradeType.ShadowDecoration.CustomizableEdges = customizableEdges34;
             cmbboxeditsectionUpradeType.Size = new Size(232, 36);
             cmbboxeditsectionUpradeType.TabIndex = 46;
+            // 
+            // txtboxUpgradeTaskEditServiceCharge
+            // 
+            txtboxUpgradeTaskEditServiceCharge.CustomizableEdges = customizableEdges35;
+            txtboxUpgradeTaskEditServiceCharge.DefaultText = "";
+            txtboxUpgradeTaskEditServiceCharge.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtboxUpgradeTaskEditServiceCharge.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtboxUpgradeTaskEditServiceCharge.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtboxUpgradeTaskEditServiceCharge.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtboxUpgradeTaskEditServiceCharge.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtboxUpgradeTaskEditServiceCharge.Font = new Font("Segoe UI", 9F);
+            txtboxUpgradeTaskEditServiceCharge.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtboxUpgradeTaskEditServiceCharge.Location = new Point(802, 269);
+            txtboxUpgradeTaskEditServiceCharge.Name = "txtboxUpgradeTaskEditServiceCharge";
+            txtboxUpgradeTaskEditServiceCharge.PlaceholderText = "";
+            txtboxUpgradeTaskEditServiceCharge.SelectedText = "";
+            txtboxUpgradeTaskEditServiceCharge.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            txtboxUpgradeTaskEditServiceCharge.Size = new Size(136, 36);
+            txtboxUpgradeTaskEditServiceCharge.TabIndex = 48;
+            // 
+            // lblservicecharge
+            // 
+            lblservicecharge.AutoSize = true;
+            lblservicecharge.Location = new Point(802, 247);
+            lblservicecharge.Name = "lblservicecharge";
+            lblservicecharge.Size = new Size(90, 15);
+            lblservicecharge.TabIndex = 49;
+            lblservicecharge.Text = "Service Charge?";
             // 
             // EditUpgradeTask
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
+            Controls.Add(lblservicecharge);
+            Controls.Add(txtboxUpgradeTaskEditServiceCharge);
             Controls.Add(guna2HtmlLabel8);
             Controls.Add(cmbboxeditsectionUpradeType);
             Controls.Add(lbleditupgradeSectionUpradeRecordID);
@@ -427,5 +461,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lbleditupgradeSectionUpradeRecordID;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2ComboBox cmbboxeditsectionUpradeType;
+        private Guna.UI2.WinForms.Guna2TextBox txtboxUpgradeTaskEditServiceCharge;
+        private Label lblservicecharge;
     }
 }

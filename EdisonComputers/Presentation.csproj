@@ -28,7 +28,13 @@
     <None Remove="Resources\Eye3.png" />
     <None Remove="Resources\Facebook.png" />
     <None Remove="Resources\Location.png" />
+    <None Remove="Resources\paid.png" />
+    <None Remove="Resources\signature.png" />
+    <None Remove="Resources\signature2.png" />
     <None Remove="Resources\Trash3.png" />
+    <None Remove="Resources\watermark.png" />
+    <None Remove="Resources\watermark1.png" />
+    <None Remove="Resources\watermark3.png" />
     <!--<None Remove="Resources\logs\edison-computers-.txt" />-->
     <None Remove="Resources\WhatsApp.png" />
   </ItemGroup>
@@ -55,7 +61,25 @@
     <Content Include="Resources\Location.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\paid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\signature.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\signature2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Trash3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\watermark.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\watermark1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\watermark3.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <!--<Content Include="Resources\logs\edison-computers-.txt">

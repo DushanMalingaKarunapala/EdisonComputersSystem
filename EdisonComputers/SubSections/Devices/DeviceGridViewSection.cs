@@ -267,7 +267,7 @@ namespace Presentation.SubSections.Devices
 
 
         //handle cell click events to perform actions based on the clicked cell
-        private void gridviewDevice_CellClick(object sender, DataGridViewCellEventArgs e)
+        private  async void gridviewDevice_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
 
@@ -299,15 +299,27 @@ namespace Presentation.SubSections.Devices
                     var confirmResult = MessageBox.Show("Are you sure you want to delete this device?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (confirmResult == DialogResult.Yes)
                     {
-                        using (var scope = _serviceProvider.CreateScope())
+                        try
                         {
-                            var devicesService = scope.ServiceProvider.GetRequiredService<DeviceService>();
-                            // Call the delete method from the service
-                            devicesService.DeleteDevice(deviceId);
+                            using (var scope = _serviceProvider.CreateScope())
+                            {
+                                var devicesService = scope.ServiceProvider.GetRequiredService<DeviceService>();
+                                // Call the delete method from the service
+                                await devicesService.DeleteDevice(deviceId);
+
+                                MessageBox.Show("Device deleted successfully.", "Delete Device", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                _callback?.Invoke(); // Call the callback to refresh the grid view
+                            }
+
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show($"Error deleting device: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
-                        MessageBox.Show("Device deleted successfully.", "Delete Device", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        DeviceGridViewSection_Load(sender, e); // Refresh the grid view
+
+
+
                     }
                     break;
             }

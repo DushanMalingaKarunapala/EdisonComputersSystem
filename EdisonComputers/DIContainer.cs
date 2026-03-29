@@ -44,7 +44,7 @@ namespace Presentation
 
             services.AddDbContext<ApplicationDbContext>(options =>
             
-            options.UseSqlServer("Server=BELUGA;Database=ComputerRepairDB;Trusted_Connection=True;MultipleActiveResultSets=True;"),
+            options.UseSqlServer("Server=BELUGA;Database=ComputerRepairDB;Trusted_Connection=True;Trust Server Certificate=True; MultipleActiveResultSets=True;"),
                 ServiceLifetime.Scoped
 
             //Server=BELUGA;Database=ComputerRepairDB;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True;"

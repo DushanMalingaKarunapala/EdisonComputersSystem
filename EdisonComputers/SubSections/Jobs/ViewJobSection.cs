@@ -135,7 +135,7 @@ namespace Presentation.SubSections.Jobs
                 else
                 {
                     // No existing bill. Calculate the suggested amount.
-                    decimal suggestedBillingAmount = jobDetails.TotalComponentChargeToCustomer + jobDetails.ManualJobCost;
+                    decimal suggestedBillingAmount = jobDetails.TotalComponentChargeToCustomer + jobDetails.ManualJobCost + jobDetails.TotalServiceCharge; //added total service charge on 2026-03-24 because the service charge is also a part of the billing amount
                     txtboxBillingAmount.Text = suggestedBillingAmount.ToString("F2");
 
                     // Set defaults for other controls
@@ -147,7 +147,10 @@ namespace Presentation.SubSections.Jobs
 
                 // --- Calculate and Display Profit ---
                 // Use the values directly from the ViewModel
-                decimal profit = jobDetails.BillingAmount - jobDetails.ActualStoreCostForComponents;
+                //decimal profit = jobDetails.BillingAmount - jobDetails.ActualStoreCostForComponents; //this was removed on 2026.03.24 
+
+
+                decimal profit = jobDetails.CalculatedProfit; // This should already be calculated in the ViewModel using the efficient method
                 lblcalculatedProfit.Text = profit.ToString("C2"); // "C2" formats as currency
 
                 // --- Refresh Child Grids ---
@@ -379,6 +382,7 @@ namespace Presentation.SubSections.Jobs
             //    This is crucial to ensure we're not using a stale value from the textbox.
             //    We need to fetch the job with all its components to do this.
             decimal totalComponentChargeToCustomer = 0;
+            decimal totalServiceChargeToCustomer = 0; // This will hold the total service charge to customer if there are any service tasks with service charge for this job
             try
             {
 
@@ -391,6 +395,10 @@ namespace Presentation.SubSections.Jobs
                    
                     // *** CALL THE NEW, FAST METHOD ***
                      totalComponentChargeToCustomer = await jobService.GetTotalComponentChargeForJobAsync(_jobId);
+
+                    //newly added on 2026-03-24 : we need to check if there are any active service chargers for this job, if there are, then we need to add the service charge to the total component charge to customer because the service charge is also a part of the billing amount
+
+                     totalServiceChargeToCustomer = await jobService.GetTotalServiceChargeForJobAsync(_jobId);
 
                     //this was the old way, but it was slow because it fetched all details now gettotalcomponentchargeforjobasync is fast and efficient because the total component cost is now calculated in the backend without fetching the whole job object.
 
@@ -417,7 +425,7 @@ namespace Presentation.SubSections.Jobs
             }
 
             // This is the FINAL, authoritative billing amount we want to save
-            decimal finalBillingAmount = totalComponentChargeToCustomer + manualJobCost;
+            decimal finalBillingAmount = totalComponentChargeToCustomer + manualJobCost + totalServiceChargeToCustomer;
 
             if (finalBillingAmount <= 0)
             {
@@ -697,7 +705,24 @@ namespace Presentation.SubSections.Jobs
                 return;
             }
 
-            using (InvoiceDialog invoiceDialog = new InvoiceDialog(_serviceProvider, _jobId))
+            //newly added code to ask the user if they want to generate the invoice for printing or for digital use
+            // NEW: Ask user about the invoice purpose
+            var result = MessageBox.Show(
+                "Are you generating this invoice for printing (hard copy)?\n\n" +
+                "• Click 'Yes' if you want to print and manually add stamps/signatures\n" +
+                "• Click 'No' if you want digital version with automatic stamps/signatures",
+                "Invoice Generation",
+                MessageBoxButtons.YesNoCancel,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Cancel)
+                return; // User cancelled
+
+            bool includeStampsAndSignatures = (result == DialogResult.No); // No = digital version with stamps
+            //newly added code ends here
+
+            using (InvoiceDialog invoiceDialog = new InvoiceDialog(_serviceProvider, _jobId, includeStampsAndSignatures)) //pass the job id, service provider and whether to include stamps and signatures to the invoice dialog
             {
                 invoiceDialog.ShowDialog(this); // Show as a modal dialog
             }

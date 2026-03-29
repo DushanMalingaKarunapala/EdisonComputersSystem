@@ -74,6 +74,7 @@ namespace Presentation.SubSections.Tasks.UpgradeTask
                         cmbboxeditsectionUpradeType.DataSource = Enum.GetValues(typeof(Core.Enums.UpgradeType)); // Assuming UpgradeType is an enum
                         cmbboxeditUpgradeSectionUpgradeStatus.SelectedItem = _loadedUpgradeRecord.UpgradeStatus; // Assuming RepairStatus is an enum
                         cmbboxeditsectionUpradeType.SelectedItem = _loadedUpgradeRecord.UpgradeType; // Assuming UpgradeType is an enum
+                        txtboxUpgradeTaskEditServiceCharge.Text = _loadedUpgradeRecord.ServiceCharge.ToString("F2"); // Format as currency with 2 decimal places
 
 
                         //  Set the Job navigation property for warranty calculation
@@ -294,7 +295,8 @@ namespace Presentation.SubSections.Tasks.UpgradeTask
                 //warranty expiry was removed because warranty is now calculated for each component used in the upgrade record
                 //WarrantyExpiry = (DateTime)warrantyExpiryDate,
                 UpgradeStatus = (Core.Enums.UpgradeStatus)cmbboxeditUpgradeSectionUpgradeStatus.SelectedItem,
-                UpgradeType = (Core.Enums.UpgradeType)cmbboxeditsectionUpradeType.SelectedItem
+                UpgradeType = (Core.Enums.UpgradeType)cmbboxeditsectionUpradeType.SelectedItem,
+                ServiceCharge = txtboxUpgradeTaskEditServiceCharge.Text != "" ? decimal.Parse(txtboxUpgradeTaskEditServiceCharge.Text) : 0 // default to 0 if empty
             };
 
 

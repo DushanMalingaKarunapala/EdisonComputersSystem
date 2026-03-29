@@ -13,7 +13,7 @@ namespace DAL
         public ApplicationDbContext CreateDbContext(string[] args = null)
         {
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-            optionsBuilder.UseSqlServer("Server=BELUGA;Database=ComputerRepairDB;Trusted_Connection=True;MultipleActiveResultSets=True;");
+            optionsBuilder.UseSqlServer("Server=BELUGA;Database=ComputerRepairDB;Trusted_Connection=True;Trust Server Certificate=True; MultipleActiveResultSets=True;");
             return new ApplicationDbContext(optionsBuilder.Options);
         }
     }

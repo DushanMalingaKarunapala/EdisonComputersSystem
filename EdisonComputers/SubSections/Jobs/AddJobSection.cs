@@ -128,6 +128,16 @@ namespace Presentation.SubSections.Jobs
 
             //validate the combobox selections
 
+            //if the selected customer is in deleted status, prevent adding a job
+            if (cmbboxaddjobSectionSelectCustomer1.SelectedItem is Customer selectedCustomer && selectedCustomer.RecordStatus == Core.Enums.RecordStatus.Deleted)
+            {
+                MessageBox.Show("Cannot add a job for a deleted customer. Please select an active customer.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                EnableUIControls(true); // Re-enable the UI controls
+                return;
+            }
+
+
+
             if (cmbboxaddjobSectionSelectCustomer1.SelectedItem == null || cmbboxaddjobSectionSelectDevice.SelectedItem == null)
             {
                 MessageBox.Show("Please select a customer and a device before adding a job.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);

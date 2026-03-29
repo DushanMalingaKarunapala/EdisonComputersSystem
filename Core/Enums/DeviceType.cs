@@ -14,6 +14,10 @@ namespace Core.Enums
         Motherboard,
         Ram,
         PowerUnit,
+        Monitor,
+        UPS,
+        Printer,
         Other
+
     }
 }

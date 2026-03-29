@@ -95,9 +95,26 @@ namespace BLL.Services.DeviceService
             {
                 LoggingService.LogInformation($"Deleting device: {id}");
 
-                await _genericRepository.Delete(id);
+                //get the device to ensure it exists
+                var device = await GetDeviceById(id);
 
-                LoggingService.LogInformation($"Successfully deleted device: {id}");
+                //if the device is not null set the record status to cancelled
+                if (device != null)
+                {
+                    device.RecordStatus = RecordStatus.Deleted;
+                    await _deviceRepository.Update(device);
+                    LoggingService.LogInformation($"Device {id} marked as Cancelled.");
+                   
+                }
+                else
+                {
+                    LoggingService.LogWarning($"Device {id} not found for deletion.");
+                    throw new KeyNotFoundException($"Device with ID {id} not found.");
+                }
+
+                //await _genericRepository.Delete(id);
+
+               
             }
             catch (Exception ex)
             {

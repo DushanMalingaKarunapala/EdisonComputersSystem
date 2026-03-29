@@ -22,7 +22,8 @@ namespace Presentation.SubSections.Jobs
         private readonly int _jobId;
         private Job _loadedJobWithDetails; // To store all fetched data
         private Customer _customerDetails; // To store customer contact info
-
+                                           // NEW: Add a flag to control stamp/signature inclusion
+        private readonly bool _includeStampsAndSignatures; // Set to true to include, false to exclude
 
         // --- NEW: Member variables to hold PDF data and temp file path ---
         private byte[] _pdfBytes;
@@ -34,6 +35,7 @@ namespace Presentation.SubSections.Jobs
         string fontPath = ConfigurationManager.AppSettings["FontPath"];
 
         string imagePath = ConfigurationManager.AppSettings["imagePath"];
+        string watermarkPath = ConfigurationManager.AppSettings["watermarkpath"];
         string smtpServer = ConfigurationManager.AppSettings["SmtpServer"];
         int smtpPort = int.Parse(ConfigurationManager.AppSettings["SmtpPort"]);
         string whatsAppBaseUrl = ConfigurationManager.AppSettings["WhatsAppBaseUrl"];
@@ -48,12 +50,12 @@ namespace Presentation.SubSections.Jobs
 
 
 
-        public InvoiceDialog(IServiceProvider serviceProvider, int jobId)
+        public InvoiceDialog(IServiceProvider serviceProvider, int jobId, bool includeStampsAndSignatures = true)
         {
             InitializeComponent();
             _serviceProvider = serviceProvider;
             _jobId = jobId;
-
+            _includeStampsAndSignatures = includeStampsAndSignatures; // Set the flag based on constructor parameter
 
             // --- REGISTER THE FONT ---
             // This only needs to be done once, but doing it here is safe.
@@ -262,12 +264,12 @@ namespace Presentation.SubSections.Jobs
             container
         .ExtendHorizontal()                 // Stretches to full page width
         .Background(Colors.Grey.Lighten4)   // Applies the background color
-        .PaddingVertical(10)                // Adds vertical spacing
+        .PaddingVertical(5)                // Adds vertical spacing
         .PaddingHorizontal(0.5f, Unit.Centimetre) // Adds horizontal spacing from page edge
         .Column(mainColumn =>
             {
                 // This is the main vertical column for the header content
-                mainColumn.Spacing(10); // This adds space between the top section and the services section
+                mainColumn.Spacing(8); // This adds space between the top section and the services section
 
                 // --- Section A: Top Row with Logo/Name (Left) and Contact Details (Right) ---
                 mainColumn.Item().Row(topRow =>
@@ -276,16 +278,16 @@ namespace Presentation.SubSections.Jobs
                     // so it will take up the remaining space.
                     topRow.RelativeItem().Row(logoAndNameRow =>
                     {
-                        logoAndNameRow.Spacing(15); // Space between logo and text
+                        logoAndNameRow.Spacing(8); // Space between logo and text
 
                         // Logo container with a fixed size
-                        logoAndNameRow.ConstantItem(120).PaddingTop(5).Image(imageBytes);
+                        logoAndNameRow.ConstantItem(120).PaddingTop(2).Image(imageBytes);
 
                         // Name and Slogan container
                         logoAndNameRow.RelativeItem().Column(nameCol =>
                         {
                             // Padding to help vertically align text with the middle of the logo
-                            nameCol.Item().PaddingTop(16).Text("Edison Computers")
+                            nameCol.Item().PaddingTop(6).Text("Edison Computers")
                                 .Bold().FontSize(24).FontColor(Colors.Red.Darken2);
 
                             nameCol.Item().Text("Illuminating Your Digital World")
@@ -331,7 +333,7 @@ namespace Presentation.SubSections.Jobs
                         .PaddingVertical(5) // Add space around the text
                         .AlignCenter()      // Center the services text
                         .Text(string.Join("  |  ", services)) // Join services with a separator
-                        .FontSize(9).FontColor(Colors.Grey.Darken2);
+                        .FontSize(9).Bold().FontColor(Colors.Grey.Darken2);
 
                     servicesCol.Item().LineHorizontal(1).LineColor(Colors.Grey.Medium); // Bottom line
                 });
@@ -353,7 +355,7 @@ namespace Presentation.SubSections.Jobs
             .Row(row =>
             {
                 // --- Column 1: Customer Details ---
-                row.RelativeItem().Padding(10).Column(col =>
+                row.RelativeItem().Padding(8).Column(col =>
                 {
                     col.Spacing(4);
                     col.Item().Text("Customer Details").SemiBold().FontSize(10);
@@ -374,7 +376,7 @@ namespace Presentation.SubSections.Jobs
                 row.ConstantItem(1).Background(Colors.Grey.Lighten2);
 
                 // --- Column 2: Invoice Details ---
-                row.RelativeItem().Padding(10).Column(col =>
+                row.RelativeItem().Padding(8).Column(col =>
                 {
                     col.Spacing(4);
                     // Helper to create label: value pairs
@@ -382,7 +384,7 @@ namespace Presentation.SubSections.Jobs
                     {
                         col.Item().Row(r =>
                         {
-                            r.RelativeItem().Text(label).FontSize(8).FontColor(Colors.Grey.Darken2);
+                            r.RelativeItem().Text(label).FontSize(8);
                             var valueText = r.RelativeItem().AlignRight().Text(value).SemiBold();
                             if (!string.IsNullOrEmpty(color))
                                 valueText.FontColor(color);
@@ -424,7 +426,7 @@ namespace Presentation.SubSections.Jobs
         private void ComposeLineItemsTable(IContainer container)
         {   
             
-            container.MinHeight(260) // Ensure the table has enough space
+            container.MinHeight(350) // Ensure the table has enough space so the bottom section stays at the bottom without jumping around
 
 
 
@@ -492,16 +494,12 @@ namespace Presentation.SubSections.Jobs
                         // This is a service-only repair with NO components.
                         // Display one line representing the service.
 
-                        // Cell 1: Description
-                        table.Cell().Padding(2).Text("Repair Only").Italic();
-
-                        // Cell 2: Warranty (from the parent record)
+                        // Repair WITHOUT components - show service charge only
+                        table.Cell().Padding(2).Text("Repair Service").Italic();
                         table.Cell().Padding(2).Text(repairWarrantyText);
-
-                        // Cells 3, 4, 5: Empty placeholders
-                        table.Cell().Padding(2).AlignCenter().Text("-");
-                        table.Cell().Padding(2).AlignRight().Text("-");
-                        table.Cell().Padding(2).AlignRight().Text("-");
+                        table.Cell().Padding(2).AlignCenter().Text("1");
+                        table.Cell().Padding(2).AlignRight().Text(rr.ServiceCharge.ToString("N2"));
+                        table.Cell().Padding(2).AlignRight().Text(rr.ServiceCharge.ToString("N2"));
                     }
                 }
 
@@ -512,24 +510,33 @@ namespace Presentation.SubSections.Jobs
                     table.Cell().ColumnSpan(5).Background(Colors.Grey.Lighten4).Padding(4)
                         .Text($"{ur.UpgradeType} ").SemiBold();
 
-                    foreach (var urc in ur.UpgradeRecordComponents)
+                    if (ur.UpgradeRecordComponents != null && ur.UpgradeRecordComponents.Any())
                     {
-                        // Cell 1: Description
-                        table.Cell().PaddingLeft(10).Padding(2).Column(col => {
-                            col.Item().Text(urc.Component?.Name ?? "N/A");
-                            if (!string.IsNullOrWhiteSpace(urc.Component?.SerialNumber))
-                            {
-                                col.Item().Text($"SN: {urc.Component.SerialNumber}").FontSize(8).FontColor(Colors.Grey.Darken1);
-                            }
-                        });
+                        // Upgrade HAS components
+                        foreach (var urc in ur.UpgradeRecordComponents)
+                        {
+                            table.Cell().PaddingLeft(10).Padding(2).Column(col => {
+                                col.Item().Text(urc.Component?.Name ?? "N/A");
+                                if (!string.IsNullOrWhiteSpace(urc.Component?.SerialNumber))
+                                {
+                                    col.Item().Text($"SN: {urc.Component.SerialNumber}").FontSize(8).FontColor(Colors.Grey.Darken1);
+                                }
+                            });
 
-                        // Cell 2: Warranty (from the component itself)
-                        table.Cell().Padding(2).Text(GetWarrantyDisplayString(urc.WarrantyExpiryDate, urc.WarrantyPeriodInMonths,null));
-
-                        // Cells 3, 4, 5: Qty, Price, Amount
-                        table.Cell().Padding(2).AlignCenter().Text(urc.QuantityUsed.ToString());
-                        table.Cell().Padding(2).AlignRight().Text(urc.PricePerUnit.ToString("N2"));
-                        table.Cell().Padding(2).AlignRight().Text((urc.QuantityUsed * urc.PricePerUnit).ToString("N2"));
+                            table.Cell().Padding(2).Text(GetWarrantyDisplayString(urc.WarrantyExpiryDate, urc.WarrantyPeriodInMonths, null));
+                            table.Cell().Padding(2).AlignCenter().Text(urc.QuantityUsed.ToString());
+                            table.Cell().Padding(2).AlignRight().Text(urc.PricePerUnit.ToString("N2"));
+                            table.Cell().Padding(2).AlignRight().Text((urc.QuantityUsed * urc.PricePerUnit).ToString("N2"));
+                        }
+                    }
+                    else
+                    {
+                        // Upgrade WITHOUT components - show service charge only
+                        table.Cell().Padding(2).Text("Upgrade Service").Italic();
+                        table.Cell().Padding(2).Text("N/A");
+                        table.Cell().Padding(2).AlignCenter().Text("1");
+                        table.Cell().Padding(2).AlignRight().Text(ur.ServiceCharge.ToString("N2"));
+                        table.Cell().Padding(2).AlignRight().Text(ur.ServiceCharge.ToString("N2"));
                     }
                 }
 
@@ -544,19 +551,51 @@ namespace Presentation.SubSections.Jobs
 
                     table.Cell().Padding(2).Text($"Service: {sr.ServiceDescription ?? "-"}");
                     table.Cell().Padding(2).Text("N/A");
-                    table.Cell().Padding(2).AlignCenter().Text("-");
-                    table.Cell().Padding(2).AlignRight().Text("-");
-                    table.Cell().Padding(2).AlignRight().Text("-");
+                    table.Cell().Padding(2).AlignCenter().Text("1");
+                    table.Cell().Padding(2).AlignRight().Text(sr.ServiceCharge.ToString("N2"));
+                    table.Cell().Padding(2).AlignRight().Text(sr.ServiceCharge.ToString("N2"));
                 }
 
                 // --- Step 4: Totals Section ---
-                table.Cell().ColumnSpan(3); // Empty cells to push totals to the right
-                table.Cell().BorderTop(1).Padding(2).AlignRight().Text("Labor / Service Charges:").SemiBold();
-                table.Cell().BorderTop(1).Padding(2).AlignRight().Text(_loadedJobWithDetails?.ManualJobCost?.ToString("C2") ?? "0.00").SemiBold();
+                //table.Cell().ColumnSpan(3); // Empty cells to push totals to the right
+                //table.Cell().BorderTop(1).Padding(2).AlignRight().Text("Labor / Service Charges:").SemiBold();
+                //table.Cell().BorderTop(1).Padding(2).AlignRight().Text(_loadedJobWithDetails?.ManualJobCost?.ToString("C2") ?? "0.00").SemiBold();
+
+                //table.Cell().ColumnSpan(3);
+                //table.Cell().Background(Colors.Grey.Lighten3).Padding(2).AlignRight().Text("GRAND TOTAL:").Bold().FontSize(12);
+                //table.Cell().Background(Colors.Grey.Lighten3).Padding(2).AlignRight().Text(_loadedJobWithDetails?.Billing?.Amount.ToString("C2")).Bold().FontSize(12);
+
+                // --- Calculate Totals ---
+                decimal totalServiceCharges =
+                    (_loadedJobWithDetails?.ServiceRecords?.Sum(sr => sr.ServiceCharge) ?? 0) +
+                    (_loadedJobWithDetails?.RepairRecords?.Sum(rr => rr.ServiceCharge) ?? 0) +
+                    (_loadedJobWithDetails?.UpgradeRecords?.Sum(ur => ur.ServiceCharge) ?? 0);
+
+                decimal totalComponentCharges =
+                    (_loadedJobWithDetails?.RepairRecords?.Sum(rr =>
+                        rr.RepairRecordComponents?.Sum(rrc => rrc.QuantityUsed * rrc.PricePerUnit) ?? 0) ?? 0) +
+                    (_loadedJobWithDetails?.UpgradeRecords?.Sum(ur =>
+                        ur.UpgradeRecordComponents?.Sum(urc => urc.QuantityUsed * urc.PricePerUnit) ?? 0) ?? 0);
+
+                decimal manualLaborCost = _loadedJobWithDetails?.ManualJobCost ?? 0;
+                decimal grandTotal = totalServiceCharges + totalComponentCharges + manualLaborCost;
+
+                // --- Display Totals ---
+                //table.Cell().ColumnSpan(3);
+                //table.Cell().BorderTop(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(2).AlignRight().Text("Service Charges:").SemiBold();
+                //table.Cell().BorderTop(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(2).AlignRight().Text(totalServiceCharges.ToString("C2")).SemiBold();
+
+                //table.Cell().ColumnSpan(3);
+                //table.Cell().BorderTop(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(2).AlignRight().Text("Component Charges:").SemiBold();
+                //table.Cell().BorderTop(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(2).AlignRight().Text(totalComponentCharges.ToString("C2")).SemiBold();
+
+                table.Cell().ColumnSpan(3);
+                table.Cell().BorderTop(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(2).AlignRight().Text("Labor Charges:").SemiBold();
+                table.Cell().BorderTop(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(2).AlignRight().Text(manualLaborCost.ToString("C2")).SemiBold();
 
                 table.Cell().ColumnSpan(3);
                 table.Cell().Background(Colors.Grey.Lighten3).Padding(2).AlignRight().Text("GRAND TOTAL:").Bold().FontSize(12);
-                table.Cell().Background(Colors.Grey.Lighten3).Padding(2).AlignRight().Text(_loadedJobWithDetails?.Billing?.Amount.ToString("C2")).Bold().FontSize(12);
+                table.Cell().Background(Colors.Grey.Lighten3).Padding(2).AlignRight().Text(grandTotal.ToString("C2")).Bold().FontSize(12);
             });
         }
 
@@ -584,10 +623,10 @@ namespace Presentation.SubSections.Jobs
         private void ComposeTermsAndWarranty(IContainer container)
         {
             // Add some space above this section to separate it from the main content
-            container.ShowEntire().PaddingTop(10).Column(mainColumn =>
+            container.ShowEntire().MinHeight(180).PaddingTop(2).Column(mainColumn =>
             {
                 // A subtle line to visually separate the fine print
-                mainColumn.Item().EnsureSpace(300).BorderBottom(1).BorderColor(Colors.Grey.Lighten2).PaddingBottom(15);
+                mainColumn.Item().BorderBottom(1).BorderColor(Colors.Grey.Lighten2).PaddingBottom(8);
 
                 mainColumn.Item().Row(row =>
                 {
@@ -630,10 +669,60 @@ namespace Presentation.SubSections.Jobs
                 });
 
                 // --- A final professional touch ---
-                mainColumn.Item().PaddingTop(8).AlignCenter().Text("Thank you for your business!").SemiBold().FontSize(10);
+                mainColumn.Item().PaddingTop(4).AlignCenter().Text("Thank you for your business!").SemiBold().FontSize(10);
+
+
+                mainColumn.Item()
+                     .ShowEntire() // Ensure it doesn't get cut off between pages
+                    .PaddingBottom(0.2f) // Add some space above the signatures
+
+                    .Element(ComposeSignatureArea);
+
             });
         }
 
+
+
+
+        // A new helper to safely load the PAID stamp image to keep the main method clean.
+        private byte[] GetPaidStampBytes()
+        {
+            try
+            {
+                 string stampimagePath = ConfigurationManager.AppSettings["paidstamppath"] ?? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Images", "paid-stamp.png");
+
+                if (File.Exists(imagePath))
+                {
+                    return File.ReadAllBytes(stampimagePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Could not load PAID stamp image: {ex.Message}");
+            }
+            // Return an empty byte array if the image fails to load, preventing a crash.
+            return new byte[0];
+        }
+
+
+        //a new helper to safely load the signature image to keep the main method clean.
+        private byte[] GetSignatureBytes()
+        {
+            try
+            {
+                string signatureImagePath = ConfigurationManager.AppSettings["signaturepath"] ?? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Images", "signature.png");
+                if (File.Exists(signatureImagePath))
+                {
+                    return File.ReadAllBytes(signatureImagePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Could not load signature image: {ex.Message}");
+            }
+            // Return an empty byte array if the image fails to load, preventing a crash.
+            return new byte[0];
+        }
 
 
 
@@ -641,6 +730,27 @@ namespace Presentation.SubSections.Jobs
         // NEW HELPER METHOD FOR THE FINAL SIGNATURE BLOCK
         private void ComposeSignatureArea(IContainer container)
         {
+            //container.Row(signatureRow =>
+            //{
+            //    Action<IContainer, string> signatureBlock = (blockContainer, label) =>
+            //    {
+            //        blockContainer.AlignCenter().PaddingVertical(1).Column(col =>
+            //        {
+            //            col.Spacing(5);
+            //            col.Item().Text("_________________________").FontSize(8);
+            //            col.Item().Text(label).SemiBold().FontSize(8);
+            //        });
+            //    };
+            //    //add a paid background watermark if the job is paid on the top of authrized by signature
+            //    //add the stamp only as a background image to the authorized by signature block container otherwise it will overlap the customer signature block
+
+
+
+            //    signatureRow.RelativeItem().PaddingVertical(1).Element(c => signatureBlock(c, "Authorized by"));
+            //    signatureRow.RelativeItem().PaddingVertical(1).Element(c => signatureBlock(c, "Customer Signature"));
+            //});
+
+
             container.Row(signatureRow =>
             {
                 Action<IContainer, string> signatureBlock = (blockContainer, label) =>
@@ -653,9 +763,54 @@ namespace Presentation.SubSections.Jobs
                     });
                 };
 
-                signatureRow.RelativeItem().PaddingVertical(1).Element(c => signatureBlock(c, "Authorized by"));
+                // Left side: "Authorized by" - check if we need layers or simple element
+                if (_includeStampsAndSignatures && _loadedJobWithDetails?.Billing?.IsPaid == true)
+                {
+                    // Use Layers only when we need to overlay signature
+                    signatureRow.RelativeItem().PaddingVertical(1).Layers(layers =>
+                    {
+                        // Background layer: The normal signature block
+                        layers.Layer().Element(c => signatureBlock(c, "Authorized by"));
+
+                        // Primary layer: Signature image (required for Layers to work)
+                        try
+                        {
+                            byte[] signatureBytes = GetSignatureBytes();
+                            if (signatureBytes.Length > 0)
+                            {
+                                layers.PrimaryLayer()
+                                    .AlignCenter()
+                                    .AlignTop()
+                                    .PaddingTop(-10)
+                                    .Height(30)
+                                    .Width(80)
+                                    .Image(signatureBytes);
+                            }
+                            else
+                            {
+                                // If signature image fails to load, use empty primary layer
+                                layers.PrimaryLayer().Height(0);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine($"Could not load signature image: {ex.Message}");
+                            // Add empty primary layer to satisfy QuestPDF requirement
+                            layers.PrimaryLayer().Height(0);
+                        }
+                    });
+                }
+                else
+                {
+                    // For print version or unpaid jobs, use simple element without layers
+                    signatureRow.RelativeItem().PaddingVertical(1).Element(c => signatureBlock(c, "Authorized by"));
+                }
+
+                // Right side: Customer signature (unchanged)
                 signatureRow.RelativeItem().PaddingVertical(1).Element(c => signatureBlock(c, "Customer Signature"));
             });
+
+
         }
 
 
@@ -691,6 +846,70 @@ namespace Presentation.SubSections.Jobs
                     page.PageColor(Colors.White);
                     page.DefaultTextStyle(x => x.FontSize(8).FontFamily("Helvetica"));
 
+
+                   
+
+
+                    // This background layer is drawn on EVERY page, behind the content.
+                    page.Background()
+                        .AlignCenter()  // Horizontally center the watermark
+                        .AlignMiddle()  // Vertically center the watermark
+                        .Column(col => // Using a column to potentially add text later if needed
+                        {
+                            //also add a paid stamp background image only once below the composelineitems table if the job is paid
+                            if (_includeStampsAndSignatures && _loadedJobWithDetails?.Billing?.IsPaid == true)
+                            {
+                                try
+                                {
+                                    byte[] paidStampBytes = GetPaidStampBytes();
+                                    if (paidStampBytes.Length > 0)
+                                    {
+                                        col.Item()
+                                            .ShowOnce() // Only show on the first page
+                                            .AlignRight()
+                                            .AlignTop()
+                                            .PaddingTop(-225) // Position below header
+                                            .PaddingRight(-50)
+                                            .Rotate(-10)
+                                            .Width(170)
+                                            .Image(paidStampBytes);
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    Debug.WriteLine($"Could not load PAID stamp: {ex.Message}");
+                                }
+                            }
+
+
+
+                            try
+                            {
+                                // We load the logo image again for the watermark.
+
+                                //background watermark image removed on 2026.03.25  because of a client request but the code is kept here for future use if needed just commenting out the watermark image part in the background layer and it will work without any issues
+                                //string imagePath = ConfigurationManager.AppSettings["watermarkpath"] ?? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Images", "logo.png");
+                                //byte[] watermarkBytes = File.ReadAllBytes(imagePath);
+
+                               // col.Item().Width(300).AlignCenter() // Set a fixed width for the watermark
+                                //   .Image(watermarkBytes);
+
+
+                                   //add transparency to the watermark image
+
+                                   //.Opacity(0.02f); // Set the opacity to 2% (very faint)
+                            }
+                            catch (Exception ex)
+                            {
+                                // If the logo file is missing, this will prevent a crash.
+                                // You can log the error for debugging.
+                                Debug.WriteLine($"Watermark image not found: {ex.Message}");
+                            }
+                        });
+
+
+
+
                     page.Header().ShowOnce().Element(ComposeHeader); // Assuming you have this method defined elsewhere
                     // For a runnable example, let's create a minimal header here:
                     //page.Header().Row(row => {
@@ -704,7 +923,7 @@ namespace Presentation.SubSections.Jobs
                         .Column(column =>
                         {
 
-                            column.Spacing(15); // Vertical spacing between major sections
+                            column.Spacing(8); // Vertical spacing between major sections
 
                             //column.Item().Unbreakable().Element(ComposeTermsAndWarranty);
 
@@ -737,12 +956,6 @@ namespace Presentation.SubSections.Jobs
                          
 
 
-                            column.Item()
-                               
-                                .PaddingBottom(0.2f) // Add some space above the signatures
-                               
-                                .Element(ComposeSignatureArea);
-
 
                         });
 
@@ -753,7 +966,7 @@ namespace Presentation.SubSections.Jobs
                         footerColumn.Spacing(5);
 
                         // The decorative line that appears on EVERY page.
-                        footerColumn.Item().PaddingTop(2).LineHorizontal(5f).LineColor(Colors.Red.Accent3);
+                        footerColumn.Item().PaddingTop(1).LineHorizontal(5f).LineColor(Colors.Red.Accent3);
 
                         // The page number that appears on EVERY page.
                         footerColumn.Item().AlignCenter().Text(x =>
